@@ -22,10 +22,11 @@ export default {
 
 
 <style scoped>
-div {
+.div {
   width: 300px;
   border: 15px black;
   padding: 50px;
   margin: 20px;
+  float: left;
 }
 </style>
