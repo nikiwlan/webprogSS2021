@@ -1,25 +1,24 @@
 <template>
   <div>
-    <Header/>
-    <Main/>
-    <Footer/>
+    <Header />
+    <Main />
+    <Footer />
   </div>
 </template>
 
 <script>
-
-import Header from './components/Header/Header.vue'
-import Main from './components/Main/Main.vue'
-import Footer from './components/Footer/Footer.vue'
+import Header from "./components/Header/Header.vue";
+import Main from "./components/Main/Main.vue";
+import Footer from "./components/Footer/Footer.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-      Header,
-      Main,
-      Footer,
-  }
-}
+    Header,
+    Main,
+    Footer,
+  },
+};
 </script>
 
 <style>
@@ -30,5 +29,7 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+  display: flex;
+  flex-flow: wrap;
 }
 </style>
