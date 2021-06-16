@@ -26,10 +26,10 @@ export default {
 
 .tile {
     float: left;
-    width: 300px;
-    height: 600px;
-    margin: 10px;
-    padding: 10px;
+    width: 200px;
+    height: 300px;
+    margin: 40px;
+    padding: 20px;
     border-radius: 10px;
     box-shadow: 5px 5px darkgray;
 }
