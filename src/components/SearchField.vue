@@ -1,6 +1,8 @@
 <template>
-    
-
+  <div class="search-field">
+    <input v-model="message" placeholder="edit me" />
+    <p>Message is: {{ message }}</p>
+  </div>
 </template>
 
 
@@ -8,14 +10,13 @@
 //import Tile from './components/Tile.vue'
 
 export default {
-  name: 'SearchField',
+  name: "SearchField",
   components: {
-//     Tile,
-  }
-}
+    //     Tile,
+  },
+};
 </script>
 
 
 <style scoped>
-
 </style>
