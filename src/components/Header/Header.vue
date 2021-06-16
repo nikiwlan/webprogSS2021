@@ -2,6 +2,7 @@
   <body>
     <h1>Cocktails4You</h1>
     <SearchField />
+    <button v-on:click="rollTheDice()">Random Cocktail</button>
   </body>
 </template>
 
@@ -14,13 +15,18 @@ export default {
   components: {
     SearchField,
   },
+  methods: {
+    rollTheDice() {
+      alert("Roll the Dice")
+    },
+  },
 };
 </script>
 
 
 <style scoped>
 body {
-  width:fit-content;;
+  width: fit-content;
   border: 15px black;
   padding: 50px;
   margin: 20px;
