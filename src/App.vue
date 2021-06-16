@@ -1,26 +1,22 @@
 <template>
   <div>
-    <h1> Hello World</h1>
-    <TileMap><h1> Hello World</h1></TileMap>
-    <SearchField><h1> Hello World</h1></SearchField>
-    <FilterField><h1> Hello World</h1></FilterField>
-    <Footer><h1> Hello World</h1></Footer>
+    <Header/>
+    <Main/>
+    <Footer/>
   </div>
 </template>
 
 <script>
 
-import TileMap from './components/TileMap.vue'
-import SearchField from './components/SearchField.vue'
-import FilterField from './components/FilterField.vue'
-import Footer from './components/Footer.vue'
+import Header from './components/Header/Header.vue'
+import Main from './components/Main/Main.vue'
+import Footer from './components/Footer/Footer.vue'
 
 export default {
   name: 'App',
   components: {
-      TileMap,
-      SearchField,
-      FilterField,
+      Header,
+      Main,
       Footer,
   }
 }
