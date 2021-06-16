@@ -44,3 +44,17 @@ App running at:
 
 - Local: http://localhost:8080/
 - Network: http://192.168.178.21:8080/
+
+-----------------------------------------------------------------------------------------------------
+free functions:
+- Search cocktail by name
+- Search ingredient by name
+- List all cocktails by first letter
+- Lookup full cocktail details by id
+- Lookup ingredient by ID
+- Lookup a random cocktail
+- Search by ingredient
+- Filter by alcoholic
+- Filter by Category
+- Filter by Glass
+- List the categories, glasses, ingredients or alcoholic filters
