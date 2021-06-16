@@ -14,6 +14,12 @@ export default {
   components: {
     //     Tile,
   },
+  props: {},
+  data: function () {
+    return {
+      message: "",
+    };
+  },
 };
 </script>
 
