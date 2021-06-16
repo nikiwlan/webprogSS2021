@@ -1,6 +1,5 @@
 <template>
-    
-
+<p>Copyright &copy; 2021</p>
 </template>
 
 
