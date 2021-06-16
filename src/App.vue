@@ -4,10 +4,18 @@
 
 <script>
 
+import TileMap from './components/TileMap.vue'
+import SearchField from './components/SearchField.vue'
+import FilterField from './components/FilterField.vue'
+import Footer from './components/Footer.vue'
+
 export default {
   name: 'App',
   components: {
-
+      TilesMap,
+      SearchField,
+      FilterField,
+      Footer,
   }
 }
 </script>
