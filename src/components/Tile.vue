@@ -34,6 +34,14 @@ export default {
     box-shadow: 5px 5px darkgray;
 }
 
+.tile-body {
+    float: left;
+    width: 200px;
+    height: 100px;
+    margin-top: 200px;
+    padding: 20px;
+}
+
 img{
     width: 100%;
 }
