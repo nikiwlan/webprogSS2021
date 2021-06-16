@@ -67,9 +67,12 @@ features:
 - random cokctail => roll the dice
 
 components: 
-- Kacheln Cocktails 
-- Suche
+- Kachel Cocktail
+- Kacheln Feld 
+- Suche/Titel
 - Filter Funtionen
+- Footer
 - (Startbild)
-- Cocktail Rezept mit bild
+- Cocktail Rezept mit Bild
+- Router
 
