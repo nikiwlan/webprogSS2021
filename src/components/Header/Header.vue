@@ -1,5 +1,6 @@
 <template>
   <div>
+    <h1>Cocktails4You</h1>
     <SearchField />
   </div>
 </template>
