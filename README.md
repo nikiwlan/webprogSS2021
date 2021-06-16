@@ -58,3 +58,18 @@ free functions:
 - Filter by Category
 - Filter by Glass
 - List the categories, glasses, ingredients or alcoholic filters
+
+features:
+- empfelungen
+- all cocktails
+- Suche mit name
+- ingredients angeben und dann werden alle machbaren cokctails ausgegeben (Filer Funktionen)
+- random cokctail => roll the dice
+
+components: 
+- Kacheln Cocktails 
+- Suche
+- Filter Funtionen
+- (Startbild)
+- Cocktail Rezept mit bild
+
