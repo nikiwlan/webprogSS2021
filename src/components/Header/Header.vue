@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <body>
     <h1>Cocktails4You</h1>
     <SearchField />
-  </div>
+  </body>
 </template>
 
 
@@ -19,10 +19,12 @@ export default {
 
 
 <style scoped>
-.div {
+body {
   width: 300px;
   border: 15px black;
   padding: 50px;
   margin: 20px;
+  border: 1px solid black;
+  border-radius: 5px;
 }
 </style>

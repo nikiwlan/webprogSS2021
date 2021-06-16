@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <body>
     <FilterField />
     <TileMap />
-  </div>
+  </body>
 </template>
 
 
@@ -22,10 +22,15 @@ export default {
 
 
 <style scoped>
-.div {
+body {
   width: 300px;
   border: 15px black;
   padding: 50px;
   margin: 20px;
+  float: left;
+  border: 1px solid black;
+  border-radius: 5px;
+  display: flex;
+  flex-flow: row;
 }
 </style>

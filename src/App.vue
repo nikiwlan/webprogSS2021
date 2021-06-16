@@ -1,9 +1,9 @@
 <template>
-  <div>
+  <body>
     <Header />
     <Main />
     <Footer />
-  </div>
+  </body>
 </template>
 
 <script>
@@ -22,14 +22,14 @@ export default {
 </script>
 
 <style>
-#app {
+body {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
-  display: flex;
-  flex-flow: wrap;
+  display:table;
+  flex-flow:column;
 }
 </style>
