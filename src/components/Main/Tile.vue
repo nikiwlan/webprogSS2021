@@ -1,12 +1,16 @@
 <template>
     <div class= "tile">
         <div class = "tile-image">
-            <img src="imageoftheCokctail" alt="Cocktail">
+            <img src="../../../content/AlcFree.jpg" alt="Cocktail">
         </div>  
         <div class= "tile-body">
-            <h3>{{BezeichnungCocktail}}</h3>
-            <p>{{AnzahlZutaten}} Zutaten</p>
-            <p>{{Kategorie}}</p>
+            <div class = "cocktail-name">
+                <h3>{{BezeichnungCocktail}} Name</h3>
+            </div>
+            <div class = "cocktail-info">
+                <p>{{AnzahlZutaten}} Zutaten</p>
+                <p>{{Kategorie}}</p>
+            </div>
         </div>
     </div>  
 </template>
@@ -37,8 +41,22 @@ export default {
 .tile-body {
     float: left;
     width: 200px;
+    height: 150px;
+    margin-top: 150px;
+    padding: 20px;
+}
+
+.cocktail-name{
+    float: left;
+    width: 200px;
+    height: 50px;
+    padding: 20px;
+}
+
+cocktail-info{
+    float: left;
+    width: 200px;
     height: 100px;
-    margin-top: 200px;
     padding: 20px;
 }
 
