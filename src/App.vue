@@ -1,5 +1,11 @@
 <template>
-  <h1> Hello World</h1>
+  <div>
+    <h1> Hello World</h1>
+    <TileMap><h1> Hello World</h1></TileMap>
+    <SearchField><h1> Hello World</h1></SearchField>
+    <FilterField><h1> Hello World</h1></FilterField>
+    <Footer><h1> Hello World</h1></Footer>
+  </div>
 </template>
 
 <script>
@@ -12,7 +18,7 @@ import Footer from './components/Footer.vue'
 export default {
   name: 'App',
   components: {
-      TilesMap,
+      TileMap,
       SearchField,
       FilterField,
       Footer,

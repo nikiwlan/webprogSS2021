@@ -1,6 +1,5 @@
 <template>
-    
-
+    <div></div>
 </template>
 
 
@@ -9,9 +8,9 @@
 
 export default {
   name: 'FilterField',
-  components: {
+//  components: {
 //     Tile,
-  }
+//  }
 }
 </script>
 
