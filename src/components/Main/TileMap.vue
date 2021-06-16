@@ -27,5 +27,13 @@ export default {
 
 
 <style scoped>
-
+.tile-map {
+  width:fit-content;
+  border: 15px black;
+  padding: 50px;
+  margin: 20px;
+  float: left;
+  display: flex;
+  flex-flow: row;
+}
 </style>
