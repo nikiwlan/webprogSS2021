@@ -23,7 +23,7 @@ export default {
 
 <style scoped>
 body {
-  width: 300px;
+  width:fit-content;
   border: 15px black;
   padding: 50px;
   margin: 20px;

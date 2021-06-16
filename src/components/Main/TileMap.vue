@@ -28,7 +28,7 @@ export default {
 
 <style scoped>
 .tile-map {
-  width: 300px;
+  width:fit-content;
   border: 15px black;
   padding: 50px;
   margin: 20px;
