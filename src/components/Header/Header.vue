@@ -1,24 +1,21 @@
 <template>
-  <body class = "header">
+  <body class="header">
     <h1>Cocktails4You</h1>
     <SearchField />
-    <button v-on:click="rollTheDice()">Random Cocktail</button>
+    <Dice />
   </body>
 </template>
 
 
 <script>
 import SearchField from "./SearchField.vue";
+import Dice from "./Dice.vue";
 
 export default {
   name: "Header",
   components: {
     SearchField,
-  },
-  methods: {
-    rollTheDice() {
-      alert("Roll the Dice")
-    },
+    Dice,
   },
 };
 </script>
