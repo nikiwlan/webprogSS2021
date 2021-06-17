@@ -24,6 +24,8 @@ export default {
 <style scoped>
 .filter {
   border: 2px solid black;
-  background-color: #fcdb9d;
+  background-color: #9dfcec5d;
+  display: table;
+  flex-flow: column;
 }
 </style>

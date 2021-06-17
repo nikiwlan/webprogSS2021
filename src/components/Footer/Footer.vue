@@ -1,5 +1,5 @@
 <template>
-  <body>
+  <body class = "footer">
     <p>Copyright &copy; 2021</p>
   </body>
 </template>
@@ -13,7 +13,7 @@ export default {
 
 
 <style scoped>
-body {
+.footer {
   float: center;
   width:fit-content;
   padding: 20px 50px 20px 50px;

@@ -26,10 +26,11 @@ export default {
 
 <style scoped>
 .header {
-  float: left;
+  float: center;
   width: fit-content;
-  padding: 50px;
-  margin: 20px;
+  padding: 20px 50px 20px 50px;
+  margin: 50px auto 50px auto;
+  border-radius: 20px;
   background-color: #fff1d6d7;
 }
 </style>
