@@ -40,8 +40,12 @@ export default {
   background-color: #fcdb9d;
 }
 
-.tile:hover{
-    box-shadow: 5px 5px rgb(117, 117, 117);
+.tile:hover {
+  transform: scale(1.01);
+}
+
+.tile:hover {
+  box-shadow: 5px 5px rgb(117, 117, 117);
 }
 
 .tile-body {
