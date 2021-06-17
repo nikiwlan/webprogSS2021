@@ -14,11 +14,11 @@ export default {
 
 <style scoped>
 body {
+  float: center;
   width:fit-content;
-  border: 15px black;
-  padding: 50px;
-  margin: 20px;
-  border: 1px solid black;
-  border-radius: 5px;
+  padding: 20px 50px 20px 50px;
+  margin: auto;
+  border: 2px solid black;
+  border-radius: 10px;
 }
 </style>

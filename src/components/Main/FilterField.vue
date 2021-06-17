@@ -1,5 +1,5 @@
 <template>
-  <body>
+  <body class = "filter">
     <h1>Filter</h1>
     <input type="checkbox" id="alcohol" v-model="alcohol" />
     <label for="alcohol">alkoholfrei ?</label>
@@ -22,9 +22,7 @@ export default {
 
 
 <style scoped>
-body {
-  border: 1px solid black;
-  border-radius: 5px;
-  flex-direction: column;
+.filter {
+  border: 2px solid black;
 }
 </style>

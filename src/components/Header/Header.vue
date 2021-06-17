@@ -1,5 +1,5 @@
 <template>
-  <body>
+  <body class = "header">
     <h1>Cocktails4You</h1>
     <SearchField />
     <button v-on:click="rollTheDice()">Random Cocktail</button>
@@ -25,12 +25,10 @@ export default {
 
 
 <style scoped>
-body {
+.header {
+  float: left;
   width: fit-content;
-  border: 15px black;
   padding: 50px;
   margin: 20px;
-  border: 1px solid black;
-  border-radius: 5px;
 }
 </style>
