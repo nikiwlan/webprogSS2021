@@ -41,7 +41,7 @@ export default {
 }
 
 .tile:hover{
-    box-shadow: 10px 10px rgb(117, 117, 117);
+    box-shadow: 5px 5px rgb(117, 117, 117);
 }
 
 .tile-body {
