@@ -24,5 +24,6 @@ export default {
 <style scoped>
 .filter {
   border: 2px solid black;
+  background-color: #fcdb9d;
 }
 </style>

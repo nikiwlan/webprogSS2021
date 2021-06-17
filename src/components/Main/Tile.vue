@@ -36,6 +36,7 @@ export default {
     border-radius: 10px;
     box-shadow: 5px 5px darkgray;
     text-align: left;
+    background-color: #fcdb9d;
 }
 
 .tile-body {

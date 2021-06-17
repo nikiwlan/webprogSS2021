@@ -30,5 +30,6 @@ export default {
   width: fit-content;
   padding: 50px;
   margin: 20px;
+  background-color: #fff1d6d7;
 }
 </style>

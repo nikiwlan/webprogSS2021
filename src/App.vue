@@ -1,5 +1,5 @@
 <template>
-  <body>
+  <body class="main">
     <Header />
     <Main />
     <Footer />
@@ -28,8 +28,14 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
-  display:table;
-  flex-flow:column;
+  display: table;
+  flex-flow: column;
+}
+
+.main {
+  background-image: url("../content/strand-palmen-1.jpg");
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: cover;
 }
 </style>

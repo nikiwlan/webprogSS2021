@@ -31,5 +31,6 @@ body {
   border-radius: 5px;
   display: flex;
   flex-flow: row;
+  background-color:#fff1d6d7;
 }
 </style>
