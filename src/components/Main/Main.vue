@@ -27,7 +27,6 @@ body {
   border: 15px black;
   padding: 50px;
   margin: 20px;
-  float: left;
   border-radius: 5px;
   display: flex;
   flex-flow: row;
