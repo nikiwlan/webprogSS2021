@@ -1,7 +1,16 @@
 <template>
   <div class="tile" @mouseover="hover = true" @mouseleave="hover = false">
     <div class="tile-image">
-      <img id="alc-free" src="../../../content/AlcFree.png" alt="Cocktail" />
+      <img
+        id="cocktailImg"
+        src="../../../content/Cocktail.jpg"
+        alt="Cocktail"
+      />
+      <img
+        id="alc-free"
+        src="../../../content/AlcFree.png"
+        alt="AlcFreeBanner"
+      />
     </div>
     <div class="tile-body">
       <div class="cocktail-name">
@@ -57,7 +66,7 @@ export default {
 }
 
 .cocktail-name {
-  background-color: rgb(0, 238, 255);
+  background-color: rgba(0, 238, 255, 0.8);
   border-radius: 20px;
   color: black;
   width: 170px;
@@ -68,14 +77,11 @@ export default {
 }
 
 .tile-image {
-  background-image: url("../../../content/Cocktail.jpg");
-  background-repeat: no-repeat;
-  background-attachment: scroll;
-  background-size: cover;
+  display: grid;
   width: 250px;
   height: 280px;
   position: absolute;
-
+  overflow: hidden;
   border-radius: 10px 10px 0px 0px;
 }
 
@@ -92,8 +98,22 @@ export default {
 }
 
 #alc-free {
-  width: 40%;
+  z-index: 1;
+  grid-column: 1;
+  grid-row: 1;
+  width: 30%;
   padding: 10px;
   margin-right: 125px;
+}
+
+#cocktailImg {
+  grid-column: 1;
+  grid-row: 1;
+  height: 280px;
+  transition: transform 0.5s ease;
+}
+
+.tile:hover .tile-image #cocktailImg {
+  transform: scale(1.2);
 }
 </style>
