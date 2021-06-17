@@ -33,6 +33,7 @@ body {
 }
 
 .main {
+  width: 100%;
   background-image: url("../content/strand-palmen-1.jpg");
   background-repeat: no-repeat;
   background-attachment: scroll;
