@@ -1,7 +1,7 @@
 <template>
     <div class= "tile">
         <div class = "tile-image">
-            <img id = "alc-free"  src= "../../../content/AlcFree.jpg" alt="Cocktail">
+            <img id = "alc-free"  src= "../../../content/AlcFree.png" alt="Cocktail">
         </div>
         <div class= "tile-body">
             <div class = "cocktail-name">
