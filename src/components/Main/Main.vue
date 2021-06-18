@@ -23,7 +23,7 @@ export default {
 
 <style scoped>
 body {
-  width: 100%;
+  width: auto;
   border: 15px black;
   padding: 50px;
   margin: 20px;
@@ -32,4 +32,5 @@ body {
   flex-flow: row;
   background-color:#fff1d6d7;
 }
+
 </style>
