@@ -39,6 +39,7 @@ export default {
   margin: auto;
   display: flex;
   justify-content: center;
+  background-color:#fff1d6d7;
 }
 
 .heading{
