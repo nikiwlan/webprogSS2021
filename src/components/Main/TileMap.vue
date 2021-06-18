@@ -34,6 +34,7 @@ export default {
 
 <style scoped>
 .view{
+  padding: 50px;
   float: center;
   width: fit-content;
   margin: auto;

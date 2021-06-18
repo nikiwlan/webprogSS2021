@@ -25,7 +25,6 @@ export default {
 body {
   width: auto;
   border: 15px black;
-  padding: 50px;
   margin: 20px;
   border-radius: 5px;
   display: flex;

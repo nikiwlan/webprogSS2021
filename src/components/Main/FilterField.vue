@@ -1,8 +1,30 @@
 <template>
   <body class = "filter">
-    <h1>Filter</h1>
-    <input type="checkbox" id="alcohol" v-model="alcohol" />
-    <label for="alcohol">alkoholfrei ?</label>
+    <div class = "heading">
+      <h1>Filtern nach:</h1>
+    </div>
+    <hr>
+    <div>  
+      <h2>Alkohol</h2>  
+      <input type="checkbox" id="alcohol" v-model="alcohol" />
+      <label for="alcohol">alkoholfrei ?</label>
+    </div>
+    <hr>
+    <div class = "categories">
+      <h2>Kategorien</h2>
+      <input type="checkbox" id="alcohol" v-model="alcohol" />
+      <label for="alcohol">alkoholfrei ?</label><br>
+      <input type="checkbox" id="alcohol" v-model="alcohol" />
+      <label for="alcohol">alkoholfrei ?</label><br>
+    </div>
+    <hr>
+    <div class = "glases">
+      <h2>Gläser</h2>
+      <input type="checkbox" id="alcohol" v-model="alcohol" />
+      <label for="alcohol">alkoholfrei ?</label><br>
+      <input type="checkbox" id="alcohol" v-model="alcohol" />
+      <label for="alcohol">alkoholfrei ?</label><br>
+    </div>
   </body>
 </template>
 
@@ -28,4 +50,16 @@ export default {
   display: table;
   flex-flow: column;
 }
+
+.heading{
+  font-size: 14px;
+}
+
+div{
+  padding: 0px 50px 0px 50px;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+
 </style>
