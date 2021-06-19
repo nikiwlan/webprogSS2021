@@ -44,9 +44,9 @@
       <h2>Gläser</h2>
       <div class = "attributes">
         <input type="checkbox" id="glas1" class ="checkboxes" v-model="glas1" />
-        <label for="alcohol">{{categories[0]}}</label><br><br>
+        <label for="alcohol">{{glases[1]}}</label><br><br>
         <input type="checkbox" id="glas2" class ="checkboxes" v-model="glas2" />
-       <label for="alcohol">{{categories[0]}}</label><br><br>
+       <label for="alcohol">{{glases[2]}}</label><br><br>
       </div>
     </div>
   </body>
@@ -89,7 +89,7 @@ export default {
       this.axios.get(api).then((response) => {
         console.log(response.data);
         for(let i = 0; i< response.data.drinks.length ; i++){
-          this.glases[i] = response.data.drinks[i].strGlases;
+          this.glases[i] = response.data.drinks[i].strGlass;
         }
       });      
     },
