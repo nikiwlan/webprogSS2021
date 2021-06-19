@@ -7,6 +7,7 @@
         alt="Cocktail"
       />
       <img
+        v-if="!alcoholic"
         id="alc-free"
         src="../../../content/AlcFree.png"
         alt="AlcFreeBanner"
@@ -18,7 +19,7 @@
       </div>
       <div class="cocktail-adsfdsaf">
         <p class="cocktail-info">{{ AnzahlZutaten }} Zutaten</p>
-        <p class="cocktail-info">{{ Kategorie }} Kategorie</p>
+        <p class="cocktail-info">{{ cat }}</p>
       </div>
     </div>
   </div>
@@ -30,19 +31,25 @@ export default {
   name: "Tile",
   data() {
     return {
+      alcoholic: true,
       hover: false,
       cocktail: [],
       name: "",
+      cat: "",
+      srcImg: "../../../content/Cocktail.jpg",
     };
   },
   methods: {
     loadName() {
-      let api =
-        "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=space_odyssey";
+      let api = "https://www.thecocktaildb.com/api/json/v1/1/random.php";
       this.axios.get(api).then((response) => {
         console.log(response.data);
         this.cocktail = response.data;
         this.name = this.cocktail.drinks[0].strDrink;
+        this.cat = this.cocktail.drinks[0].strCategory;
+        if (this.cocktail.drinks[0].strAlcoholic != "Alcoholic") {
+          this.alcoholic = false;
+        }
       });
     },
   },
