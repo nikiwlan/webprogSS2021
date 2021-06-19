@@ -12,17 +12,17 @@
     <hr>
     <div class = "categories">
       <h2>Kategorien</h2>
-      <input type="checkbox" id="alcohol" v-model="alcohol" />
+      <input type="checkbox" id="categorie1" v-model="alcohol" />
       <label for="alcohol">alkoholfrei ?</label><br>
-      <input type="checkbox" id="alcohol" v-model="alcohol" />
+      <input type="checkbox" id="categorie2" v-model="alcohol" />
       <label for="alcohol">alkoholfrei ?</label><br>
     </div>
     <hr>
     <div class = "glases">
       <h2>Gläser</h2>
-      <input type="checkbox" id="alcohol" v-model="alcohol" />
+      <input type="checkbox" id="glas1" v-model="alcohol" />
       <label for="alcohol">alkoholfrei ?</label><br>
-      <input type="checkbox" id="alcohol" v-model="alcohol" />
+      <input type="checkbox" id="glas2" v-model="alcohol" />
       <label for="alcohol">alkoholfrei ?</label><br>
     </div>
   </body>

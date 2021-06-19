@@ -37,9 +37,6 @@ export default {
   padding: 50px;
   float: center;
   width: fit-content;
-  margin: auto;
-  display: flex;
-  justify-content: center;
   background-color:#fff1d6d7;
 }
 

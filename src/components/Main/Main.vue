@@ -23,6 +23,9 @@ export default {
 
 <style scoped>
 body {
+    margin: auto;
+  display: flex;
+  justify-content: center;
   width: auto;
   border: 15px black;
   margin: 20px;
