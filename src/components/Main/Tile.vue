@@ -15,6 +15,7 @@
     <div class="tile-body">
       <div class="cocktail-name">
         <h3>{{ BezeichnungCocktail }} Name des Cocktails laden</h3>
+        <div>{{cocktail}}</div>
       </div>
       <div class="cocktail-adsfdsaf">
         <p class="cocktail-info">{{ AnzahlZutaten }} Zutaten</p>
@@ -31,7 +32,19 @@ export default {
   data() {
     return {
       hover: false,
+      data: {
+        cocktail: [],
+      },
     };
+  },
+  methods: {
+    mounted() {
+      fetch("www.thecocktaildb.com/api/json/v1/1/lookup.php?i=1")
+        .then((response) => response.json())
+        .then((data) => {
+          this.cocktail = data;
+        });
+    },
   },
 };
 </script>

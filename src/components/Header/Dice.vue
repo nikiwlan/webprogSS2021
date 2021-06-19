@@ -10,13 +10,13 @@
         id="diceImg"
         v-if="hover"
         src="../../../content/dice-icon-png-25.png"
-        alt="Cocktail"
+        alt="DiceAction"
       />
       <img
         id="diceImg"
         v-else
         src="../../../content/dice-icon-png-26.png"
-        alt="Cocktail"
+        alt="DiceStill"
       />
     </button>
   </div>
