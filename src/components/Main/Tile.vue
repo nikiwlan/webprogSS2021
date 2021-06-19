@@ -31,10 +31,8 @@ export default {
   data() {
     return {
       hover: false,
-      data: {
-        cocktail: [],
-        name: "",
-      },
+      cocktail: [],
+      name: "",
     };
   },
   methods: {

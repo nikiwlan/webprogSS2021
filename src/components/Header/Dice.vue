@@ -29,11 +29,16 @@ export default {
   data() {
     return {
       hover: false,
+      name: "",
     };
   },
   methods: {
     rollTheDice() {
-      alert("Rolled the Dice");
+      let api = "https://www.thecocktaildb.com/api/json/v1/1/random.php";
+      this.axios.get(api).then((response) => {
+        console.log(response.data);
+        alert(response.data.drinks[0].strDrink);
+      });
     },
   },
 };
