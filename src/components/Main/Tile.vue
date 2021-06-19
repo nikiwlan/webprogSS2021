@@ -1,6 +1,5 @@
 <template>
   <div class="tile" @mouseover="hover = true" @mouseleave="hover = false">
-    <button v-on:click="click()">DEBUG</button>
     <div class="tile-image">
       <img
         id="cocktailImg"
@@ -33,20 +32,24 @@ export default {
     return {
       hover: false,
       data: {
-        cocktail: null,
-        name: null,
+        cocktail: [],
+        name: "",
       },
     };
   },
   methods: {
-    click() {
-      let api = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita";
+    loadName() {
+      let api =
+        "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=space_odyssey";
       this.axios.get(api).then((response) => {
         console.log(response.data);
         this.cocktail = response.data;
-        this.name = response.data.drinks[0].strDrink;
+        this.name = this.cocktail.drinks[0].strDrink;
       });
     },
+  },
+  created: function () {
+    this.loadName();
   },
 };
 </script>
