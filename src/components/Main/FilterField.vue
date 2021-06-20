@@ -15,27 +15,27 @@
     <div class = "categories">
       <h2>Kategorien</h2>
       <div class = "attributes">
-        <input type="checkbox" id="categorie1" class ="checkboxes" v-model="categorie1" />
+        <input type="checkbox" id="categorie1" class ="checkboxes" v-model="categorie[0]" />
         <label for="alcohol">{{categories[0]}}</label><br><br>
-        <input type="checkbox" id="categorie2" class ="checkboxes" v-model="categorie2" />
+        <input type="checkbox" id="categorie2" class ="checkboxes" v-model="categorie[1]" />
         <label for="alcohol">{{categories[1]}}</label><br><br>
-        <input type="checkbox" id="categorie3" class ="checkboxes" v-model="categorie3" />
+        <input type="checkbox" id="categorie3" class ="checkboxes" v-model="categorie[2]" />
         <label for="alcohol">{{categories[2]}}</label><br><br>
-        <input type="checkbox" id="categorie4" class ="checkboxes" v-model="categorie4" />
+        <input type="checkbox" id="categorie4" class ="checkboxes" v-model="categorie[3]" />
         <label for="alcohol">{{categories[3]}}</label><br><br>
-        <input type="checkbox" id="categorie5" class ="checkboxes" v-model="categorie5" />
+        <input type="checkbox" id="categorie5" class ="checkboxes" v-model="categorie[4]" />
         <label for="alcohol">{{categories[4]}}</label><br><br>
-        <input type="checkbox" id="categorie6" class ="checkboxes" v-model="categorie6" />
+        <input type="checkbox" id="categorie6" class ="checkboxes" v-model="categorie[5]" />
         <label for="alcohol">{{categories[5]}}</label><br><br>
-        <input type="checkbox" id="categorie7" class ="checkboxes" v-model="categorie7" />
+        <input type="checkbox" id="categorie7" class ="checkboxes" v-model="categorie[6]"/>
         <label for="alcohol">{{categories[6]}}</label><br><br>
-        <input type="checkbox" id="categorie8" class ="checkboxes" v-model="categorie8" />
+        <input type="checkbox" id="categorie8" class ="checkboxes" v-model="categorie[7]" />
         <label for="alcohol">{{categories[7]}}</label><br><br>
-        <input type="checkbox" id="categorie9" class ="checkboxes" v-model="categorie9" />
+        <input type="checkbox" id="categorie9" class ="checkboxes" v-model="categorie[8]" />
         <label for="alcohol">{{categories[8]}}</label><br><br>
-        <input type="checkbox" id="categorie10" class ="checkboxes" v-model="categorie10" />
+        <input type="checkbox" id="categorie10" class ="checkboxes" v-model="categorie[9]" />
         <label for="alcohol">{{categories[9]}}</label><br><br>
-        <input type="checkbox" id="categorie11" class ="checkboxes" v-model="categorie11" />
+        <input type="checkbox" id="categorie11" class ="checkboxes" v-model="categorie[10]" />
         <label for="alcohol">{{categories[10]}}</label><br><br>
       </div>
     </div>
@@ -61,17 +61,7 @@ export default {
   data: function () {
     return {
       alcohol: false,
-      categorie1: false,
-      categorie2: false,
-      categorie3: false,
-      categorie4: false,
-      categorie5: false,        
-      categorie6: false,
-      categorie7: false,
-      categorie8: false,
-      categorie9: false,
-      categorie10: false,
-      categorie11: false,         
+      categorie: [],        
       glas1: false,
       glas2: false,
 
@@ -103,8 +93,10 @@ export default {
       });      
     },
     updateCategories(){
-      if(this.categorie1){
-        this.$emit('categorie1Selected', this.categorie1);
+      for(let i = 0; i< 11 ; i++){
+        if(this.categorie[i]){
+        this.$emit('categorie1Selected', this.categorie[i], this.categories[i]);
+      }
       }
     }
   },
