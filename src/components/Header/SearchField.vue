@@ -1,7 +1,7 @@
 <template>
   <div class="search-field">
-    <input v-model="message" placeholder="edit me" />
-    <p>Message is: {{ message }}</p>
+    <input v-model="message" placeholder="Search Cocktail By Name" />
+    <p>Cocktail: {{ message }}</p>
   </div>
 </template>
 

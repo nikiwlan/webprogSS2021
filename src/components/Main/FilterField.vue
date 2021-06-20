@@ -55,6 +55,7 @@
 
 <script>
 //import Tile from './components/Tile.vue'
+// @click=" $emit('getCategorie', this.categorie[0])"
 
 export default {
   name: "FilterField",

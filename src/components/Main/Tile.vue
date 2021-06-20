@@ -6,9 +6,9 @@
     v-on:click="loadCocktail()"
   >
     <div class="tile-image">
-      <img id="cocktailImg" :src="cocktailObj.srcImg" alt="Cocktail" />
+      <img id="cocktailImg" :src="cocktail.srcImg" alt="Cocktail" />
       <img
-        v-if="!cocktailObj.alcoholic"
+        v-if="!cocktail.alcoholic"
         id="alc-free"
         src="../../../content/AlcFree.png"
         alt="AlcFreeBanner"
@@ -16,11 +16,11 @@
     </div>
     <div class="tile-body">
       <div class="cocktail-name">
-        <h3>{{ cocktailObj.name }}</h3>
+        <h3>{{ cocktail.name }}</h3>
       </div>
       <div class="cocktail-bottom">
-        <p class="cocktail-info">{{ cocktailObj.ingredientsCount }} Zutaten</p>
-        <p class="cocktail-info">{{ cocktailObj.category }}</p>
+        <p class="cocktail-info">{{ cocktail.ingredientsCount }} Zutaten</p>
+        <p class="cocktail-info">{{ cocktail.category }}</p>
       </div>
     </div>
   </div>
@@ -30,19 +30,65 @@
 <script>
 export default {
   name: "Tile",
-  props: ["cocktailObj"],
+  props: ["cocktailID"],
   data() {
     return {
       hover: false,
-      srcImg: require("../../../content/Cocktail.jpg"),
+      cocktail: {
+        name: "",
+        category: "",
+        ingredients: [],
+        ingredientsCount: 0,
+        alcoholic: true,
+        srcImg: "",
+      },
+      tempCocktail: [],
     };
   },
   methods: {
     loadCocktail() {
-      alert(
-        "TODO: Cocktail Details für " + this.cocktailObj.name + " anzeigen"
-      );
+      alert("TODO: Cocktail Details für " + this.cocktail.name + " anzeigen");
     },
+
+    initIngredients() {
+      this.setIngredient(this.tempCocktail.drinks[0].strIngredient1);
+      this.setIngredient(this.tempCocktail.drinks[0].strIngredient2);
+      this.setIngredient(this.tempCocktail.drinks[0].strIngredient3);
+      this.setIngredient(this.tempCocktail.drinks[0].strIngredient4);
+      this.setIngredient(this.tempCocktail.drinks[0].strIngredient5);
+      this.setIngredient(this.tempCocktail.drinks[0].strIngredient6);
+      this.setIngredient(this.tempCocktail.drinks[0].strIngredient7);
+      this.setIngredient(this.tempCocktail.drinks[0].strIngredient8);
+      this.setIngredient(this.tempCocktail.drinks[0].strIngredient9);
+      this.setIngredient(this.tempCocktail.drinks[0].strIngredient10);
+      this.setIngredient(this.tempCocktail.drinks[0].strIngredient11);
+      this.setIngredient(this.tempCocktail.drinks[0].strIngredient12);
+      this.setIngredient(this.tempCocktail.drinks[0].strIngredient13);
+      this.setIngredient(this.tempCocktail.drinks[0].strIngredient14);
+      this.setIngredient(this.tempCocktail.drinks[0].strIngredient15);
+    },
+
+    setIngredient(Ing) {
+      if (Ing != null) {
+        this.cocktail.ingredients[this.cocktail.ingredientsCount] = Ing;
+        this.cocktail.ingredientsCount++;
+      }
+    },
+  },
+  beforeCreate: function () {
+    let api =
+      "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=" +
+      this.cocktailID;
+    this.axios.get(api).then((response) => {
+      this.tempCocktail = response.data;
+      this.cocktail.name = this.tempCocktail.drinks[0].strDrink;
+      this.cocktail.category = this.tempCocktail.drinks[0].strCategory;
+      if (this.tempCocktail.drinks[0].strAlcoholic != "Alcoholic") {
+        this.cocktail.alcoholic = false;
+      }
+      this.cocktail.srcImg = this.tempCocktail.drinks[0].strDrinkThumb;
+      this.initIngredients();
+    });
   },
 };
 </script>
