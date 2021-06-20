@@ -33,7 +33,16 @@ export default {
     'cat1'
   ],
   methods:{
-    
+
+    updateCategories(){
+      if(this.categorie1){
+        this.$emit('categorie1Selected', this.categorie1);
+      }
+    },
+
+      updated: function(){
+    this.updateCategories();
+  },
   }
 }
 </script>

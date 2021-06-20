@@ -21,7 +21,7 @@ export default {
     };
   },
 
-  // methods:
+//   methods:
 //   {
 //   updateCategories(){
 //       console.log("hello");
@@ -31,7 +31,7 @@ export default {
 //     this.updateCategories();
 //   },
 // } 
- };
+  };
 </script>
 
 
