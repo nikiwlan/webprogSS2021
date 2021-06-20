@@ -35,12 +35,25 @@ export default {
   methods:{
 
     updateCategories(){
-      if(this.categorie1){
-        this.$emit('categorie1Selected', this.categorie1);
+      console.log("12");
+      if(this.cat1){
+        console.log("123123123");
+        this.loadCategorie1();
       }
     },
 
-      updated: function(){
+      loadCategorie1() {
+      let api =
+        "www.thecocktaildb.com/api/json/v1/1/filter.php?c=Ordinary_Drink";
+      this.axios.get(api).then((response) => {
+        console.log(response.data);
+        for(let i = 0; i< response.data.drinks.length ; i++){
+          this.categorie1[i] = response.data.drinks[i].strGlass;
+        }
+      });
+      },   
+
+      beforeCreate: function(){
     this.updateCategories();
   },
   }
