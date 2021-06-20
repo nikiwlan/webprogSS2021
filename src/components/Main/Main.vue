@@ -1,7 +1,7 @@
 <template>
   <body>
     <FilterField @categorie1Selected="getCategorie1" />
-    <TileMap :categorie1="cat1"/>
+    <TileMap :cat1="categorie1"/>
   </body>
 </template>
 
@@ -15,7 +15,7 @@ export default {
   name: "Main",
   data: () =>{
     return{
-      cat1: '',
+      categorie1: '',
     }
   },
   components: {
@@ -23,9 +23,8 @@ export default {
     FilterField,
   },
   methods:{
-    getCategorie1(categorie1){
-      console.log(categorie1);
-      this.cat1 = categorie1;
+    getCategorie1(cat1){
+      this.categorie1 = cat1;
     },
   },
 };

@@ -15,7 +15,7 @@
     <div class = "categories">
       <h2>Kategorien</h2>
       <div class = "attributes">
-        <input type="checkbox" id="categorie1" class ="checkboxes" v-model="categorie1" @select="$emit('categorie1Selected', categorie1)" />
+        <input type="checkbox" id="categorie1" class ="checkboxes" v-model="categorie1" />
         <label for="alcohol">{{categories[0]}}</label><br><br>
         <input type="checkbox" id="categorie2" class ="checkboxes" v-model="categorie2" />
         <label for="alcohol">{{categories[1]}}</label><br><br>
@@ -104,7 +104,7 @@ export default {
     },
     updateCategories(){
       if(this.categorie1){
-        this.$emit('categorie1-selected', this.categorie1);
+        this.$emit('categorie1Selected', this.categorie1);
       }
     }
   },
