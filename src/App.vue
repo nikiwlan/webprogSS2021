@@ -56,6 +56,7 @@ body {
 }
 
 .backgroundImg {
+  position: fixed;
   height:3000px;
   width:10000px;
   background-image: url("../content/strand-palmen-1.jpg");

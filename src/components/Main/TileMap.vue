@@ -48,6 +48,7 @@ export default {
     },
 
     getAllCocktails() {
+      console.log("Fetching All Cocktails...");
       this.cocktailList = [];
 
       this.axios
@@ -89,16 +90,30 @@ export default {
         }
       });
     } else {
-      // this.getAllCocktails();
+      // Fetching All Cocktails
+      this.cocktailList = [];
 
-      // ONLY FOR DEBUGGING (because getAllCocktails() doesn't work)
-      api = api + "a";
-      this.axios.get(api).then((response) => {
-        for (let i = 0; i < response.data.drinks.length; i++) {
-          this.cocktailList[this.cocktailList.length] =
-            response.data.drinks[i].idDrink;
-        }
-      });
+      this.axios
+        .get(
+          "https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Alcoholic"
+        )
+        .then((response) => {
+          for (let i = 0; i < response.data.drinks.length; i++) {
+            this.cocktailList[this.cocktailList.length] =
+              response.data.drinks[i].idDrink;
+          }
+        });
+
+      this.axios
+        .get(
+          "https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic"
+        )
+        .then((response2) => {
+          for (let j = 0; j < response2.data.drinks.length; j++) {
+            this.cocktailList[this.cocktailList.length] =
+              response2.data.drinks[j].idDrink;
+          }
+        });
     }
   },
 };
