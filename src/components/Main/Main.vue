@@ -1,7 +1,7 @@
 <template>
   <body>
-    <FilterField />
-    <TileMap />
+    <FilterField @categorie1Selected="getCategorie1" />
+    <TileMap :categorie1="cat1"/>
   </body>
 </template>
 
@@ -13,9 +13,20 @@ import FilterField from "./FilterField.vue";
 
 export default {
   name: "Main",
+  data: () =>{
+    return{
+      cat1: '',
+    }
+  },
   components: {
     TileMap,
     FilterField,
+  },
+  methods:{
+    getCategorie1(categorie1){
+      console.log(categorie1);
+      this.cat1 = categorie1;
+    },
   },
 };
 </script>

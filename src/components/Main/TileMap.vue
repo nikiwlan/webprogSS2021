@@ -1,7 +1,7 @@
 <template>
   <body class = "view">
     <div class = "heading">
-            <h2>Lass dich inspirieren</h2>
+            <h2>Lass dich inspirieren {{cat1}}</h2>
     </div>
     <div class = "tile-map">
         <div id = "line1">
@@ -28,6 +28,12 @@ export default {
   name: 'TileMap',
   components: {
       Tile,
+  },
+  props:[
+    'cat1'
+  ],
+  methods:{
+    
   }
 }
 </script>

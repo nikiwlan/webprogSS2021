@@ -20,7 +20,18 @@ export default {
       message: "",
     };
   },
-};
+
+  // methods:
+//   {
+//   updateCategories(){
+//       console.log("hello");
+//       console.log(this.categorie1);
+//     },
+//   created: function(){
+//     this.updateCategories();
+//   },
+// } 
+ };
 </script>
 
 
