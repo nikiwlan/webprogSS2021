@@ -1,6 +1,7 @@
 <template>
   <body class = "footer">
     <p>Copyright &copy; 2021</p>
+    <p>Niklas Langes & Erik Cichy</p>
   </body>
 </template>
 
