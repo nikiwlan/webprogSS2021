@@ -1,7 +1,8 @@
 <template>
+  <div class="backgroundImg"></div>
   <body class="main">
     <Header @searchFieldMessage="updateSearch" />
-    <Main :searchField="searchField"/>
+    <Main :searchField="searchField" />
     <Footer />
   </body>
 </template>
@@ -43,14 +44,24 @@ body {
 }
 
 .main {
-  background-image: url("../content/strand-palmen-1.jpg");
+  /* background-image: url("../content/strand-palmen-1.jpg");
   background-repeat: no-repeat;
   background-attachment: scroll;
-  background-size: cover;
+  background-size: cover; */
   position: absolute;
   top: 0;
   left: 0;
   bottom: 0;
   width: 100%;
+}
+
+.backgroundImg {
+  height:3000px;
+  width:10000px;
+  background-image: url("../content/strand-palmen-1.jpg");
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
 }
 </style>

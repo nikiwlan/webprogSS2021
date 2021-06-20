@@ -89,7 +89,16 @@ export default {
         }
       });
     } else {
-     this.getAllCocktails();
+      // this.getAllCocktails();
+
+      // ONLY FOR DEBUGGING (because getAllCocktails() doesn't work)
+      api = api + "a";
+      this.axios.get(api).then((response) => {
+        for (let i = 0; i < response.data.drinks.length; i++) {
+          this.cocktailList[this.cocktailList.length] =
+            response.data.drinks[i].idDrink;
+        }
+      });
     }
   },
 };
