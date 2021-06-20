@@ -1,7 +1,7 @@
 <template>
   <body class="view">
     <div class="heading">
-      <h2>Lass dich inspirieren {{ cat1 }}</h2>
+      <h2>Lass dich inspirieren {{ categorie }}</h2>
     </div>
     <div class="tile-map">
       <div id="line1">
@@ -42,16 +42,16 @@ export default {
       tempCocktail: [],
     };
   },
-  props: ["cat1"],
+  props: ["categorie"],
   methods: {
     updateCategories() {
-      console.log("12");
-      if (this.cat1) {
-        console.log("123123123");
+      if (this.categorie.categorieValue){
         this.loadCategorie1();
-        console.log(this.cat.categorieName);
+        console.log("123");
+        console.log(this.categorie.categorieName);
       }
     },
+    
 
     loadCategorie1() {
       let api =
@@ -89,10 +89,12 @@ export default {
       }
     },
   },
+  
+  updated: function(){
+    this.updateCategories();
+  },
 
   beforeCreate: function () {
-    // this.updateCategories();
-
     let api = "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=11007";
     this.axios.get(api).then((response) => {
       this.tempCocktail = response.data;

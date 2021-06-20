@@ -1,7 +1,7 @@
 <template>
   <body>
     <FilterField @categorie1Selected="getCategorie1" />
-    <TileMap :cat="categorie"/>
+    <TileMap :categorie="categorie"/>
   </body>
 </template>
 
