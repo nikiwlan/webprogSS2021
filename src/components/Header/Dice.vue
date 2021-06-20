@@ -3,21 +3,10 @@
     <button
       class="diceButton"
       v-on:click="rollTheDice()"
-      @mouseover="hover = true"
-      @mouseleave="hover = false"
+      @mouseover="img = imgHover"
+      @mouseleave="img = imgDefault"
     >
-      <img
-        id="diceImg"
-        v-if="hover"
-        src="../../../content/dice-icon-png-25.png"
-        alt="DiceAction"
-      />
-      <img
-        id="diceImg"
-        v-else
-        src="../../../content/dice-icon-png-26.png"
-        alt="DiceStill"
-      />
+      <img id="diceImg" :src="img" alt="Dice" />
     </button>
   </div>
 </template>
@@ -28,8 +17,10 @@ export default {
   name: "Dice",
   data() {
     return {
-      hover: false,
       name: "",
+      imgHover: require("../../../content/dice-icon-png-25.png"),
+      imgDefault: require("../../../content/dice-icon-png-26.png"),
+      img: require("../../../content/dice-icon-png-26.png"),
     };
   },
   methods: {
