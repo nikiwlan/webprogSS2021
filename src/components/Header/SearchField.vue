@@ -21,17 +21,15 @@ export default {
     };
   },
 
-//   methods:
-//   {
-//   updateCategories(){
-//       console.log("hello");
-//       console.log(this.categorie1);
-//     },
-//   created: function(){
-//     this.updateCategories();
-//   },
-// } 
-  };
+  methods: {
+    searchFieldUpdate() {
+      this.$emit("searchFieldMessage", this.message);
+    },
+  },
+  updated: function () {
+    this.searchFieldUpdate();
+  },
+};
 </script>
 
 

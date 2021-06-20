@@ -1,7 +1,7 @@
 <template>
   <body class="main">
-    <Header />
-    <Main />
+    <Header @searchFieldMessage="updateSearch" />
+    <Main :searchField="searchField"/>
     <Footer />
   </body>
 </template>
@@ -13,10 +13,20 @@ import Footer from "./components/Footer/Footer.vue";
 
 export default {
   name: "App",
+  data() {
+    return {
+      searchField: "",
+    };
+  },
   components: {
     Header,
     Main,
     Footer,
+  },
+  methods: {
+    updateSearch(message) {
+      this.searchField = message;
+    },
   },
 };
 </script>

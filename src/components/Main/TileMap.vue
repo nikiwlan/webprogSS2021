@@ -25,7 +25,7 @@ export default {
       cocktailList: [],
     };
   },
-  props: ["cat"],
+  props: ["cat", "searchField"],
   methods: {
     updateCategories() {
       console.log("12");
@@ -46,6 +46,32 @@ export default {
         }
       });
     },
+
+    getAllCocktails() {
+      this.cocktailList = [];
+
+      this.axios
+        .get(
+          "https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Alcoholic"
+        )
+        .then((response) => {
+          for (let i = 0; i < response.data.drinks.length; i++) {
+            this.cocktailList[this.cocktailList.length] =
+              response.data.drinks[i].idDrink;
+          }
+        });
+
+      this.axios
+        .get(
+          "https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic"
+        )
+        .then((response2) => {
+          for (let j = 0; j < response2.data.drinks.length; j++) {
+            this.cocktailList[this.cocktailList.length] =
+              response2.data.drinks[j].idDrink;
+          }
+        });
+    },
   },
 
   /* updated() {
@@ -53,13 +79,18 @@ export default {
   },*/
 
   beforeCreate: function () {
-    let api = "https://" + "www.thecocktaildb.com/api/json/v1/1/search.php?f=a";
-    this.axios.get(api).then((response) => {
-      for (let i = 0; i < response.data.drinks.length; i++) {
-        this.cocktailList[this.cocktailList.length] =
-          response.data.drinks[i].idDrink;
-      }
-    });
+    let api = "https://" + "www.thecocktaildb.com/api/json/v1/1/search.php?s=";
+    if (this.searchField != "") {
+      api = api + this.searchField;
+      this.axios.get(api).then((response) => {
+        for (let i = 0; i < response.data.drinks.length; i++) {
+          this.cocktailList[this.cocktailList.length] =
+            response.data.drinks[i].idDrink;
+        }
+      });
+    } else {
+     this.getAllCocktails();
+    }
   },
 };
 </script>

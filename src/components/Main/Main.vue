@@ -1,7 +1,7 @@
 <template>
   <body>
     <FilterField @categorie1Selected="getCategorie1" />
-    <TileMap :cat="categorie"/>
+    <TileMap :cat="categorie" :searchField="searchField"/>
   </body>
 </template>
 
@@ -21,6 +21,7 @@ export default {
       }
     }
   },
+  props: ["searchField"],
   components: {
     TileMap,
     FilterField,
