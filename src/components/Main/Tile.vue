@@ -1,11 +1,7 @@
 <template>
   <div class="tile" @mouseover="hover = true" @mouseleave="hover = false">
     <div class="tile-image">
-      <img
-        id="cocktailImg"
-        src="../../../content/Cocktail.jpg"
-        alt="Cocktail"
-      />
+      <img id="cocktailImg" :src="srcImg" alt="Cocktail" />
       <img
         v-if="!alcoholic"
         id="alc-free"
@@ -36,7 +32,7 @@ export default {
       cocktail: [],
       name: "",
       cat: "",
-      srcImg: "../../../content/Cocktail.jpg",
+      srcImg: require("../../../content/Cocktail.jpg"),
     };
   },
   methods: {
@@ -50,6 +46,7 @@ export default {
         if (this.cocktail.drinks[0].strAlcoholic != "Alcoholic") {
           this.alcoholic = false;
         }
+        this.srcImg = this.cocktail.drinks[0].strDrinkThumb;
       });
     },
   },
@@ -124,7 +121,7 @@ export default {
   z-index: 1;
   grid-column: 1;
   grid-row: 1;
-  width: 30%;
+  width: 20%;
   padding: 10px;
   margin-right: 125px;
 }
