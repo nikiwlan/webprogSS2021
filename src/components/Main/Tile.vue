@@ -1,5 +1,10 @@
 <template>
-  <div class="tile" @mouseover="hover = true" @mouseleave="hover = false" v-on:click="loadCocktail()">
+  <div
+    class="tile"
+    @mouseover="hover = true"
+    @mouseleave="hover = false"
+    v-on:click="loadCocktail()"
+  >
     <div class="tile-image">
       <img id="cocktailImg" :src="srcImg" alt="Cocktail" />
       <img
@@ -33,6 +38,8 @@ export default {
       name: "",
       cat: "",
       srcImg: require("../../../content/Cocktail.jpg"),
+      ingredients: [],
+      AnzahlZutaten: 0,
     };
   },
   methods: {
@@ -47,11 +54,37 @@ export default {
           this.alcoholic = false;
         }
         this.srcImg = this.cocktail.drinks[0].strDrinkThumb;
+        this.initIngredients();
       });
+    },
+    initIngredients() {
+      this.setIngredient(this.cocktail.drinks[0].strIngredient1);
+      this.setIngredient(this.cocktail.drinks[0].strIngredient2);
+      this.setIngredient(this.cocktail.drinks[0].strIngredient3);
+      this.setIngredient(this.cocktail.drinks[0].strIngredient4);
+      this.setIngredient(this.cocktail.drinks[0].strIngredient5);
+      this.setIngredient(this.cocktail.drinks[0].strIngredient6);
+      this.setIngredient(this.cocktail.drinks[0].strIngredient7);
+      this.setIngredient(this.cocktail.drinks[0].strIngredient8);
+      this.setIngredient(this.cocktail.drinks[0].strIngredient9);
+      this.setIngredient(this.cocktail.drinks[0].strIngredient10);
+      this.setIngredient(this.cocktail.drinks[0].strIngredient11);
+      this.setIngredient(this.cocktail.drinks[0].strIngredient12);
+      this.setIngredient(this.cocktail.drinks[0].strIngredient13);
+      this.setIngredient(this.cocktail.drinks[0].strIngredient14);
+      this.setIngredient(this.cocktail.drinks[0].strIngredient15);
+
+      console.log(this.ingredients);
+    },
+    setIngredient(Ing) {
+      if (Ing != null) {
+        this.ingredients[this.AnzahlZutaten] = Ing;
+        this.AnzahlZutaten++;
+      }
     },
     loadCocktail() {
       alert("TODO: Cocktail Details für " + this.name + " anzeigen");
-    }
+    },
   },
   created: function () {
     this.loadName();
