@@ -1,5 +1,5 @@
 <template>
-  <div class="tile" @mouseover="hover = true" @mouseleave="hover = false">
+  <div class="tile" @mouseover="hover = true" @mouseleave="hover = false" v-on:click="loadCocktail()">
     <div class="tile-image">
       <img id="cocktailImg" :src="srcImg" alt="Cocktail" />
       <img
@@ -49,6 +49,9 @@ export default {
         this.srcImg = this.cocktail.drinks[0].strDrinkThumb;
       });
     },
+    loadCocktail() {
+      alert("TODO: Cocktail Details für " + this.name + " anzeigen");
+    }
   },
   created: function () {
     this.loadName();
