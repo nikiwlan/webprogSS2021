@@ -25,7 +25,7 @@ export default {
       cocktailList: [],
     };
   },
-  props: ["categories", "searchField"],
+  props: ["categories", "searchField", "alcoholFree", "alcoholic"],
   methods: {
     getCocktails() {
       let api =
