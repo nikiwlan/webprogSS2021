@@ -1,7 +1,7 @@
 <template>
   <body class="view">
     <div class="heading">
-      <h2>Lass dich inspirieren {{ categories }}</h2>
+      <h2>Lass dich inspirieren</h2>
     </div>
     <div class="tile-map">
       <div v-for="cocktailID in cocktailList" :key="cocktailID">

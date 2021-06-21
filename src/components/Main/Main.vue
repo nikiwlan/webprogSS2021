@@ -1,7 +1,7 @@
 <template>
   <body>
-    <FilterField @categoriesSelected="getCategorie1" />
-    <TileMap :categories="categories" :searchField="searchField" />
+    <FilterField @categoriesSelected="getCategorie" @alcoholFreeSelected="getAlcoholFree" @alcoholicSelected="getAlcoholic" />
+    <TileMap :categories="categories" :searchField="searchField" :alcoholFree="alcoholFree" :alcoholic="alcoholic"  />
   </body>
 </template>
 
@@ -16,6 +16,8 @@ export default {
   data: () => {
     return {
       categories: [],
+      alcoholFree: '',
+      alcoholic: '',
     };
   },
   props: ["searchField"],
@@ -24,7 +26,7 @@ export default {
     FilterField,
   },
   methods: {
-    getCategorie1(cat) {
+    getCategorie(cat) {
       this.categories = [0];
       let index = 0;
       for (let i = 0; i < 11; i++) {
@@ -33,6 +35,16 @@ export default {
           index++;
         }
       }
+    },
+
+    getAlcoholFree(alcFree){
+      console.log(alcFree);
+      this.alcoholFree = alcFree;
+    },
+
+    getAlcoholic(alc){
+      console.log(alc);
+      this.alcoholic = alc;
     },
   },
 };
