@@ -116,7 +116,7 @@ export default {
         for (let i; i < this.cocktailList.length; i++) {
           tempCocktail = this.getCocktailByID(this.cocktailList[i]);
           for (let j; j < this.categories.length; j++) {
-            if (tempCocktail.strCategory == this.categories[j]) {
+            if (tempCocktail.strCategory === this.categories[j]) {
               tempList[index] = this.cocktailList[i];
               index++;
             }
