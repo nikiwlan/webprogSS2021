@@ -18,7 +18,7 @@ export default {
       categorie:{
         categorieValue: false,
         categorieName: '',
-      }
+      },
     }
   },
   props: ["searchField"],

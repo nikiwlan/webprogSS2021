@@ -15,28 +15,28 @@
     <div class = "categories">
       <h2>Kategorien</h2>
       <div class = "attributes">
-        <input type="checkbox" id="categorie1" class ="checkboxes" v-model="categorie[0]" />
-        <label for="alcohol">{{categories[0]}}</label><br><br>
-        <input type="checkbox" id="categorie2" class ="checkboxes" v-model="categorie[1]" />
-        <label for="alcohol">{{categories[1]}}</label><br><br>
-        <input type="checkbox" id="categorie3" class ="checkboxes" v-model="categorie[2]" />
-        <label for="alcohol">{{categories[2]}}</label><br><br>
-        <input type="checkbox" id="categorie4" class ="checkboxes" v-model="categorie[3]" />
-        <label for="alcohol">{{categories[3]}}</label><br><br>
-        <input type="checkbox" id="categorie5" class ="checkboxes" v-model="categorie[4]" />
-        <label for="alcohol">{{categories[4]}}</label><br><br>
-        <input type="checkbox" id="categorie6" class ="checkboxes" v-model="categorie[5]" />
-        <label for="alcohol">{{categories[5]}}</label><br><br>
-        <input type="checkbox" id="categorie7" class ="checkboxes" v-model="categorie[6]"/>
-        <label for="alcohol">{{categories[6]}}</label><br><br>
-        <input type="checkbox" id="categorie8" class ="checkboxes" v-model="categorie[7]" />
-        <label for="alcohol">{{categories[7]}}</label><br><br>
-        <input type="checkbox" id="categorie9" class ="checkboxes" v-model="categorie[8]" />
-        <label for="alcohol">{{categories[8]}}</label><br><br>
-        <input type="checkbox" id="categorie10" class ="checkboxes" v-model="categorie[9]" />
-        <label for="alcohol">{{categories[9]}}</label><br><br>
-        <input type="checkbox" id="categorie11" class ="checkboxes" v-model="categorie[10]" />
-        <label for="alcohol">{{categories[10]}}</label><br><br>
+        <input type="checkbox" id="categorie1" class ="checkboxes" v-model="categorieNames[0]" />
+        <label for="alcohol">{{categorieValues[0]}}</label><br><br>
+        <input type="checkbox" id="categorie2" class ="checkboxes" v-model="categorieNames[1]" />
+        <label for="alcohol">{{categorieValues[1]}}</label><br><br>
+        <input type="checkbox" id="categorie3" class ="checkboxes" v-model="categorieNames[2]" />
+        <label for="alcohol">{{categorieValues[2]}}</label><br><br>
+        <input type="checkbox" id="categorie4" class ="checkboxes" v-model="categorieNames[3]" />
+        <label for="alcohol">{{categorieValues[3]}}</label><br><br>
+        <input type="checkbox" id="categorie5" class ="checkboxes" v-model="categorieNames[4]" />
+        <label for="alcohol">{{categorieValues[4]}}</label><br><br>
+        <input type="checkbox" id="categorie6" class ="checkboxes" v-model="categorieNames[5]" />
+        <label for="alcohol">{{categorieValues[5]}}</label><br><br>
+        <input type="checkbox" id="categorie7" class ="checkboxes" v-model="categorieNames[6]"/>
+        <label for="alcohol">{{categorieValues[6]}}</label><br><br>
+        <input type="checkbox" id="categorie8" class ="checkboxes" v-model="categorieNames[7]" />
+        <label for="alcohol">{{categorieValues[7]}}</label><br><br>
+        <input type="checkbox" id="categorie9" class ="checkboxes" v-model="categorieNames[8]" />
+        <label for="alcohol">{{categorieValues[8]}}</label><br><br>
+        <input type="checkbox" id="categorie10" class ="checkboxes" v-model="categorieNames[9]" />
+        <label for="alcohol">{{categorieValues[9]}}</label><br><br>
+        <input type="checkbox" id="categorie11" class ="checkboxes" v-model="categorieNames[10]" />
+        <label for="alcohol">{{categorieValues[10]}}</label><br><br>
       </div>
     </div>
     <hr>
@@ -62,20 +62,26 @@ export default {
   data: function () {
     return {
       alcohol: false,
-      categorie: [], 
+      categorieNames: [], 
       glas1: false,
       glas2: false,
 
       hover: false,
-      categories:[],
+      categorieValues:[],
       glases:[],
+      categories: [],
+
+      tempCategorie:{
+        categorieValue: false,
+        categorieName: '',
+      },
     };
   },
 
   methods: {
     setCategoriesFalse(){
       for(let i = 0; i < 11; i++ ){
-        this.categorie[i] = false;
+        this.categorieValues[i] = false;
       }
     },
 
@@ -99,9 +105,19 @@ export default {
         }
       });      
     },
+
+    fillCategories(){
+        for(let i = 0; i < 11; i++ ){
+          this.tempCategorie.categorieName = this.categorieNames[i];
+          this.tempCategorie.categorieValue = this.categorieValues[i];
+          this.categories[i] = this.tempCategorie;
+        }
+        console.log(this.categories);
+    },
+
     updateCategories(){
       for(let i = 0; i< 11 ; i++){
-        this.$emit('categorie1Selected', this.categorie[i], this.categories[i]);
+        this.$emit('categorie1Selected', this.categorieValues[i], this.categorieNames[i]);
       }
     }
   },
@@ -111,6 +127,7 @@ export default {
     this.setCategoriesFalse();
   },
   updated: function(){
+    this.fillCategories();
     this.updateCategories();
   },
 };
