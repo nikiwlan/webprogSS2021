@@ -1,52 +1,125 @@
 <template>
-  <body class = "filter">
-    <div class = "heading">
+  <body class="filter">
+    <div class="heading">
       <h1>Filtern nach:</h1>
     </div>
-    <hr>
-    <div>  
-      <h2>Alkohol</h2>  
-      <div class = "attributes">
-        <input type="checkbox" id="alcohol" class ="checkboxes" v-model="alcohol" />
+    <hr />
+    <div>
+      <h2>Alkohol</h2>
+      <div class="attributes">
+        <input
+          type="checkbox"
+          id="alcohol"
+          class="checkboxes"
+          v-model="alcohol"
+        />
         <label for="alcohol">alkoholfrei ?</label>
       </div>
     </div>
-    <hr>
-    <div class = "categories">
+    <hr />
+    <div class="categories">
       <h2>Kategorien</h2>
-      <div class = "attributes">
-        <input type="checkbox" id="categorie1" class ="checkboxes" v-model="categorieValues[0]" />
-        <label for="alcohol">{{categorieNames[0]}}</label><br><br>
-        <input type="checkbox" id="categorie2" class ="checkboxes" v-model="categorieValues[1]" />
-        <label for="alcohol">{{categorieNames[1]}}</label><br><br>
-        <input type="checkbox" id="categorie3" class ="checkboxes" v-model="categorieValues[2]" />
-        <label for="alcohol">{{categorieNames[2]}}</label><br><br>
-        <input type="checkbox" id="categorie4" class ="checkboxes" v-model="categorieValues[3]" />
-        <label for="alcohol">{{categorieNames[3]}}</label><br><br>
-        <input type="checkbox" id="categorie5" class ="checkboxes" v-model="categorieValues[4]" />
-        <label for="alcohol">{{categorieNames[4]}}</label><br><br>
-        <input type="checkbox" id="categorie6" class ="checkboxes" v-model="categorieValues[5]" />
-        <label for="alcohol">{{categorieNames[5]}}</label><br><br>
-        <input type="checkbox" id="categorie7" class ="checkboxes" v-model="categorieValues[6]"/>
-        <label for="alcohol">{{categorieNames[6]}}</label><br><br>
-        <input type="checkbox" id="categorie8" class ="checkboxes" v-model="categorieValues[7]" />
-        <label for="alcohol">{{categorieNames[7]}}</label><br><br>
-        <input type="checkbox" id="categorie9" class ="checkboxes" v-model="categorieValues[8]" />
-        <label for="alcohol">{{categorieNames[8]}}</label><br><br>
-        <input type="checkbox" id="categorie10" class ="checkboxes" v-model="categorieValues[9]" />
-        <label for="alcohol">{{categorieNames[9]}}</label><br><br>
-        <input type="checkbox" id="categorie11" class ="checkboxes" v-model="categorieValues[10]" />
-        <label for="alcohol">{{categorieNames[10]}}</label><br><br>
+      <div class="attributes">
+        <input
+          type="checkbox"
+          id="categorie1"
+          class="checkboxes"
+          v-model="categorieValues[0]"
+        />
+        <label for="alcohol">{{ categorieNames[0] }}</label
+        ><br /><br />
+        <input
+          type="checkbox"
+          id="categorie2"
+          class="checkboxes"
+          v-model="categorieValues[1]"
+        />
+        <label for="alcohol">{{ categorieNames[1] }}</label
+        ><br /><br />
+        <input
+          type="checkbox"
+          id="categorie3"
+          class="checkboxes"
+          v-model="categorieValues[2]"
+        />
+        <label for="alcohol">{{ categorieNames[2] }}</label
+        ><br /><br />
+        <input
+          type="checkbox"
+          id="categorie4"
+          class="checkboxes"
+          v-model="categorieValues[3]"
+        />
+        <label for="alcohol">{{ categorieNames[3] }}</label
+        ><br /><br />
+        <input
+          type="checkbox"
+          id="categorie5"
+          class="checkboxes"
+          v-model="categorieValues[4]"
+        />
+        <label for="alcohol">{{ categorieNames[4] }}</label
+        ><br /><br />
+        <input
+          type="checkbox"
+          id="categorie6"
+          class="checkboxes"
+          v-model="categorieValues[5]"
+        />
+        <label for="alcohol">{{ categorieNames[5] }}</label
+        ><br /><br />
+        <input
+          type="checkbox"
+          id="categorie7"
+          class="checkboxes"
+          v-model="categorieValues[6]"
+        />
+        <label for="alcohol">{{ categorieNames[6] }}</label
+        ><br /><br />
+        <input
+          type="checkbox"
+          id="categorie8"
+          class="checkboxes"
+          v-model="categorieValues[7]"
+        />
+        <label for="alcohol">{{ categorieNames[7] }}</label
+        ><br /><br />
+        <input
+          type="checkbox"
+          id="categorie9"
+          class="checkboxes"
+          v-model="categorieValues[8]"
+        />
+        <label for="alcohol">{{ categorieNames[8] }}</label
+        ><br /><br />
+        <input
+          type="checkbox"
+          id="categorie10"
+          class="checkboxes"
+          v-model="categorieValues[9]"
+        />
+        <label for="alcohol">{{ categorieNames[9] }}</label
+        ><br /><br />
+        <input
+          type="checkbox"
+          id="categorie11"
+          class="checkboxes"
+          v-model="categorieValues[10]"
+        />
+        <label for="alcohol">{{ categorieNames[10] }}</label
+        ><br /><br />
       </div>
     </div>
-    <hr>
-    <div class = "glases">
+    <hr />
+    <div class="glases">
       <h2>Gläser</h2>
-      <div class = "attributes">
-        <input type="checkbox" id="glas1" class ="checkboxes" v-model="glas1" />
-        <label for="alcohol">{{glases[1]}}</label><br><br>
-        <input type="checkbox" id="glas2" class ="checkboxes" v-model="glas2" />
-       <label for="alcohol">{{glases[2]}}</label><br><br>
+      <div class="attributes">
+        <input type="checkbox" id="glas1" class="checkboxes" v-model="glas1" />
+        <label for="alcohol">{{ glases[1] }}</label
+        ><br /><br />
+        <input type="checkbox" id="glas2" class="checkboxes" v-model="glas2" />
+        <label for="alcohol">{{ glases[2] }}</label
+        ><br /><br />
       </div>
     </div>
   </body>
@@ -62,57 +135,74 @@ export default {
   data: function () {
     return {
       alcohol: false,
-      categorieNames: [], 
+      categorieNames: [],
+      glas1: false,
+      glas2: false,
 
       hover: false,
-      categorieValues:[],
+      categorieValues: [],
+      glases: [],
       categories: [],
 
-      tempCategorie:{
+      tempCategorie: {
         categorieValue: false,
-        categorieName: '',
+        categorieName: "",
       },
     };
   },
 
   methods: {
-    setCategoriesFalse(){
-      for(let i = 0; i < 11; i++ ){
+    setCategoriesFalse() {
+      for (let i = 0; i < 11; i++) {
         this.categorieValues[i] = false;
       }
     },
 
     loadCategories() {
-      let api =
-        "https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list";
+      let api = "https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list";
       this.axios.get(api).then((response) => {
         console.log(response.data);
-        for(let i = 0; i< response.data.drinks.length ; i++){
+        for (let i = 0; i < response.data.drinks.length; i++) {
           this.categorieNames[i] = response.data.drinks[i].strCategory;
         }
-      });      
+      });
     },
-
-    fillCategories(){
-        for(let i = 0; i < 11; i++ ){
-          this.tempCategorie.categorieName = this.categorieNames[i];
-          this.tempCategorie.categorieValue = this.categorieValues[i];
-          this.categories[i] = this.tempCategorie;
+    loadGlases() {
+      let api = "https://www.thecocktaildb.com/api/json/v1/1/list.php?g=list";
+      this.axios.get(api).then((response) => {
+        console.log(response.data);
+        for (let i = 0; i < response.data.drinks.length; i++) {
+          this.glases[i] = response.data.drinks[i].strGlass;
         }
-        console.log(this.categories);
+      });
     },
 
-    updateCategories(){
-      for(let i = 0; i< 11 ; i++){
-        this.$emit('categorie1Selected', this.categorieValues[i], this.categorieNames[i]);
+    fillCategories() {
+      for (let i = 0; i < 11; i++) {
+        this.tempCategorie.categorieName = this.categorieNames[i];
+        this.tempCategorie.categorieValue = this.categorieValues[i];
+        this.categories[i] = this.tempCategorie;
       }
-    }
+      console.log(this.categories);
+    },
+
+    updateCategories() {
+      for (let i = 0; i < 11; i++) {
+        this.$emit(
+          "categorie1Selected",
+          this.categorieValues[i],
+          this.categorieNames[i]
+        );
+      }
+    },
   },
   created: function () {
     this.loadCategories();
+    this.loadGlases();
     this.setCategoriesFalse();
+    this.fillCategories();
   },
-  updated: function(){
+  updated: function () {
     this.fillCategories();
     this.updateCategories();
   },
@@ -128,25 +218,25 @@ export default {
   flex-flow: column;
 }
 
-.heading{
+.heading {
   font-size: 14px;
 }
 
-div{
+div {
   padding: 0px 50px 0px 50px;
   margin-top: 20px;
   margin-bottom: 30px;
 }
 
-.attributes{
+.attributes {
   text-align: left;
   padding: 0px 50px 0px 0px;
   font-size: 20px;
 }
 
-.checkboxes{
-  width: 18px; height: 18px;
+.checkboxes {
+  width: 18px;
+  height: 18px;
   margin-right: 10px;
-  }
-
+}
 </style>
