@@ -23,6 +23,8 @@ export default {
   data() {
     return {
       cocktailList: [],
+      searchFieldList: [],
+      alcoholicList: [],
     };
   },
   props: ["categorie", "searchField"],
