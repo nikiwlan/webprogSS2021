@@ -187,13 +187,7 @@ export default {
     },
 
     updateCategories() {
-      for (let i = 0; i < 11; i++) {
-        this.$emit(
-          "categorie1Selected",
-          this.categorieValues[i],
-          this.categorieNames[i]
-        );
-      }
+      this.$emit("categoriesSelected", this.categories);
     },
   },
   created: function () {
