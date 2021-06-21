@@ -1,7 +1,7 @@
 <template>
   <body>
     <FilterField @categoriesSelected="getCategorie1" />
-    <TileMap :categorie="categorie" :searchField="searchField"/>
+    <TileMap :categorie="categorie" :searchField="searchField" />
   </body>
 </template>
 
@@ -13,20 +13,26 @@ import FilterField from "./FilterField.vue";
 
 export default {
   name: "Main",
-  data: () =>{
-    return{
+  data: () => {
+    return {
       categories: [],
-    }
+    };
   },
   props: ["searchField"],
   components: {
     TileMap,
     FilterField,
   },
-  methods:{
-    getCategorie1(cat){
-      this.categories = cat;
-      console.log("Main.vue --> categories:   " + this.categories);
+  methods: {
+    getCategorie1(cat) {
+      this.categories = [0];
+      let index = 0;
+      for (let i = 0; i < 11; i++) {
+        if (cat[i].categorieValue == true) {
+          this.categories[index] = cat[i].categorieNames;
+          index++;
+        }
+      }
     },
   },
 };
@@ -35,7 +41,7 @@ export default {
 
 <style scoped>
 body {
-    margin: auto;
+  margin: auto;
   display: flex;
   justify-content: center;
   width: auto;
@@ -45,5 +51,4 @@ body {
   display: flex;
   flex-flow: row;
 }
-
 </style>
