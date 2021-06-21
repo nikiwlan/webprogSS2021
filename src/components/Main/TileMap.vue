@@ -61,8 +61,8 @@ export default {
     if (this.searchField != "") {
       api = api + this.searchField;
       this.axios.get(api).then((response) => {
-        if (response.data) {
-          this.cocktailList = [];
+        this.cocktailList = [];
+        if (response.data.drinks != null) {
           for (let i = 0; i < response.data.drinks.length; i++) {
             this.cocktailList[this.cocktailList.length] =
               response.data.drinks[i].idDrink;
@@ -123,9 +123,8 @@ export default {
       if (this.searchField != "") {
         api = api + this.searchField;
         this.axios.get(api).then((response) => {
-          console.log(response.data);
-          if (response.data) {
-            this.cocktailList = [];
+          this.cocktailList = [];
+          if (response.data.drinks != null) {
             for (let i = 0; i < response.data.drinks.length; i++) {
               this.cocktailList[this.cocktailList.length] =
                 response.data.drinks[i].idDrink;
