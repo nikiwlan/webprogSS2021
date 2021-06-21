@@ -27,25 +27,6 @@ export default {
   },
   props: ["categorie", "searchField"],
   methods: {
-    updateCategories() {
-      //console.log(this.categorie.categorieValue);
-      // if (this.categorie.categorieValue) {
-      //   console.log("123123123");
-      //   this.loadCategorie1();
-      //   console.log(this.categorie.categorieName);
-      // }
-    },
-
-    loadCategorie1() {
-      let api =
-        "https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Ordinary_Drink";
-      this.axios.get(api).then((response) => {
-        console.log(response.data);
-        for (let i = 0; i < response.data.drinks.length; i++) {
-          this.categorie1[i] = response.data.drinks[i].strGlass;
-        }
-      });
-    },
 
     getAllCocktails() {
       console.log("Fetching All Cocktails...");
@@ -73,10 +54,6 @@ export default {
           }
         });
     },
-  },
-
-  updated() {
-    this.updateCategories();
   },
 
   beforeCreate: function () {
@@ -120,6 +97,26 @@ export default {
     }
   },
   watch: {
+    categorie: function(){
+
+            console.log("asdfa");
+      console.log(this.categorie.categorieValue);
+      // if (this.categorie.categorieValue) {
+      //   console.log("123123123");
+      //   this.loadCategorie1();
+      //   console.log(this.categorie.categorieName);
+      // }
+
+      //       let api =
+      //   "https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Ordinary_Drink";
+      // this.axios.get(api).then((response) => {
+      //   console.log(response.data);
+      //   for (let i = 0; i < response.data.drinks.length; i++) {
+      //     this.categorie1[i] = response.data.drinks[i].strGlass;
+      //   }
+
+    },
+
     searchField: function () {
       let api =
         "https://" + "www.thecocktaildb.com/api/json/v1/1/search.php?s=";
