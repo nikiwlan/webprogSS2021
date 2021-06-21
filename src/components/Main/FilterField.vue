@@ -143,11 +143,6 @@ export default {
       categorieValues: [],
       glases: [],
       categories: [],
-
-      tempCategorie: {
-        categorieValue: false,
-        categorieName: "",
-      },
     };
   },
 
@@ -178,10 +173,14 @@ export default {
     },
 
     fillCategories() {
+      let tempCats = [];
       for (let i = 0; i < 11; i++) {
-        this.tempCategorie.categorieName = this.categorieNames[i];
-        this.tempCategorie.categorieValue = this.categorieValues[i];
-        this.categories[i] = this.tempCategorie;
+        tempCats[i] = { categorieValue: false, categorieName: "" };
+      }
+      for (let i = 0; i < 11; i++) {
+        tempCats[i].categorieName = this.categorieNames[i];
+        tempCats[i].categorieValue = this.categorieValues[i];
+        this.categories[i] = tempCats[i];
       }
       console.log(this.categories);
     },
