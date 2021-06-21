@@ -29,7 +29,7 @@ export default {
       let index = 0;
       for (let i = 0; i < 11; i++) {
         if (cat[i].categorieValue == true) {
-          this.categories[index] = cat[i].categorieNames;
+          this.categories[index] = cat[i].categorieName;
           index++;
         }
       }
