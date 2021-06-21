@@ -1,7 +1,7 @@
 <template>
   <body class="header">
     <h1>Cocktails4You</h1>
-    <SearchField />
+    <SearchField @searchFieldMessage="updateSearch" />
     <Dice />
   </body>
 </template>
@@ -16,6 +16,11 @@ export default {
   components: {
     SearchField,
     Dice,
+  },
+  methods: {
+    updateSearch(message) {
+      this.$emit("searchFieldMessage", message);
+    },
   },
 };
 </script>
