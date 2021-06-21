@@ -62,7 +62,7 @@ export default {
   data: function () {
     return {
       alcohol: false,
-      categorie: [],        
+      categorie: [], 
       glas1: false,
       glas2: false,
 
@@ -73,6 +73,12 @@ export default {
   },
 
   methods: {
+    setCategoriesFalse(){
+      for(let i = 0; i < 11; i++ ){
+        this.categorie[i] = false;
+      }
+    },
+
     loadCategories() {
       let api =
         "https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list";
@@ -95,15 +101,14 @@ export default {
     },
     updateCategories(){
       for(let i = 0; i< 11 ; i++){
-        if(this.categorie[i]){
         this.$emit('categorie1Selected', this.categorie[i], this.categories[i]);
-      }
       }
     }
   },
   created: function () {
     this.loadCategories();
     this.loadGlases();
+    this.setCategoriesFalse();
   },
   updated: function(){
     this.updateCategories();

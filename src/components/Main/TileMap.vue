@@ -25,15 +25,15 @@ export default {
       cocktailList: [],
     };
   },
-  props: ["cat", "searchField"],
+  props: ["categorie", "searchField"],
   methods: {
     updateCategories() {
-      console.log("12");
-      if (this.cat.categorieValue) {
-        console.log("123123123");
-        this.loadCategorie1();
-        console.log(this.cat.categorieName);
-      }
+      //console.log(this.categorie.categorieValue);
+      // if (this.categorie.categorieValue) {
+      //   console.log("123123123");
+      //   this.loadCategorie1();
+      //   console.log(this.categorie.categorieName);
+      // }
     },
 
     loadCategorie1() {
@@ -75,9 +75,9 @@ export default {
     },
   },
 
-  /* updated() {
+  updated() {
     this.updateCategories();
-  },*/
+  },
 
   beforeCreate: function () {
     let api = "https://" + "www.thecocktaildb.com/api/json/v1/1/search.php?s=";
