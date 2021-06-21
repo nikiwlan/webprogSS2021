@@ -28,9 +28,9 @@ export default {
   props: ["categories", "searchField"],
   methods: {
     getCocktails() {
-      let api =
-        "https://" + "www.thecocktaildb.com/api/json/v1/1/search.php?s=";
       if (this.searchField != "") {
+        let api =
+          "https://" + "www.thecocktaildb.com/api/json/v1/1/search.php?s=";
         api = api + this.searchField;
         this.axios.get(api).then((response) => {
           this.cocktailList = [];
@@ -112,7 +112,7 @@ export default {
       let tempList = [];
       let index = 0;
       let tempCocktail;
-      if (this.categories != null) {
+      if (this.categories != 0) {
         for (let i; i < this.cocktailList.length; i++) {
           tempCocktail = this.getCocktailByID(this.cocktailList[i]);
           for (let j; j < this.categories.length; j++) {
@@ -191,18 +191,6 @@ export default {
   position: absolute;
   font-size: 20px;
 }
-
-/* .tile-map {
-  float: center;
-  width: fit-content;
-  margin: 50px auto auto auto;
-  border: 15px black;
-  padding: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  max-width: 1000px;
-} */
 
 .tile-map {
   width: fit-content;
