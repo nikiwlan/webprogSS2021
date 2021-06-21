@@ -63,12 +63,9 @@ export default {
     return {
       alcohol: false,
       categorieNames: [], 
-      glas1: false,
-      glas2: false,
 
       hover: false,
       categorieValues:[],
-      glases:[],
       categories: [],
 
       tempCategorie:{
@@ -79,11 +76,11 @@ export default {
   },
 
   methods: {
-    // setCategoriesFalse(){
-    //   for(let i = 0; i < 11; i++ ){
-    //     this.categorieValues[i] = false;
-    //   }
-    // },
+    setCategoriesFalse(){
+      for(let i = 0; i < 11; i++ ){
+        this.categorieValues[i] = false;
+      }
+    },
 
     loadCategories() {
       let api =
@@ -92,16 +89,6 @@ export default {
         console.log(response.data);
         for(let i = 0; i< response.data.drinks.length ; i++){
           this.categorieNames[i] = response.data.drinks[i].strCategory;
-        }
-      });      
-    },
-    loadGlases() {
-      let api =
-        "https://www.thecocktaildb.com/api/json/v1/1/list.php?g=list";
-      this.axios.get(api).then((response) => {
-        console.log(response.data);
-        for(let i = 0; i< response.data.drinks.length ; i++){
-          this.glases[i] = response.data.drinks[i].strGlass;
         }
       });      
     },
@@ -123,8 +110,7 @@ export default {
   },
   created: function () {
     this.loadCategories();
-    this.loadGlases();
-    // this.setCategoriesFalse();
+    this.setCategoriesFalse();
   },
   updated: function(){
     this.fillCategories();
