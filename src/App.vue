@@ -1,10 +1,12 @@
 <template>
-  <div class="backgroundImg"></div>
-  <body class="main">
-    <Header @searchFieldMessage="updateSearch" />
-    <Main :searchField="searchField" />
-    <Footer />
-  </body>
+  <div>
+    <div class="backgroundImg"></div>
+    <body class="main">
+      <Header @searchFieldMessage="updateSearch" />
+      <Main :searchField="searchField" />
+      <Footer />
+    </body>
+  </div>
 </template>
 
 <script>
@@ -57,8 +59,8 @@ body {
 
 .backgroundImg {
   position: fixed;
-  height:3000px;
-  width:10000px;
+  height: 3000px;
+  width: 10000px;
   background-image: url("../content/strand-palmen-1.jpg");
   background-position: bottom center;
   background-repeat: no-repeat;
