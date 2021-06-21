@@ -11,9 +11,18 @@
           type="checkbox"
           id="alcohol"
           class="checkboxes"
-          v-model="alcohol"
+          v-model="alcoholFree"
         />
-        <label for="alcohol">alkoholfrei ?</label>
+        <label for="alcohol">alkoholfrei</label>
+      </div>
+      <div class="attributes">
+        <input
+          type="checkbox"
+          id="alcohol"
+          class="checkboxes"
+          v-model="alcoholic"
+        />
+        <label for="alcohol">alkoholisch</label>
       </div>
     </div>
     <hr />
@@ -134,6 +143,9 @@ export default {
   name: "FilterField",
   data: function () {
     return {
+      alcoholFree: false,
+      alcoholic: false,
+
       alcohol: false,
       categorieNames: [],
       glas1: false,
@@ -182,12 +194,17 @@ export default {
         tempCats[i].categorieValue = this.categorieValues[i];
         this.categories[i] = tempCats[i];
       }
-      console.log(this.categories);
+    },
+
+    updateAlcohol() {
+      this.$emit("alcoholFreeSelected", this.alcoholFree);
+      this.$emit("alcoholicSelected", this.alcoholic);
     },
 
     updateCategories() {
       this.$emit("categoriesSelected", this.categories);
     },
+
   },
   created: function () {
     this.loadCategories();
@@ -198,6 +215,7 @@ export default {
   updated: function () {
     this.fillCategories();
     this.updateCategories();
+    this.updateAlcohol();
   },
 };
 </script>

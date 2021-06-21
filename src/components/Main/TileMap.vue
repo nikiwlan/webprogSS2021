@@ -1,7 +1,7 @@
 <template>
   <body class="view">
     <div class="heading">
-      <h2>Lass dich inspirieren {{categories}}</h2>
+      <h2>Lass dich inspirieren</h2>
     </div>
     <div class="tile-map">
       <div v-for="cocktailID in cocktailList" :key="cocktailID">
@@ -103,6 +103,7 @@ export default {
 
             console.log("asdfa");
       console.log(this.categories[0]);
+      console.log(this.categories[1]);
       // if (this.categorie.categorieValue) {
       //   console.log("123123123");
       //   this.loadCategorie1();
