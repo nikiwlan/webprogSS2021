@@ -1,7 +1,23 @@
 <template>
   <body>
-    <FilterField @categoriesSelected="getCategorie" @alcoholFreeSelected="getAlcoholFree" @alcoholicSelected="getAlcoholic" />
-    <TileMap :categories="categories" :searchField="searchField" :alcoholFree="alcoholFree" :alcoholic="alcoholic"  />
+    <FilterField
+      @categoriesSelected="getCategorie"
+      @alcoholFreeSelected="getAlcoholFree"
+      @alcoholicSelected="getAlcoholic"
+    />
+    <TileMap
+      v-if="selectedID == 0"
+      :categories="categories"
+      :searchField="searchField"
+      :alcoholFree="alcoholFree"
+      :alcoholic="alcoholic"
+      @selectedCocktailID="selectCocktail"
+    />
+    <CocktailDetails
+      v-else
+      :selectedID="selectedID"
+      @selectedCocktailID="selectCocktail"
+    ></CocktailDetails>
   </body>
 </template>
 
@@ -11,19 +27,23 @@ import TileMap from "./TileMap.vue";
 
 import FilterField from "./FilterField.vue";
 
+import CocktailDetails from "./CocktailDetails.vue";
+
 export default {
   name: "Main",
   data: () => {
     return {
       categories: [],
-      alcoholFree: '',
-      alcoholic: '',
+      alcoholFree: "",
+      alcoholic: "",
+      selectedID: 0,
     };
   },
   props: ["searchField"],
   components: {
     TileMap,
     FilterField,
+    CocktailDetails,
   },
   methods: {
     getCategorie(cat) {
@@ -37,12 +57,16 @@ export default {
       }
     },
 
-    getAlcoholFree(alcFree){
+    selectCocktail(id) {
+      this.selectedID = id;
+    },
+
+    getAlcoholFree(alcFree) {
       //console.log(alcFree);
       this.alcoholFree = alcFree;
     },
 
-    getAlcoholic(alc){
+    getAlcoholic(alc) {
       //console.log(alc);
       this.alcoholic = alc;
     },

@@ -5,7 +5,10 @@
     </div>
     <div class="tile-map">
       <div v-for="cocktailID in cocktailList" :key="cocktailID">
-        <Tile :cocktailID="cocktailID"></Tile>
+        <Tile
+          :cocktailID="cocktailID"
+          @selectedCocktailID="selectCocktail"
+        ></Tile>
       </div>
     </div>
   </body>
@@ -27,6 +30,10 @@ export default {
   },
   props: ["categories", "searchField", "alcoholFree", "alcoholic"],
   methods: {
+    selectCocktail(id) {
+      this.$emit("selectedCocktailID", id);
+    },
+
     getCocktails() {
       if (this.searchField != "") {
         let api =
