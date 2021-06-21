@@ -2,7 +2,7 @@
   <body class="header">
     <h1>Cocktails4You</h1>
     <SearchField @searchFieldMessage="updateSearch" />
-    <Dice />
+    <Dice @selectedCocktailID="selectCocktail" />
   </body>
 </template>
 
@@ -20,6 +20,9 @@ export default {
   methods: {
     updateSearch(message) {
       this.$emit("searchFieldMessage", message);
+    },
+    selectCocktail(id) {
+      this.$emit("selectedCocktailID", id);
     },
   },
 };

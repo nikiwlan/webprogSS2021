@@ -39,7 +39,7 @@ export default {
       selectedID: 0,
     };
   },
-  props: ["searchField"],
+  props: ["searchField", "randomCocktail"],
   components: {
     TileMap,
     FilterField,
@@ -69,6 +69,11 @@ export default {
     getAlcoholic(alc) {
       //console.log(alc);
       this.alcoholic = alc;
+    },
+  },
+  watch: {
+    randomCocktail: function () {
+      this.selectedID = this.randomCocktail;
     },
   },
 };

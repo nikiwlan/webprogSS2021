@@ -28,7 +28,7 @@ export default {
       let api = "https://www.thecocktaildb.com/api/json/v1/1/random.php";
       this.axios.get(api).then((response) => {
         console.log(response.data);
-        alert(response.data.drinks[0].strDrink);
+        this.$emit("selectedCocktailID", response.data.drinks[0].idDrink);
       });
     },
   },

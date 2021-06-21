@@ -2,8 +2,11 @@
   <div>
     <div class="backgroundImg"></div>
     <body class="main">
-      <Header @searchFieldMessage="updateSearch" />
-      <Main :searchField="searchField" />
+      <Header
+        @searchFieldMessage="updateSearch"
+        @selectedCocktailID="selectCocktail"
+      />
+      <Main :searchField="searchField" :randomCocktail="randomCocktail" />
       <Footer />
     </body>
   </div>
@@ -19,6 +22,7 @@ export default {
   data() {
     return {
       searchField: "",
+      randomCocktail: 0,
     };
   },
   components: {
@@ -29,6 +33,9 @@ export default {
   methods: {
     updateSearch(message) {
       this.searchField = message;
+    },
+    selectCocktail(id) {
+      this.randomCocktail = id;
     },
   },
 };
