@@ -27,7 +27,7 @@ export default {
       alcoholicList: [],
     };
   },
-  props: ["categorie", "searchField"],
+  props: ["categories", "searchField"],
   methods: {
 
     getAllCocktails() {
@@ -99,10 +99,10 @@ export default {
     }
   },
   watch: {
-    categorie: function(){
+    categories: function(){
 
             console.log("asdfa");
-      console.log(this.categorie.categorieValue);
+      console.log(this.categories[0]);
       // if (this.categorie.categorieValue) {
       //   console.log("123123123");
       //   this.loadCategorie1();
