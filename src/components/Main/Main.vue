@@ -38,12 +38,12 @@ export default {
     },
 
     getAlcoholFree(alcFree){
-      console.log(alcFree);
+      //console.log(alcFree);
       this.alcoholFree = alcFree;
     },
 
     getAlcoholic(alc){
-      console.log(alc);
+      //console.log(alc);
       this.alcoholic = alc;
     },
   },

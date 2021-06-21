@@ -115,8 +115,13 @@ export default {
       if (this.categories != 0) {
         for (let i = 0; i < this.cocktailList.length; i++) {
           tempCocktail = this.getCocktailByID(this.cocktailList[i]);
+<<<<<<< HEAD
           for (let j = 0; j < this.categories.length; j++) {
             if (tempCocktail.strCategory == this.categories[j]) {
+=======
+          for (let j; j < this.categories.length; j++) {
+            if (tempCocktail.strCategory === this.categories[j]) {
+>>>>>>> dd1a88364195b5bfa0fe4197476b7f889057a0c8
               tempList[index] = this.cocktailList[i];
               index++;
             }

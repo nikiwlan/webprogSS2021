@@ -119,18 +119,6 @@
         ><br /><br />
       </div>
     </div>
-    <hr />
-    <div class="glases">
-      <h2>Gläser</h2>
-      <div class="attributes">
-        <input type="checkbox" id="glas1" class="checkboxes" v-model="glas1" />
-        <label for="alcohol">{{ glases[1] }}</label
-        ><br /><br />
-        <input type="checkbox" id="glas2" class="checkboxes" v-model="glas2" />
-        <label for="alcohol">{{ glases[2] }}</label
-        ><br /><br />
-      </div>
-    </div>
   </body>
 </template>
 
@@ -148,12 +136,9 @@ export default {
 
       alcohol: false,
       categorieNames: [],
-      glas1: false,
-      glas2: false,
 
       hover: false,
       categorieValues: [],
-      glases: [],
       categories: [],
     };
   },
@@ -168,18 +153,9 @@ export default {
     loadCategories() {
       let api = "https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list";
       this.axios.get(api).then((response) => {
-        console.log(response.data);
+        //console.log(response.data);
         for (let i = 0; i < response.data.drinks.length; i++) {
           this.categorieNames[i] = response.data.drinks[i].strCategory;
-        }
-      });
-    },
-    loadGlases() {
-      let api = "https://www.thecocktaildb.com/api/json/v1/1/list.php?g=list";
-      this.axios.get(api).then((response) => {
-        console.log(response.data);
-        for (let i = 0; i < response.data.drinks.length; i++) {
-          this.glases[i] = response.data.drinks[i].strGlass;
         }
       });
     },
@@ -208,7 +184,6 @@ export default {
   },
   created: function () {
     this.loadCategories();
-    this.loadGlases();
     this.setCategoriesFalse();
     this.fillCategories();
   },
