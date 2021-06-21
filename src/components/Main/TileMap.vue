@@ -73,7 +73,7 @@ export default {
 
     getCocktailByID(id) {
       this.axios
-        .get("https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=" + id)
+        .get("https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=" + id)
         .then((response) => {
           if (response.data.drinks != null) {
             return response.data.drinks[0];
@@ -88,7 +88,7 @@ export default {
       let index = 0;
       let tempCocktail;
       if (index == 0) {
-        for (let i; i < this.cocktailList.length; i++) {
+        for (let i = 0; i < this.cocktailList.length; i++) {
           tempCocktail = this.getCocktailByID(this.cocktailList[i]);
           if (tempCocktail.strAlcoholic == "Alcoholic") {
             tempList[index] = this.cocktailList[i];
@@ -97,7 +97,7 @@ export default {
         }
         this.cocktailList = tempList;
       } else if (index == 1) {
-        for (let i; i < this.cocktailList.length; i++) {
+        for (let i = 0; i < this.cocktailList.length; i++) {
           tempCocktail = this.getCocktailByID(this.cocktailList[i]);
           if (tempCocktail.strAlcoholic == "Non_Alcoholic") {
             tempList[index] = this.cocktailList[i];
@@ -113,9 +113,9 @@ export default {
       let index = 0;
       let tempCocktail;
       if (this.categories != 0) {
-        for (let i; i < this.cocktailList.length; i++) {
+        for (let i = 0; i < this.cocktailList.length; i++) {
           tempCocktail = this.getCocktailByID(this.cocktailList[i]);
-          for (let j; j < this.categories.length; j++) {
+          for (let j = 0; j < this.categories.length; j++) {
             if (tempCocktail.strCategory == this.categories[j]) {
               tempList[index] = this.cocktailList[i];
               index++;
