@@ -20,6 +20,7 @@ import CocktailDetails from "../components/Main/CocktailDetails.vue";
 
 export default {
   name: "Details",
+  // props: ['selectedID'],
   data() {
     return {
       selectedID: this.$route.params.id,
