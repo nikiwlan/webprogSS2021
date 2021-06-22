@@ -4,7 +4,7 @@
       <CocktailDetails
         class="cocktailDetails"
         :selectedID="selectedID"
-        @selectedCocktailID="goBack" 
+        @goBack="goBack" 
       />
       <div class = "view-coktail">
         <p> The cocktail ID: {{ selectedID}}</p>
