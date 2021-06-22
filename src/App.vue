@@ -3,7 +3,8 @@
       <div class="backgroundImg"></div> 
     <div class="nav">
       <!-- <router-link :to="{ name: 'Home' }"> Home</router-link> -->
-      <router-link :to="{ name: 'Details' }"> Details 
+      <router-link :to="{ name: 'Details', params: {id: randomCocktail} }">  
+                                                    <!--cocktailID hier-->
         <p> da wo ich drauf klicke</p>
       </router-link>
     </div>
