@@ -1,6 +1,6 @@
 <template>
   <body>
-    <div class="browseCocktail" v-if="selectedID == 0">
+    <div class="browseCocktail">
       <FilterField
         @categoriesSelected="getCategorie"
         @alcoholFreeSelected="getAlcoholFree"
@@ -14,12 +14,6 @@
         @selectedCocktailID="selectCocktail"
       />
     </div>
-    <CocktailDetails
-      class="cocktailDetails"
-      v-else
-      :selectedID="selectedID"
-      @selectedCocktailID="selectCocktail"
-    ></CocktailDetails>
   </body>
 </template>
 
@@ -29,8 +23,6 @@ import TileMap from "./TileMap.vue";
 
 import FilterField from "./FilterField.vue";
 
-import CocktailDetails from "./CocktailDetails.vue";
-
 export default {
   name: "Main",
   data: () => {
@@ -38,14 +30,12 @@ export default {
       categories: [],
       alcoholFree: "",
       alcoholic: "",
-      selectedID: 0,
     };
   },
-  props: ["searchField", "randomCocktail"],
+  props: ["searchField"],
   components: {
     TileMap,
     FilterField,
-    CocktailDetails,
   },
   methods: {
     getCategorie(cat) {
@@ -60,7 +50,7 @@ export default {
     },
 
     selectCocktail(id) {
-      this.selectedID = id;
+      this.$emit("selectedCocktailID", id);
     },
 
     getAlcoholFree(alcFree) {
@@ -71,11 +61,6 @@ export default {
     getAlcoholic(alc) {
       //console.log(alc);
       this.alcoholic = alc;
-    },
-  },
-  watch: {
-    randomCocktail: function () {
-      this.selectedID = this.randomCocktail;
     },
   },
 };

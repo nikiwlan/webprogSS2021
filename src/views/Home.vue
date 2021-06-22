@@ -1,12 +1,9 @@
 <template>
   <div>
     <body class="main">
-      <Header
-        @searchFieldMessage="updateSearch"
-        @selectedCocktailID="selectCocktail"
-      />
-      <Main :searchField="searchField" :randomCocktail="randomCocktail" />
-      <Footer/>
+      <Header @searchFieldMessage="updateSearch" @selectedCocktailID="random" />
+      <Main :searchField="searchField" @selectedCocktailID="selected" />
+      <Footer />
     </body>
   </div>
 </template>
@@ -21,7 +18,7 @@ export default {
   data() {
     return {
       searchField: "",
-      randomCocktail: 0,
+      selectedID: 0,
     };
   },
   components: {
@@ -33,8 +30,11 @@ export default {
     updateSearch(message) {
       this.searchField = message;
     },
-    selectCocktail(id) {
-      this.randomCocktail = id;
+    random(id) {
+      this.selectedID = id;
+    },
+    selected(id) {
+      this.selectedID = id;
     },
   },
 };
