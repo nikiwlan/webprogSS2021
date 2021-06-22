@@ -1,7 +1,10 @@
 <template>
   <div>
     <body class="main">
-      <Header @searchFieldMessage="updateSearch" @selectedCocktailID="selected" />
+      <Header
+        @searchFieldMessage="updateSearch"
+        @selectedCocktailID="selected"
+      />
       <Main :searchField="searchField" @selectedCocktailID="selected" />
       <Footer />
     </body>
@@ -39,18 +42,19 @@ export default {
 </script>
 
 <style scoped>
-/* .main {
-  position: absolute;
+.main {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  /* position: absolute;
   top: 0;
   left: 0;
   bottom: 0;
-  width: 100%;
+  width: 100%; 
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
   display: table;
-  flex-flow: column;
-} */
+  flex-flow: column;*/
+}
 </style>
