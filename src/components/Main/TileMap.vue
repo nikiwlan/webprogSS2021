@@ -192,6 +192,7 @@ export default {
   float: center;
   width: fit-content;
   background-color: #fff1d6d7;
+  border-radius: 20px;
 }
 
 .heading {

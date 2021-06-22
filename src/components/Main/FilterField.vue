@@ -124,7 +124,6 @@
 
 
 <script>
-
 export default {
   name: "FilterField",
   data: function () {
@@ -182,7 +181,6 @@ export default {
       // triggered when User clicks on any of the Categorie Checkboxes
       this.$emit("categoriesSelected", this.categories);
     },
-
   },
   created: function () {
     this.loadCategories();
@@ -204,6 +202,7 @@ export default {
   background-color: #9dfcecd0;
   display: table;
   flex-flow: column;
+  border-radius: 10px;
 }
 
 .heading {
