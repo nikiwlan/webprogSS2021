@@ -1,16 +1,17 @@
 <template>
   <div>
     <body class="main">
-      <Header
-        @searchFieldMessage="updateSearch"
+      <CocktailDetails
+        class="cocktailDetails"
+        :selectedID="selectedID"
         @selectedCocktailID="selectCocktail"
-      />
+      ></CocktailDetails>
     </body>
   </div>
 </template>
 
 <script>
-import Header from "../components/Header/Header.vue";
+import CocktailDetails from "../components/Main/CocktailDetails.vue";
 
 export default {
   name: "Details",
@@ -18,10 +19,11 @@ export default {
     return {
       searchField: "",
       randomCocktail: 0,
+      selectedID: 0,
     };
   },
   components: {
-    Header,
+    CocktailDetails,
   },
   methods: {
     updateSearch(message) {
