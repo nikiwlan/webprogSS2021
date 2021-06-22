@@ -1,6 +1,6 @@
 import VueRouter from 'vue-router';
 import HomePage from './pages/Home/index.vue';
-import Detail from './pages/Detail/index.vue';
+import Detail from './pages/Details/index.vue';
 
 const routes = [{
         path: '/',
@@ -8,8 +8,8 @@ const routes = [{
         component: HomePage
     },
     {
-        path: '/detail',
-        name: 'Detail',
+        path: '/details',
+        name: 'Details',
         component: Detail
     },
 ];
