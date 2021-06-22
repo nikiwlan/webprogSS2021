@@ -1,19 +1,21 @@
 <template>
   <body>
-    <FilterField
-      @categoriesSelected="getCategorie"
-      @alcoholFreeSelected="getAlcoholFree"
-      @alcoholicSelected="getAlcoholic"
-    />
-    <TileMap
-      v-if="selectedID == 0"
-      :categories="categories"
-      :searchField="searchField"
-      :alcoholFree="alcoholFree"
-      :alcoholic="alcoholic"
-      @selectedCocktailID="selectCocktail"
-    />
+    <div class="browseCocktail" v-if="selectedID == 0">
+      <FilterField
+        @categoriesSelected="getCategorie"
+        @alcoholFreeSelected="getAlcoholFree"
+        @alcoholicSelected="getAlcoholic"
+      />
+      <TileMap
+        :categories="categories"
+        :searchField="searchField"
+        :alcoholFree="alcoholFree"
+        :alcoholic="alcoholic"
+        @selectedCocktailID="selectCocktail"
+      />
+    </div>
     <CocktailDetails
+      class="cocktailDetails"
       v-else
       :selectedID="selectedID"
       @selectedCocktailID="selectCocktail"
@@ -81,7 +83,7 @@ export default {
 
 
 <style scoped>
-body {
+.browseCocktail {
   margin: auto;
   display: flex;
   justify-content: center;
@@ -91,5 +93,8 @@ body {
   border-radius: 5px;
   display: flex;
   flex-flow: row;
+}
+
+.cocktailDetails {
 }
 </style>
