@@ -19,9 +19,11 @@ export default {
   },
   methods: {
     updateSearch(message) {
+      // Triggered when Search Field is changed
       this.$emit("searchFieldMessage", message);
     },
     selectCocktail(id) {
+      // Triggered when Dice Button is clicked
       this.$emit("selectedCocktailID", id);
     },
   },

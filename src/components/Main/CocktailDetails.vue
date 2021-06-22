@@ -39,6 +39,7 @@ export default {
   props: ["selectedID"],
   methods: {
     initIngredients() {
+      // the Ingridients are loaded into the Array
       this.setIngredient(this.tempCocktail.drinks[0].strIngredient1);
       this.setIngredient(this.tempCocktail.drinks[0].strIngredient2);
       this.setIngredient(this.tempCocktail.drinks[0].strIngredient3);
@@ -57,6 +58,7 @@ export default {
     },
 
     setIngredient(Ing) {
+      // Helper function to keep the code smaller
       if (Ing != null) {
         this.cocktail.ingredients[this.cocktail.ingredientsCount] = Ing;
         this.cocktail.ingredientsCount++;

@@ -39,6 +39,7 @@ export default {
   },
   methods: {
     getCategorie(cat) {
+      // Get Categories, that are selected on the Filter
       this.categories = [0];
       let index = 0;
       for (let i = 0; i < 11; i++) {
@@ -50,16 +51,17 @@ export default {
     },
 
     selectCocktail(id) {
+      // give Parent (Home.vue) the ID of the selected Cocktail
       this.$emit("selectedCocktailID", id);
     },
 
     getAlcoholFree(alcFree) {
-      //console.log(alcFree);
+      // Triggered when User clicks on "alkoholfrei"
       this.alcoholFree = alcFree;
     },
 
     getAlcoholic(alc) {
-      //console.log(alc);
+      // Triggered when User clicks on "alkoholisch"
       this.alcoholic = alc;
     },
   },

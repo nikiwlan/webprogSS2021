@@ -143,15 +143,16 @@ export default {
 
   methods: {
     setCategoriesFalse() {
+      // Init all CAtegories to be false, when site is visited
       for (let i = 0; i < 11; i++) {
         this.categorieValues[i] = false;
       }
     },
 
     loadCategories() {
+      // get all available categories from API
       let api = "https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list";
       this.axios.get(api).then((response) => {
-        //console.log(response.data);
         for (let i = 0; i < response.data.drinks.length; i++) {
           this.categorieNames[i] = response.data.drinks[i].strCategory;
         }
@@ -159,6 +160,7 @@ export default {
     },
 
     fillCategories() {
+      // fill the categories Array to be given to the parent (Main.vue)
       let tempCats = [];
       for (let i = 0; i < 11; i++) {
         tempCats[i] = { categorieValue: false, categorieName: "" };
@@ -171,11 +173,13 @@ export default {
     },
 
     updateAlcohol() {
+      // triggered when User clicks on any of the Alcohol Checkboxes
       this.$emit("alcoholFreeSelected", this.alcoholFree);
       this.$emit("alcoholicSelected", this.alcoholic);
     },
 
     updateCategories() {
+      // triggered when User clicks on any of the Categorie Checkboxes
       this.$emit("categoriesSelected", this.categories);
     },
 

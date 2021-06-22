@@ -1,7 +1,7 @@
 <template>
   <div>
     <body class="main">
-      <Header @searchFieldMessage="updateSearch" @selectedCocktailID="random" />
+      <Header @searchFieldMessage="updateSearch" @selectedCocktailID="selected" />
       <Main :searchField="searchField" @selectedCocktailID="selected" />
       <Footer />
     </body>
@@ -27,12 +27,11 @@ export default {
   },
   methods: {
     updateSearch(message) {
+      // Triggered when Search Terms are changed
       this.searchField = message;
     },
-    random(id) {
-      this.$router.push({ name: "Details", params: { id: id } });
-    },
     selected(id) {
+      // Triggered when User clicks on Tile or Dice Button
       this.$router.push({ name: "Details", params: { id: id } });
     },
   },
