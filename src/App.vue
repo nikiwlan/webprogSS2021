@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="backgroundImg"></div>
-    <button class="TESTbttn" v-on:click="goToDetails()">Next Page</button>
+    <button class="TESTbttn" v-on:click="goToDetails()" @mouseover="goToDetails()">Next Page</button>
     <div class="nav">
       <!-- <router-link :to="{ name: 'Home' }"> Home</router-link> -->
       <router-link :to="{ name: 'Details', params: { id: 11007 } }">
@@ -25,7 +25,7 @@ export default {
   methods: {
     goToDetails() {
       console.log("CLICK   s");
-      this.$router.push({ name: "Details" });
+      //this.$router.push({ name: "Details" });
       //this.$router.push('/details');
     },
   },
@@ -46,8 +46,8 @@ export default {
 }
 
 .TESTbttn {
-  height: 300px;
-  width: 100px;
-  z-index: 10;
+  height: 100px;
+  width: 300px;
+  background-color: #9dfcecaf;
 }
 </style>
