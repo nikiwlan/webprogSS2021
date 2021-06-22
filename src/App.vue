@@ -42,5 +42,6 @@ export default {
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
+  z-index: -1;
 }
 </style>

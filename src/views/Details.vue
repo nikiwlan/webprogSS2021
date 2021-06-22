@@ -1,8 +1,9 @@
 <template>
   <div>
     <body class="main">
-      <Header
-        @searchFieldMessage="updateSearch"
+      <CocktailDetails
+        class="cocktailDetails"
+        :selectedID="selectedID"
         @selectedCocktailID="selectCocktail"
       />
       <div class = "view-coktail">
@@ -14,8 +15,8 @@
 </template>
 
 <script>
-import Header from "../components/Header/Header.vue";
 import Footer from "../components/Footer/Footer.vue";
+import CocktailDetails from "../components/Main/CocktailDetails.vue";
 
 export default {
   name: "Details",
@@ -23,11 +24,12 @@ export default {
     return {
       searchField: "",
       randomCocktail: 0,
+      selectedID: 0,
     };
   },
   components: {
-    Header,
     Footer,
+    CocktailDetails,
   },
   methods: {
     updateSearch(message) {
