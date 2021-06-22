@@ -4,7 +4,7 @@
       <button class="TEST" @click="goToDetails">Next Page</button>
     <div class="nav">
       <!-- <router-link :to="{ name: 'Home' }"> Home</router-link> -->
-      <router-link :to="{ name: 'Details', params: {id: randomCocktail} }">  
+      <router-link :to="{ name: 'Details', params: {id: 11007} }">  
                                                     <!--cocktailID hier-->
         <p> da wo ich drauf klicke</p>
       </router-link>

@@ -7,7 +7,7 @@
         @selectedCocktailID="goBack" 
       />
       <div class = "view-coktail">
-        <p> The cocktail ID: {{ id}}</p>
+        <p> The cocktail ID: {{ selectedID}}</p>
       </div>
       <Footer/>
     </body>
@@ -22,8 +22,7 @@ export default {
   name: "Details",
   data() {
     return {
-      id: this.$route.params.id,
-      selectedID: 0,
+      selectedID: this.$route.params.id,
     };
   },
   components: {

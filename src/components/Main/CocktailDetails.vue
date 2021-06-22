@@ -74,6 +74,7 @@ export default {
       this.selectedID;
     this.axios.get(api).then((response) => {
       this.tempCocktail = response.data;
+      //console.log(response.data);
       this.cocktail.name = this.tempCocktail.drinks[0].strDrink;
       this.cocktail.category = this.tempCocktail.drinks[0].strCategory;
       if (this.tempCocktail.drinks[0].strAlcoholic != "Alcoholic") {
