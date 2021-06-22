@@ -80,6 +80,4 @@ export default {
   flex-flow: row;
 }
 
-.cocktailDetails {
-}
 </style>

@@ -37,18 +37,17 @@ export default {
 
 <style scoped>
 .main {
-  position: absolute;
+  margin:auto;
   top: 0;
   left: 0;
   bottom: 0;
-  width: 100%;
+  width: 80%;
   font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
   display: table;
   flex-flow: column;
+  border-radius: 20px;
 }
 
 .header {
