@@ -23,6 +23,7 @@ export default {
 
   methods: {
     searchFieldUpdate() {
+      // Triggered when User enters search terms
       this.$emit("searchFieldMessage", this.message);
     },
   },
