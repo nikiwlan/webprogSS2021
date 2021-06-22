@@ -1,20 +1,16 @@
 <template>
   <div>
+    <div class="nav">
+      <router-link :to="{ name: 'Home' }"> Home</router-link>
+      <router-link :to="{ name: 'Details' }">Details</router-link>
+    </div>
+    <router-view />
     <div class="backgroundImg"></div>
-    <body class="main">
-      <Header
-        @searchFieldMessage="updateSearch"
-        @selectedCocktailID="selectCocktail"
-      />
-      <Main :searchField="searchField" :randomCocktail="randomCocktail" />
-      <Footer />
-    </body>
+    <Footer />
   </div>
 </template>
 
 <script>
-import Header from "./components/Header/Header.vue";
-import Main from "./components/Main/Main.vue";
 import Footer from "./components/Footer/Footer.vue";
 
 export default {
@@ -26,8 +22,6 @@ export default {
     };
   },
   components: {
-    Header,
-    Main,
     Footer,
   },
   methods: {
@@ -42,7 +36,7 @@ export default {
 </script>
 
 <style>
-body {
+/* body {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -50,19 +44,7 @@ body {
   color: #2c3e50;
   display: table;
   flex-flow: column;
-}
-
-.main {
-  /* background-image: url("../content/strand-palmen-1.jpg");
-  background-repeat: no-repeat;
-  background-attachment: scroll;
-  background-size: cover; */
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-}
+} */
 
 .backgroundImg {
   position: fixed;

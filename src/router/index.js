@@ -1,21 +1,21 @@
-import VueRouter from 'vue-router';
-import HomePage from '../views/Home.vue';
-import Detail from '../views/Details.vue';
+import {createRouter, createWebHistory} from 'vue-router';
+import Home from '../views/Home.vue';
+import Details from '../views/Details.vue';
 
 const routes = [{
         path: '/',
         name: 'Home',
-        component: HomePage
+        component: Home
     },
     {
         path: '/details',
         name: 'Details',
-        component: Detail
+        component: Details
     },
 ];
 
-const router = VueRouter.createRouter({
-    history: VueRouter.createWebHistory(process.env.BABEL_URL),
+const router = createRouter({
+    history: createWebHistory(process.env.BABEL_URL),
     routes
 });
 
