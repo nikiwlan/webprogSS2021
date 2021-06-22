@@ -4,12 +4,10 @@
       <CocktailDetails
         class="cocktailDetails"
         :selectedID="selectedID"
-        @selectedCocktailID="selectCocktail"
+        @selectedCocktailID="goBack"
       />
-      <div class = "view-coktail">
-
-      </div>
-      <Footer/>
+      <div class="view-coktail"></div>
+      <Footer />
     </body>
   </div>
 </template>
@@ -22,8 +20,6 @@ export default {
   name: "Details",
   data() {
     return {
-      searchField: "",
-      randomCocktail: 0,
       selectedID: 0,
     };
   },
@@ -32,10 +28,7 @@ export default {
     CocktailDetails,
   },
   methods: {
-    updateSearch(message) {
-      this.searchField = message;
-    },
-    selectCocktail(id) {
+    goBack(id) {
       this.randomCocktail = id;
     },
   },
