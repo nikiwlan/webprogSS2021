@@ -18,7 +18,6 @@ export default {
   data() {
     return {
       searchField: "",
-      selectedID: 0,
     };
   },
   components: {
@@ -31,10 +30,10 @@ export default {
       this.searchField = message;
     },
     random(id) {
-      this.selectedID = id;
+      this.$router.push({ name: "Details", params: { id: id } });
     },
     selected(id) {
-      this.selectedID = id;
+      this.$router.push({ name: "Details", params: { id: id } });
     },
   },
 };

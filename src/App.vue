@@ -1,14 +1,6 @@
 <template>
   <div>
     <div class="backgroundImg"></div>
-    <button class="TESTbttn" v-on:click="goToDetails()" @mouseover="goToDetails()">Next Page</button>
-    <div class="nav">
-      <!-- <router-link :to="{ name: 'Home' }"> Home</router-link> -->
-      <router-link :to="{ name: 'Details', params: {id: '11007'} }">  
-                                                    <!--cocktailID hier-->
-        <p> da wo ich drauf klicke</p>
-      </router-link>
-    </div>
     <router-view />
   </div>
 </template>
@@ -21,13 +13,6 @@ export default {
       searchField: "",
       randomCocktail: 0,
     };
-  },
-  methods: {
-    goToDetails() {
-      console.log("CLICK   s");
-      //this.$router.push({ name: "Details" });
-      //this.$router.push('/details');
-    },
   },
 };
 </script>
@@ -43,11 +28,5 @@ export default {
   background-size: cover;
   background-attachment: fixed;
   z-index: -1;
-}
-
-.TESTbttn {
-  height: 100px;
-  width: 300px;
-  background-color: #9dfcecaf;
 }
 </style>
