@@ -39,7 +39,7 @@ export default {
 </script>
 
 <style scoped>
-.main {
+/* .main {
   position: absolute;
   top: 0;
   left: 0;
@@ -52,5 +52,5 @@ export default {
   color: #2c3e50;
   display: table;
   flex-flow: column;
-}
+} */
 </style>
