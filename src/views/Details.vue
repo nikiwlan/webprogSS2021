@@ -31,8 +31,8 @@ export default {
     CocktailDetails,
   },
   methods: {
-    goBack(id) {
-      this.randomCocktail = id;
+    goBack() {
+      // TODO
     },
   },
 };
