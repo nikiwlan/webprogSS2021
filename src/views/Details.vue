@@ -4,10 +4,10 @@
       <CocktailDetails
         class="cocktailDetails"
         :selectedID="selectedID"
-        @selectedCocktailID="selectCocktail"
+        @selectedCocktailID="selectCocktail" 
       />
       <div class = "view-coktail">
-
+        <p> The cocktail ID: {{ id}}</p>
       </div>
       <Footer/>
     </body>
@@ -22,6 +22,7 @@ export default {
   name: "Details",
   data() {
     return {
+      id: this.$route.params.id,
       searchField: "",
       randomCocktail: 0,
       selectedID: 0,
