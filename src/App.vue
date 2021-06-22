@@ -1,6 +1,7 @@
 <template>
   <div>
       <div class="backgroundImg"></div> 
+      <button class="TEST" @click="goToDetails">Next Page</button>
     <div class="nav">
       <!-- <router-link :to="{ name: 'Home' }"> Home</router-link> -->
       <router-link :to="{ name: 'Details' }"> Details </router-link>
@@ -19,20 +20,16 @@ export default {
       randomCocktail: 0,
     };
   },
+  methods:{
+    goToDetails(){
+      this.$router.push({name:'Details'});
+      //this.$router.push('/details');
+    }
+  }
 };
 </script>
 
 <style>
-/* .footer {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  display: table;
-  flex-flow: column;
-}  */
-
 .backgroundImg {
   position: fixed;
   height: 3000px;
@@ -43,5 +40,10 @@ export default {
   background-size: cover;
   background-attachment: fixed;
   z-index: -1;
+}
+
+.TEST{
+    height: 300px;
+  width: 100px;
 }
 </style>
