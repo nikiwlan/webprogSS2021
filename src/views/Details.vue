@@ -37,7 +37,7 @@ export default {
 
 <style scoped>
 .main {
-  margin:auto;
+  margin: auto;
   top: 0;
   left: 0;
   bottom: 0;
@@ -57,5 +57,9 @@ export default {
   margin: 50px auto 50px auto;
   border-radius: 20px;
   background-color: #fff1d6d7;
+}
+.header:hover {
+  background-color: #d4cab3d7;
+  box-shadow: 3px 3px rgb(117, 117, 117);
 }
 </style>
