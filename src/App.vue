@@ -1,17 +1,15 @@
 <template>
   <div>
-      <div class="backgroundImg"></div>
+      <div class="backgroundImg"></div> 
     <div class="nav">
-      <router-link :to="{ name: 'Home' }"> Home</router-link>
-      <router-link :to="{ name: 'Details' }">Details</router-link>
+      <!-- <router-link :to="{ name: 'Home' }"> Home</router-link> -->
+      <router-link :to="{ name: 'Details' }"> Details </router-link>
     </div>
     <router-view />
-    <Footer />
   </div>
 </template>
 
 <script>
-import Footer from "./components/Footer/Footer.vue";
 
 export default {
   name: "App",
@@ -21,14 +19,11 @@ export default {
       randomCocktail: 0,
     };
   },
-  components: {
-    Footer,
-  },
 };
 </script>
 
 <style>
-/* body {
+/* .footer {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -36,7 +31,7 @@ export default {
   color: #2c3e50;
   display: table;
   flex-flow: column;
-} */
+}  */
 
 .backgroundImg {
   position: fixed;

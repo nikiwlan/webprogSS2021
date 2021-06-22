@@ -3,7 +3,7 @@
     class="tile"
     @mouseover="hover = true"
     @mouseleave="hover = false"
-    v-on:click="loadCocktail()"
+    @click="loadCocktail()"
   >
     <div class="tile-image">
       <img id="cocktailImg" :src="cocktail.srcImg" alt="Cocktail" />
