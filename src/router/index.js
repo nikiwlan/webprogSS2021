@@ -13,10 +13,10 @@ const routes = [{
         component: Details
     },
 ];
-
+   
 const router = createRouter({
     history: createWebHistory(process.env.BABEL_URL),
-    routes
+    routes,
 });
 
 export default router;

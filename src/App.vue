@@ -1,11 +1,11 @@
 <template>
   <div>
+      <div class="backgroundImg"></div>
     <div class="nav">
       <router-link :to="{ name: 'Home' }"> Home</router-link>
       <router-link :to="{ name: 'Details' }">Details</router-link>
     </div>
     <router-view />
-    <div class="backgroundImg"></div>
     <Footer />
   </div>
 </template>
@@ -23,14 +23,6 @@ export default {
   },
   components: {
     Footer,
-  },
-  methods: {
-    updateSearch(message) {
-      this.searchField = message;
-    },
-    selectCocktail(id) {
-      this.randomCocktail = id;
-    },
   },
 };
 </script>
