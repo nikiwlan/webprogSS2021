@@ -14,7 +14,6 @@
       <p v-else>alcoholfree</p>
       <p>{{ cocktail.instructions }}</p>
     </div>
-    <button v-on:click="goBack()">Zurück</button>
   </body>
 </template>
 
@@ -63,10 +62,6 @@ export default {
         this.cocktail.ingredientsCount++;
       }
     },
-
-    goBack(){
-      this.$emit("goBack");
-    }
   },
   beforeCreate: function () {
     let api =

@@ -1,15 +1,12 @@
 <template>
   <div>
     <body class="main">
-      <CocktailDetails
-        class="cocktailDetails"
-        :selectedID="selectedID"
-        @goBack="goBack" 
-      />
-      <div class = "view-coktail">
-        <p> The cocktail ID: {{ selectedID}}</p>
+      <h1 class="header" @click="goBack()">Cocktails4You</h1>
+      <CocktailDetails class="cocktailDetails" :selectedID="selectedID" />
+      <div class="view-coktail">
+        <p>The cocktail ID: {{ selectedID }}</p>
       </div>
-      <Footer/>
+      <Footer />
     </body>
   </div>
 </template>
@@ -31,7 +28,7 @@ export default {
   },
   methods: {
     goBack() {
-      // TODO
+      this.$router.push({ name: "Home" });
     },
   },
 };
@@ -51,5 +48,14 @@ export default {
   color: #2c3e50;
   display: table;
   flex-flow: column;
+}
+
+.header {
+  float: center;
+  width: fit-content;
+  padding: 20px 50px 20px 50px;
+  margin: 50px auto 50px auto;
+  border-radius: 20px;
+  background-color: #fff1d6d7;
 }
 </style>
