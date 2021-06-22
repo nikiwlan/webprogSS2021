@@ -65,7 +65,7 @@ export default {
     },
 
     goBack(){
-      this.$emit("selectedCocktailID", 0);
+      this.$emit("goBack");
     }
   },
   beforeCreate: function () {

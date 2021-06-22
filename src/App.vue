@@ -1,12 +1,12 @@
 <template>
   <div>
-      <div class="backgroundImg"></div> 
-      <button class="TEST" @click="goToDetails">Next Page</button>
+    <div class="backgroundImg"></div>
+    <button class="TESTbttn" v-on:click="goToDetails()">Next Page</button>
     <div class="nav">
       <!-- <router-link :to="{ name: 'Home' }"> Home</router-link> -->
-      <router-link :to="{ name: 'Details', params: {id: 11007} }">  
-                                                    <!--cocktailID hier-->
-        <p> da wo ich drauf klicke</p>
+      <router-link :to="{ name: 'Details', params: { id: 11007 } }">
+        <!--cocktailID hier-->
+        <p>da wo ich drauf klicke</p>
       </router-link>
     </div>
     <router-view />
@@ -14,7 +14,6 @@
 </template>
 
 <script>
-
 export default {
   name: "App",
   data() {
@@ -23,12 +22,13 @@ export default {
       randomCocktail: 0,
     };
   },
-  methods:{
-    goToDetails(){
-      this.$router.push({name:'Details'});
+  methods: {
+    goToDetails() {
+      console.log("CLICK   s");
+      this.$router.push({ name: "Details" });
       //this.$router.push('/details');
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -45,8 +45,9 @@ export default {
   z-index: -1;
 }
 
-.TEST{
-    height: 300px;
+.TESTbttn {
+  height: 300px;
   width: 100px;
+  z-index: 10;
 }
 </style>
