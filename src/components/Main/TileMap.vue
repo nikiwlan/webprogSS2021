@@ -25,7 +25,14 @@ export default {
   },
   data() {
     return {
-      cocktailList: [],
+      allCocktails: [],
+      filteredCocktails: [],
+      cocktail: {
+        name: "",
+        id: 0,
+        alc: true,
+        category: "",
+      },
     };
   },
   props: ["categories", "searchField", "alcoholFree", "alcoholic"],
@@ -34,51 +41,15 @@ export default {
       this.$emit("selectedCocktailID", id);
     },
 
-    getCocktails() {
-      if (this.searchField != "") {
-        let api =
-          "https://" + "www.thecocktaildb.com/api/json/v1/1/search.php?s=";
-        api = api + this.searchField;
-        this.axios.get(api).then((response) => {
-          this.cocktailList = [];
-          if (response.data.drinks != null) {
-            for (let i = 0; i < response.data.drinks.length; i++) {
-              this.cocktailList[this.cocktailList.length] =
-                response.data.drinks[i].idDrink;
-            }
-          }
-        });
-      } else {
-        // Fetching All Cocktails
-        this.cocktailList = [];
-
-        this.axios
-          .get(
-            "https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Alcoholic"
-          )
-          .then((response) => {
-            for (let i = 0; i < response.data.drinks.length; i++) {
-              this.cocktailList[this.cocktailList.length] =
-                response.data.drinks[i].idDrink;
-            }
-          });
-
-        this.axios
-          .get(
-            "https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic"
-          )
-          .then((response2) => {
-            for (let j = 0; j < response2.data.drinks.length; j++) {
-              this.cocktailList[this.cocktailList.length] =
-                response2.data.drinks[j].idDrink;
-            }
-          });
-      }
-      //this.filterByAlc();
+    filterCocktails() {
+      // Applying Filters
+      this.filterByAlc();
       this.filterByIng();
+      this.filterByName();
     },
 
     getCocktailByID(id) {
+      // SHOULDN'T BE USED 
       this.axios
         .get("https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=" + id)
         .then((response) => {
@@ -132,55 +103,41 @@ export default {
         this.cocktailList = tempList;
       }
     },
+
+    filterByName() {
+      // TODO
+    },
   },
 
   beforeCreate: function () {
-    let api = "https://" + "www.thecocktaildb.com/api/json/v1/1/search.php?s=";
-    if (this.searchField != "") {
-      api = api + this.searchField;
-      this.axios.get(api).then((response) => {
-        this.cocktailList = [];
-        if (response.data.drinks != null) {
-          for (let i = 0; i < response.data.drinks.length; i++) {
-            this.cocktailList[this.cocktailList.length] =
-              response.data.drinks[i].idDrink;
-          }
+    // Fetching All Cocktails
+    this.axios
+      .get("https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Alcoholic")
+      .then((response) => {
+        for (let i = 0; i < response.data.drinks.length; i++) {
+          this.cocktailList[this.cocktailList.length] =
+            response.data.drinks[i].idDrink;
         }
+
+        this.axios
+          .get(
+            "https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic"
+          )
+          .then((response2) => {
+            for (let j = 0; j < response2.data.drinks.length; j++) {
+              this.cocktailList[this.cocktailList.length] =
+                response2.data.drinks[j].idDrink;
+            }
+          });
       });
-    } else {
-      // Fetching All Cocktails
-      this.cocktailList = [];
-
-      this.axios
-        .get(
-          "https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Alcoholic"
-        )
-        .then((response) => {
-          for (let i = 0; i < response.data.drinks.length; i++) {
-            this.cocktailList[this.cocktailList.length] =
-              response.data.drinks[i].idDrink;
-          }
-        });
-
-      this.axios
-        .get(
-          "https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic"
-        )
-        .then((response2) => {
-          for (let j = 0; j < response2.data.drinks.length; j++) {
-            this.cocktailList[this.cocktailList.length] =
-              response2.data.drinks[j].idDrink;
-          }
-        });
-    }
   },
   watch: {
     categories: function () {
-      this.getCocktails();
+      this.filterCocktails();
     },
 
     searchField: function () {
-      this.getCocktails();
+      this.filterCocktails();
     },
   },
 };
