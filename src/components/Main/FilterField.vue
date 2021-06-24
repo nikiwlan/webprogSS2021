@@ -202,11 +202,7 @@ export default {
   border: 2px solid black;
   background-color: #9dfcecd0;
   border-radius: 10px;
-<<<<<<< HEAD
-  width: 15%;
-=======
   width:430px;
->>>>>>> 81884892556599799059c8e0f3627e77348449e4
 }
 
 .heading {
