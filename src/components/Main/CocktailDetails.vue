@@ -113,7 +113,7 @@ export default {
 .main {
   padding: 50px;
   background-color: #fff1d6d7;
-  max-width: 80%;
+  width:fit-content;
 }
 
 /* h1 {
@@ -150,6 +150,7 @@ ul {
   margin: 0 auto;
   float: left;
   max-width: 40%;
+  min-width: 350px;
 }
 
 .ingredient-count {
