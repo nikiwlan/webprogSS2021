@@ -1,15 +1,15 @@
 <template>
   <body class="main">
     <div class="info">
-      <h1>{{ cocktail.name }}</h1>
-      <br /><br /><br /><br />
+      <!-- <h1>{{ cocktail.name }}</h1>
+      <br /><br /><br /><br /> -->
       <div class="ingredient-count">
         <img
-          id="ingediant-cion"
+          id="count"
           src="../../../content/Ingredient-Icon.png"
           alt="ingredient"
         />
-        <h3 id="count">{{ cocktail.ingredientsCount }} Zutaten</h3>
+        <h3 class="count">{{ cocktail.ingredientsCount }} Zutaten</h3>
       </div>
       <hr />
       <div class="ingredient">
@@ -32,9 +32,9 @@
     </div>
     <div class="image">
       <img id="cocktailImg" :src="cocktail.srcImg" alt="Cocktail" />
-      <!-- <div class="container">
-        <p>Northern Lights</p>
-      </div> -->
+      <div class = "cocktail-name">
+        <h4>{{ cocktail.name }}</h4>
+      </div>
     </div>
   </body>
 </template>
@@ -113,9 +113,10 @@ export default {
 .main {
   padding: 50px;
   background-color: #fff1d6d7;
+  max-width: 80%;
 }
 
-h1 {
+/* h1 {
   font-size: 36px;
   background-color: rgba(0, 238, 255, 0.8);
   border-radius: 10px;
@@ -123,14 +124,19 @@ h1 {
   max-width: 500px;
   width: fit-content;
   margin: 0;
-}
+} */
 
 h2 {
-  font-size: 28px;
+  font-size: 36px;
 }
 
 h3 {
-  font-size: 24px;
+  font-size: 28px;
+}
+
+h4 {
+  font-size: 32px;
+  color: white;
 }
 
 ul {
@@ -138,18 +144,12 @@ ul {
   line-height: 1.5;
 }
 
-#cocktailImg {
-  float: left;
-  width: 40%;
-  padding: 100px;
-}
-
 .info {
   color: black;
   padding: 0px 40px 0px 40px;
   margin: 0 auto;
   float: left;
-  width: 40%;
+  max-width: 40%;
 }
 
 .ingredient-count {
@@ -157,18 +157,30 @@ ul {
 }
 
 .ingredient {
-  font-size: 20px;
+  font-size: 24px;
   margin-left: 20px;
   text-align: left;
 }
-
 #count {
+  margin: 15px 30px auto auto;
   float: left;
-  width: 40%;
+  width: 60px;
+  height: auto;
 }
 
-.ingediant-cion {
-  width: 10%;
+.image {
+  background-color: rgba(30, 30, 31, 0.979);
   float: left;
+  width: auto;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 20px;
+  margin: 50px;
+  margin-left: 200px;
 }
+
+.cocktail-name{
+  text-align: center;
+  padding: 10px 20px;
+}
+
 </style>
