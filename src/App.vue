@@ -23,10 +23,12 @@ export default {
   height: 3000px;
   width: 10000px;
   background-image: url("../content/strand-palmen-1.jpg");
-  background-position: bottom center;
+  background-position: center;
+  background-position-y: 0%;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
   z-index: -1;
 }
+
 </style>

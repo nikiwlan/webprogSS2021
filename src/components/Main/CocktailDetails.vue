@@ -172,7 +172,7 @@ ul {
 .image {
   background-color: rgba(30, 30, 31, 0.979);
   float: left;
-  width: auto;
+  width: fit-content;
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-radius: 20px;
   margin: 50px;

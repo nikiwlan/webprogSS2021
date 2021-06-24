@@ -1,9 +1,11 @@
 <template>
-  <body class="header">
-    <h1>Cocktails4You</h1>
-    <SearchField @searchFieldMessage="updateSearch" />
-    <Dice @selectedCocktailID="selectCocktail" />
-  </body>
+  <div class="padding">
+    <body class = "header">
+      <h1>Cocktails4You</h1>
+      <SearchField @searchFieldMessage="updateSearch" />
+      <Dice @selectedCocktailID="selectCocktail" />
+    </body>
+  </div>
 </template>
 
 
@@ -36,8 +38,11 @@ export default {
   float: center;
   width: fit-content;
   padding: 20px 50px 20px 50px;
-  margin: 50px auto 50px auto;
+  margin: auto auto 50px auto;
   border-radius: 20px;
   background-color: #fff1d6d7;
+}
+.padding{
+  padding: 50px;
 }
 </style>
