@@ -92,35 +92,42 @@ export default {
   beforeCreate: function () {
     const getAlcoholic = async () => {
       try {
-        const alco = await this.axios.get(
-          "https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Alcoholic"
-        );
-        return alco.data.drinks;
+        return await this.axios
+          .get(
+            "https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Alcoholic"
+          )
+          .then((response) => {
+            return response.data.drinks;
+          });
       } catch (err) {
         console.error(err);
       }
     };
     const getNonAlcoholic = async () => {
       try {
-        const alcoFree = await this.axios.get(
-          "https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic"
-        );
-        return alcoFree.data.drinks;
+        return await this.axios
+          .get(
+            "https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic"
+          )
+          .then((response) => {
+            return response.data.drinks;
+          });
       } catch (err) {
         console.error(err);
       }
     };
     const getCocktailObject = async (id) => {
       try {
-        const cocktail = await this.axios.get(
-          "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=" + id
-        );
-        return {
-          id: cocktail.data.drinks[0].idDrink,
-          name: cocktail.data.drinks[0].strDrink,
-          alc: cocktail.data.drinks[0].strAlcoholic,
-          category: cocktail.data.drinks[0].strCategory,
-        };
+        return await this.axios
+          .get("https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=" + id)
+          .then((response) => {
+            return {
+              id: response.data.drinks[0].idDrink,
+              name: response.data.drinks[0].strDrink,
+              alc: response.data.drinks[0].strAlcoholic,
+              category: response.data.drinks[0].strCategory,
+            };
+          });
       } catch (err) {
         console.error(err);
       }
@@ -133,19 +140,19 @@ export default {
         let cocktail;
         console.log(alco[0]);
         for (let i = 0; alco.length; i++) {
-          cocktail = await getCocktailObject.apply(alco[i].idDrink);
+          cocktail = await getCocktailObject.apply(null,[alco[i].idDrink]);
           temp.push(cocktail);
         }
         for (let i = 0; alcoFree.length; i++) {
-          cocktail = await getCocktailObject.apply(alcoFree[i].idDrink);
+          cocktail = await getCocktailObject.apply(null,[alcoFree[i].idDrink]);
           temp.push(cocktail);
         }
-        console.log(temp);
+        return temp;
       } catch (err) {
         console.error(err);
       }
     };
-    createArray.apply();
+    this.allCocktails = createArray.apply();
   },
   watch: {
     categories: function () {
