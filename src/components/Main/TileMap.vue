@@ -4,9 +4,9 @@
       <h2>Lass dich inspirieren</h2>
     </div>
     <div class="tile-map">
-      <div v-for="cocktailID in cocktailList" :key="cocktailID">
+      <div v-for="cocktail in allCocktails" :key="cocktail">
         <Tile
-          :cocktailID="cocktailID"
+          :cocktailID="cocktail.id"
           @selectedCocktailID="selectCocktail"
         ></Tile>
       </div>
@@ -27,12 +27,6 @@ export default {
     return {
       allCocktails: [],
       filteredCocktails: [],
-      cocktail: {
-        name: "",
-        id: 0,
-        alc: true,
-        category: "",
-      },
     };
   },
   props: ["categories", "searchField", "alcoholFree", "alcoholic"],
@@ -48,59 +42,42 @@ export default {
       this.filterByName();
     },
 
-    getCocktailByID(id) {
-      // SHOULDN'T BE USED 
-      this.axios
-        .get("https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=" + id)
-        .then((response) => {
-          if (response.data.drinks != null) {
-            return response.data.drinks[0];
-          }
-          return null;
-        });
-    },
-
     filterByAlc() {
       // TODO
       let tempList = [];
       let index = 0;
-      let tempCocktail;
       if (index == 0) {
-        for (let i = 0; i < this.cocktailList.length; i++) {
-          tempCocktail = this.getCocktailByID(this.cocktailList[i]);
-          if (tempCocktail.strAlcoholic == "Alcoholic") {
-            tempList[index] = this.cocktailList[i];
+        for (let i = 0; i < this.allCocktails.length; i++) {
+          if (this.allCocktails[i].alc == "Alcoholic") {
+            tempList[index] = this.allCocktails[i];
             index++;
           }
         }
-        this.cocktailList = tempList;
+        this.allCocktails = tempList;
       } else if (index == 1) {
-        for (let i = 0; i < this.cocktailList.length; i++) {
-          tempCocktail = this.getCocktailByID(this.cocktailList[i]);
-          if (tempCocktail.strAlcoholic == "Non_Alcoholic") {
-            tempList[index] = this.cocktailList[i];
+        for (let i = 0; i < this.allCocktails.length; i++) {
+          if (this.allCocktails[i].alc == "Non_Alcoholic") {
+            tempList[index] = this.allCocktails[i];
             index++;
           }
         }
-        this.cocktailList = tempList;
+        this.allCocktails = tempList;
       }
     },
 
     filterByIng() {
       let tempList = [];
       let index = 0;
-      let tempCocktail;
       if (this.categories != 0) {
-        for (let i = 0; i < this.cocktailList.length; i++) {
-          tempCocktail = this.getCocktailByID(this.cocktailList[i]);
+        for (let i = 0; i < this.allCocktails.length; i++) {
           for (let j = 0; j < this.categories.length; j++) {
-            if (tempCocktail.strCategory === this.categories[j]) {
-              tempList[index] = this.cocktailList[i];
+            if (this.allCocktails[i].category === this.categories[j]) {
+              tempList[index] = this.allCocktails[i];
               index++;
             }
           }
         }
-        this.cocktailList = tempList;
+        this.allCocktails = tempList;
       }
     },
 
@@ -115,8 +92,12 @@ export default {
       .get("https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Alcoholic")
       .then((response) => {
         for (let i = 0; i < response.data.drinks.length; i++) {
-          this.cocktailList[this.cocktailList.length] =
-            response.data.drinks[i].idDrink;
+          this.allCocktails[this.allCocktails.length] = {
+            id: response.data.drinks[i].idDrink,
+            name: response.data.drinks[i].strDrink,
+            alc: response.data.drinks[i].strAlcoholic,
+            category: response.data.drinks[i].strCategory,
+          };
         }
 
         this.axios
@@ -125,8 +106,12 @@ export default {
           )
           .then((response2) => {
             for (let j = 0; j < response2.data.drinks.length; j++) {
-              this.cocktailList[this.cocktailList.length] =
-                response2.data.drinks[j].idDrink;
+              this.allCocktails[this.allCocktails.length] = {
+                id: response2.data.drinks[j].idDrink,
+                name: response2.data.drinks[j].strDrink,
+                alc: response2.data.drinks[j].strAlcoholic,
+                category: response2.data.drinks[j].strCategory,
+              };
             }
           });
       });
