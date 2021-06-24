@@ -52,6 +52,7 @@ export default {
       this.filteredCocktails = this.allCocktails;
       this.filterCategory();
       this.filterAlcohol();
+      this.filterSearch();
     },
 
     filterCategory() {
@@ -91,6 +92,21 @@ export default {
         this.filteredCocktails = tempList;
       }
     },
+
+    filterSearch() {
+      let searchTemp = this.searchField.toLowerCase();
+      let tempList = [];
+      let index = 0;
+      if (this.searchField != "") {
+        for (let i = 0; i < this.filteredCocktails.length; i++) {
+          if (this.filteredCocktails[i].name.toLowerCase().includes(searchTemp)) {
+            tempList[index] = this.filteredCocktails[i];
+            index++;
+          }
+        }
+        this.filteredCocktails = tempList;
+      }
+    },
   },
 
   async created() {
@@ -123,6 +139,9 @@ export default {
   },
   watch: {
     categories: function () {
+      this.filterCocktails();
+    },
+    searchField: function () {
       this.filterCocktails();
     },
   },
