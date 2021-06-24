@@ -154,7 +154,7 @@ export default {
   float: left;
   width: 40%;
   height: 100px;
-  margin-top: 320px;
+  margin-top: 300px;
   padding-left: 15px;
 }
 
