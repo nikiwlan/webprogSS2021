@@ -1,4 +1,5 @@
 <template>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Charm" />
   <body class="view">
     <div class="heading">
       <h2>Lass dich inspirieren</h2>
@@ -99,7 +100,9 @@ export default {
       let index = 0;
       if (this.searchField != "") {
         for (let i = 0; i < this.filteredCocktails.length; i++) {
-          if (this.filteredCocktails[i].name.toLowerCase().includes(searchTemp)) {
+          if (
+            this.filteredCocktails[i].name.toLowerCase().includes(searchTemp)
+          ) {
             tempList[index] = this.filteredCocktails[i];
             index++;
           }
@@ -160,8 +163,9 @@ export default {
 .heading {
   text-align: center;
   font-size: 32px;
-  font-weight: bolder;
-  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-weight: lighter;
+  font-family: "Charm", sans-serif;
+  letter-spacing: 2px;
 }
 
 .tile-map {

@@ -1,11 +1,12 @@
 <template>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Charm" />
   <body class="filter">
     <div class="heading">
       <h1>Filtern nach:</h1>
     </div>
     <hr />
     <div>
-      <h2>Alkohol</h2>
+      <h2 class="heading2">Alkohol</h2>
       <div class="attributes">
         <input
           type="checkbox"
@@ -27,7 +28,7 @@
     </div>
     <hr />
     <div class="categories">
-      <h2>Kategorien</h2>
+      <h2 class="heading2">Kategorien</h2>
       <div class="attributes">
         <input
           type="checkbox"
@@ -201,10 +202,18 @@ export default {
   border: 2px solid black;
   background-color: #9dfcecd0;
   border-radius: 10px;
+  width: 15%;
 }
 
 .heading {
   font-size: 14px;
+  font-family: "Charm", sans-serif;
+  letter-spacing: 2px;
+}
+
+.heading2 {
+  font-family: "Charm", sans-serif;
+  letter-spacing: 2px;
 }
 
 div {
