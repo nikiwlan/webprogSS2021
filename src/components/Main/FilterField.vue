@@ -1,12 +1,12 @@
 <template>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Charm" />
   <body class="filter">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Charm" />
     <div class="heading">
-      <h1>Filtern nach:</h1>
+      <h1>Filter by:</h1>
     </div>
     <hr />
     <div>
-      <h2 class="heading2">Alkohol</h2>
+      <h2 class="heading2">Alcohol</h2>
       <div class="attributes">
         <input
           type="checkbox"
@@ -14,7 +14,7 @@
           class="checkboxes"
           v-model="alcoholFree"
         />
-        <label for="alcohol">alkoholfrei</label>
+        <label for="alcohol">Alcohol-free </label>
       </div>
       <div class="attributes">
         <input
@@ -23,12 +23,12 @@
           class="checkboxes"
           v-model="alcoholic"
         />
-        <label for="alcohol">alkoholisch</label>
+        <label for="alcohol">Alcoholic</label>
       </div>
     </div>
     <hr />
     <div class="categories">
-      <h2 class="heading2">Kategorien</h2>
+      <h2 class="heading2">Categories</h2>
       <div class="attributes">
         <input
           type="checkbox"
@@ -202,7 +202,8 @@ export default {
   border: 2px solid black;
   background-color: #9dfcecd0;
   border-radius: 10px;
-  width:430px;
+  width:440px;
+  height: fit-content;
 }
 
 .heading {

@@ -1,8 +1,8 @@
 <template>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Charm" />
   <body class="view">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Charm" />
     <div class="heading">
-      <h2>Lass dich inspirieren</h2>
+      <h2>Get inspired</h2>
     </div>
     <div class="tile-map">
       <div v-for="cocktail in filteredCocktails" :key="cocktail">

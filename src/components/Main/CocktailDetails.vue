@@ -9,21 +9,21 @@
           src="../../../content/Ingredient-Icon.png"
           alt="ingredient"
         />
-        <h3 class="count">{{ cocktail.ingredientsCount }} Zutaten</h3>
+        <h3 class="count">{{ cocktail.ingredientsCount }} Ingredients</h3>
       </div>
       <hr />
       <div class="ingredient">
-        <h2>Zutaten</h2>
+        <h2>Ingredients</h2>
         <ul id="ingredientList">
           <li v-for="ing in cocktail.ingredients" :key="ing">
             {{ ing }}
           </li>
         </ul>
         <br />
-        <h3>Glas</h3>
+        <h3>Glass</h3>
         <p>{{ cocktail.glass }}</p>
         <br />
-        <h2>Zubereitung</h2>
+        <h2>Preparation</h2>
         <!-- <p>{{ cocktail.category }}</p>
         <p v-if="alcoholic">alcoholic</p>
         <p v-else>alcoholfree</p> -->

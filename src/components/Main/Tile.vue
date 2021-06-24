@@ -19,7 +19,7 @@
         <h3>{{ cocktail.name }}</h3>
       </div>
       <div class="cocktail-bottom">
-        <p class="cocktail-info">{{ cocktail.ingredientsCount }} Zutaten</p>
+        <p class="cocktail-info">{{ cocktail.ingredientsCount }} Ingredients</p>
         <p class="cocktail-info">{{ cocktail.category }}</p>
       </div>
     </div>
