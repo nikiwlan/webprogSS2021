@@ -178,7 +178,7 @@ ul {
   border-radius: 20px;
   margin: 50px;
   margin-left: 200px;
-  max-width: 35%;
+  max-width: 32%;
 }
 
 .cocktail-name{
