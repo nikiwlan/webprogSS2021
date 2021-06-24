@@ -201,6 +201,7 @@ export default {
   border: 2px solid black;
   background-color: #9dfcecd0;
   border-radius: 10px;
+  width:430px;
 }
 
 .heading {
