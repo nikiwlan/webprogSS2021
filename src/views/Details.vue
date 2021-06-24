@@ -3,9 +3,6 @@
     <body class="main">
       <h1 class="header" @click="goBack()">Cocktails4You</h1>
       <CocktailDetails class="cocktailDetails" :selectedID="selectedID" />
-      <div class="view-coktail">
-        <p>The cocktail ID: {{ selectedID }}</p>
-      </div>
       <Footer />
     </body>
   </div>
@@ -37,17 +34,7 @@ export default {
 
 <style scoped>
 .main {
-  margin: auto;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  width: 80%;
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  text-align: center;
-  color: #2c3e50;
   display: table;
-  flex-flow: column;
-  border-radius: 20px;
 }
 
 .header {

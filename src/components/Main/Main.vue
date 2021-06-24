@@ -71,13 +71,12 @@ export default {
 
 <style scoped>
 .browseCocktail {
-  margin: auto;
-  display: flex;
+  /* margin: auto;
   justify-content: center;
-  width: auto;
-  border: 15px black;
+  width: auto; */
+  /* border: 15px black;
   margin: 20px;
-  border-radius: 5px;
+  border-radius: 5px; */
   display: flex;
   flex-flow: row;
 }

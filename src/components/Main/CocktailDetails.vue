@@ -1,18 +1,32 @@
 <template>
   <body class="main">
-    <h1>{{ cocktail.name }}</h1>
-    <img id="cocktailImg" :src="cocktail.srcImg" alt="Cocktail" />
     <div class="info">
-      <ul id="ingredientList">
-        <li v-for="ing in ingredients" :key="ing">
-          {{ ing }}
-        </li>
-      </ul>
-      <p>{{ cocktail.category }}</p>
-      <p>{{ cocktail.glass }}</p>
-      <p v-if="alcoholic">alcoholic</p>
-      <p v-else>alcoholfree</p>
-      <p>{{ cocktail.instructions }}</p>
+      <h1>{{ cocktail.name }}</h1>
+      <br /><br />
+      <div class="ingredient-count">
+        <img src="../../../content/Ingredient-Icon.png" alt="ingredient" />
+        <h3>{{ cocktail.ingredientsCount }} Zutaten</h3>
+      </div>
+      <hr />
+      <div class = "ingredient">
+        <h2>Zutaten</h2>
+        <ul id="ingredientList">
+          <li v-for="ing in cocktail.ingredients" :key="ing">
+            {{ ing }}
+          </li>
+        </ul>
+        <br>
+        <h2>Glas</h2>
+        <p>{{ cocktail.glass }}</p>
+        <br>
+        <p>{{ cocktail.category }}</p>
+        <p v-if="alcoholic">alcoholic</p>
+        <p v-else>alcoholfree</p>
+        <p>{{ cocktail.instructions }}</p>
+      </div>
+    </div>
+    <div class="image">
+      <img id="cocktailImg" :src="cocktail.srcImg" alt="Cocktail" />
     </div>
   </body>
 </template>
@@ -90,8 +104,51 @@ export default {
 <style scoped>
 .main {
   padding: 50px;
-  float: center;
-  width: fit-content;
+  border-radius: 20px;
   background-color: #fff1d6d7;
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  width: 1600px;
+  margin: auto;
+}
+
+h1 {
+  font-size: 36px;
+  background-color: rgba(0, 238, 255, 0.8);
+  border-radius: 10px;
+  color: black;
+  padding: 20px 40px 20px 40px;
+  max-width: 200px;
+  margin: 20px auto auto 20px;
+}
+
+/* h2{
+  margin-left: 20px;
+} */
+
+ul{
+  list-style-type: square;
+  line-height: 1.5;
+}
+
+#cocktailImg {
+  float:left;
+  width:40%;
+  padding:100px;
+}
+
+.info {
+  color: black;
+  padding: 0px 40px 0px 40px;
+  margin: 0 auto;
+  float:left;
+  width:40%;
+}
+
+/* .ingredient-count {
+} */
+
+.ingredient{
+  margin-left: 20px;
+  text-align: left;
 }
 </style>
