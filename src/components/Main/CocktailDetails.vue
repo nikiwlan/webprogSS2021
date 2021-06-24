@@ -115,6 +115,7 @@ export default {
   background-color: #fff1d6d7;
   width:fit-content;
   max-width: 75%;
+  min-width: 1200px;
 }
 
 /* h1 {
@@ -177,7 +178,7 @@ ul {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-radius: 20px;
   margin: 50px;
-  margin-left: 200px;
+  margin-left: 100px;
   max-width: 32%;
 }
 
