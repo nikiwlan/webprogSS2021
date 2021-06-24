@@ -48,6 +48,7 @@ export default {
   margin: 50px auto 50px auto;
   border-radius: 20px;
   background-color: #fff1d6d7;
+  font-style:italic;
 }
 .header:hover {
   background-color: #d4cab3d7;

@@ -200,8 +200,6 @@ export default {
 .filter {
   border: 2px solid black;
   background-color: #9dfcecd0;
-  display: table;
-  flex-flow: column;
   border-radius: 10px;
 }
 

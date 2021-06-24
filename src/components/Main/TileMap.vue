@@ -150,24 +150,27 @@ export default {
 
 <style scoped>
 .view {
+  margin-left: 100px;
   padding: 50px;
-  float: center;
   width: fit-content;
   background-color: #fff1d6d7;
   border-radius: 20px;
 }
 
 .heading {
-  position: absolute;
-  font-size: 20px;
+  text-align: center;
+  font-size: 32px;
+  font-weight: bolder;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 .tile-map {
   width: fit-content;
   margin: 50px auto auto auto;
   border: 15px black;
-  padding: 50px;
+  padding: 0 50px 50px 50px;
   display: flex;
   flex-flow: wrap;
+  justify-content: center;
 }
 </style>

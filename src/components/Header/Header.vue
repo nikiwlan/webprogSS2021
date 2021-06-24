@@ -41,6 +41,7 @@ export default {
   margin: auto auto 50px auto;
   border-radius: 20px;
   background-color: #fff1d6d7;
+  font-style:italic;
 }
 .padding{
   padding: 50px;

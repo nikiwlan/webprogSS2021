@@ -77,6 +77,8 @@ export default {
   /* border: 15px black;
   margin: 20px;
   border-radius: 5px; */
+  margin-left: 100px;
+  margin-right: 100px;
   display: flex;
   flex-flow: row;
 }
