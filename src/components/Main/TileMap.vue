@@ -27,6 +27,7 @@ export default {
     return {
       allCocktails: [],
       filteredCocktails: [],
+      tempID: 0,
     };
   },
   props: ["categories", "searchField", "alcoholFree", "alcoholic"],
@@ -40,7 +41,7 @@ export default {
       this.filteredCocktails = this.allCocktails;
       // Applying Filters
       // this.filterByAlc();
-      this.filterByCat();
+      // this.filterByCat();
       // this.filterByName();
     },
 
@@ -89,52 +90,62 @@ export default {
   },
 
   beforeCreate: function () {
-    // Fetching All Cocktails
-    console.log("beforeCreate");
-    this.axios
-      .get("https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Alcoholic")
-      .then((response) => {
-        for (let i = 0; i < response.data.drinks.length; i++) {
-          this.axios
-            .get(
-              "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=" +
-                response.data.drinks[i].idDrink
-            )
-            .then((respCategory) => {
-              this.allCocktails[this.allCocktails.length] = {
-                id: respCategory.data.drinks[0].idDrink,
-                name: respCategory.data.drinks[0].strDrink,
-                alc: true,
-                category: respCategory.data.drinks[0].strCategory,
-              };
-            });
+    const getAlcoholic = async () => {
+      try {
+        const alco = await this.axios.get(
+          "https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Alcoholic"
+        );
+        return alco.data.drinks;
+      } catch (err) {
+        console.error(err);
+      }
+    };
+    const getNonAlcoholic = async () => {
+      try {
+        const alcoFree = await this.axios.get(
+          "https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic"
+        );
+        return alcoFree.data.drinks;
+      } catch (err) {
+        console.error(err);
+      }
+    };
+    const getCocktailObject = async (id) => {
+      try {
+        const cocktail = await this.axios.get(
+          "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=" + id
+        );
+        return {
+          id: cocktail.data.drinks[0].idDrink,
+          name: cocktail.data.drinks[0].strDrink,
+          alc: cocktail.data.drinks[0].strAlcoholic,
+          category: cocktail.data.drinks[0].strCategory,
+        };
+      } catch (err) {
+        console.error(err);
+      }
+    };
+    const createArray = async () => {
+      try {
+        let alco = await getAlcoholic.apply();
+        let alcoFree = await getNonAlcoholic.apply();
+        let temp = [];
+        let cocktail;
+        console.log(alco[0]);
+        for (let i = 0; alco.length; i++) {
+          cocktail = await getCocktailObject.apply(alco[i].idDrink);
+          temp.push(cocktail);
         }
-        console.log(this.allCocktails);
-      })
-      .then(() => {
-        this.axios
-          .get(
-            "https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic"
-          )
-          .then((response2) => {
-            for (let i = 0; i < response2.data.drinks.length; i++) {
-              this.axios
-                .get(
-                  "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=" +
-                    response2.data.drinks[i].idDrink
-                )
-                .then((respCategory) => {
-                  this.allCocktails[this.allCocktails.length] = {
-                    id: respCategory.data.drinks[0].idDrink,
-                    name: respCategory.data.drinks[0].strDrink,
-                    alc: false,
-                    category: respCategory.data.drinks[0].strCategory,
-                  };
-                });
-            }
-            console.log(this.allCocktails);
-          });
-      });
+        for (let i = 0; alcoFree.length; i++) {
+          cocktail = await getCocktailObject.apply(alcoFree[i].idDrink);
+          temp.push(cocktail);
+        }
+        console.log(temp);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+    createArray.apply();
   },
   watch: {
     categories: function () {
