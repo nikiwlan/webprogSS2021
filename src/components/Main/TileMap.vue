@@ -32,35 +32,73 @@ export default {
   },
   props: ["categories", "searchField", "alcoholFree", "alcoholic"],
   methods: {
-    getA: async (axios) => {
-      console.log(2);
+    getAlcFree: async (axios) => {
       return await axios.get(
         "https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic"
       );
     },
-    getB: () => {
-      console.log(3);
+
+    getAlc: async (axios) => {
+      return await axios.get(
+        "https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Alcoholic"
+      );
     },
 
     selectCocktail(id) {
       this.$emit("selectedCocktailID", id);
     },
+
+    filterCocktails() {
+      let tempList = [];
+      let index = 0;
+      if (this.categories != 0) {
+        for (let i = 0; i < this.allCocktails.length; i++) {
+          for (let j = 0; j < this.categories.length; j++) {
+            if (this.allCocktails[i].category === this.categories[j]) {
+              tempList[index] = this.allCocktails[i];
+              index++;
+            }
+          }
+        }
+        this.filteredCocktails = tempList;
+      } else {
+        this.filteredCocktails = this.allCocktails;
+      }
+    },
   },
 
   async created() {
-    this.allCocktails = await this.getA(this.axios);
-    console.log(1);
-
-    let x = await this.axios.get(
-      "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=" +
-        this.allCocktails.data.drinks[0].idDrink
-    );
-
-    console.log(x.data);
-
-    console.log(this.allCocktails);
-    console.log(this.allCocktails.data.drinks);
-    this.getB();
+    let Cocktails = await this.getAlcFree(this.axios);
+    for (let i = 0; i < Cocktails.data.drinks.length; i++) {
+      let x = await this.axios.get(
+        "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=" +
+          Cocktails.data.drinks[i].idDrink
+      );
+      this.allCocktails.push({
+        name: x.data.drinks[0].strDrink,
+        id: x.data.drinks[0].idDrink,
+        alc: false,
+        category: x.data.drinks[0].strCategory,
+      });
+    }
+    Cocktails = await this.getAlc(this.axios);
+    for (let i = 0; i < Cocktails.data.drinks.length; i++) {
+      let x = await this.axios.get(
+        "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=" +
+          Cocktails.data.drinks[i].idDrink
+      );
+      this.allCocktails.push({
+        name: x.data.drinks[0].strDrink,
+        id: x.data.drinks[0].idDrink,
+        alc: true,
+        category: x.data.drinks[0].strCategory,
+      });
+    }
+  },
+  watch: {
+    categories: function () {
+      this.filterCocktails();
+    },
   },
 };
 </script>

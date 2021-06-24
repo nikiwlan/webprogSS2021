@@ -128,7 +128,7 @@ export default {
 .cocktail-name {
   color: white;
   font-size: 18px;
-  background-color: #ff6468;
+  background-color: #ff6469d8;
   border-radius: 10px;
   padding: 0px 5px 0px 5px;
   margin-top: 205px;
