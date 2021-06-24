@@ -114,6 +114,7 @@ export default {
   padding: 50px;
   background-color: #fff1d6d7;
   width:fit-content;
+  max-width: 75%;
 }
 
 /* h1 {
@@ -177,11 +178,16 @@ ul {
   border-radius: 20px;
   margin: 50px;
   margin-left: 200px;
+  max-width: 35%;
 }
 
 .cocktail-name{
   text-align: center;
   padding: 10px 20px;
+}
+
+#cocktailImg{
+  max-width: 100%;
 }
 
 </style>
