@@ -4,7 +4,7 @@
       <h2>Lass dich inspirieren</h2>
     </div>
     <div class="tile-map">
-      <div v-for="cocktail in allCocktails" :key="cocktail">
+      <div v-for="cocktail in filteredCocktails" :key="cocktail">
         <Tile
           :cocktailID="cocktail.id"
           @selectedCocktailID="selectCocktail"
@@ -36,17 +36,18 @@ export default {
     },
 
     filterCocktails() {
+      this.filteredCocktails = this.allCocktails;
       // Applying Filters
-      this.filterByAlc();
-      this.filterByIng();
-      this.filterByName();
+      // this.filterByAlc();
+      this.filterByCat();
+      // this.filterByName();
     },
 
     filterByAlc() {
       // TODO
       let tempList = [];
       let index = 0;
-      if (index == 0) {
+      if (this.alcoholic && !this.alcoholFree) {
         for (let i = 0; i < this.allCocktails.length; i++) {
           if (this.allCocktails[i].alc == "Alcoholic") {
             tempList[index] = this.allCocktails[i];
@@ -54,7 +55,7 @@ export default {
           }
         }
         this.allCocktails = tempList;
-      } else if (index == 1) {
+      } else if (!this.alcoholic && this.alcoholFree) {
         for (let i = 0; i < this.allCocktails.length; i++) {
           if (this.allCocktails[i].alc == "Non_Alcoholic") {
             tempList[index] = this.allCocktails[i];
@@ -65,19 +66,19 @@ export default {
       }
     },
 
-    filterByIng() {
+    filterByCat() {
       let tempList = [];
       let index = 0;
       if (this.categories != 0) {
-        for (let i = 0; i < this.allCocktails.length; i++) {
+        for (let i = 0; i < this.filteredCocktails.length; i++) {
           for (let j = 0; j < this.categories.length; j++) {
-            if (this.allCocktails[i].category === this.categories[j]) {
-              tempList[index] = this.allCocktails[i];
+            if (this.filteredCocktails[i].category === this.categories[j]) {
+              tempList[index] = this.filteredCocktails[i];
               index++;
             }
           }
         }
-        this.allCocktails = tempList;
+        this.filteredCocktails = tempList;
       }
     },
 
