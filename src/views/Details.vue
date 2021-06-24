@@ -34,7 +34,11 @@ export default {
 
 <style scoped>
 .main {
+  margin: auto;
+  width: 80%;
+  font-family: Avenir, Helvetica, Arial, sans-serif;
   display: table;
+  border-radius: 20px;
 }
 
 .header {

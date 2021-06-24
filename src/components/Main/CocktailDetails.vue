@@ -2,31 +2,39 @@
   <body class="main">
     <div class="info">
       <h1>{{ cocktail.name }}</h1>
-      <br /><br />
+      <br /><br /><br /><br />
       <div class="ingredient-count">
-        <img src="../../../content/Ingredient-Icon.png" alt="ingredient" />
-        <h3>{{ cocktail.ingredientsCount }} Zutaten</h3>
+        <img
+          id="ingediant-cion"
+          src="../../../content/Ingredient-Icon.png"
+          alt="ingredient"
+        />
+        <h3 id="count">{{ cocktail.ingredientsCount }} Zutaten</h3>
       </div>
       <hr />
-      <div class = "ingredient">
+      <div class="ingredient">
         <h2>Zutaten</h2>
         <ul id="ingredientList">
           <li v-for="ing in cocktail.ingredients" :key="ing">
             {{ ing }}
           </li>
         </ul>
-        <br>
-        <h2>Glas</h2>
+        <br />
+        <h3>Glas</h3>
         <p>{{ cocktail.glass }}</p>
-        <br>
-        <p>{{ cocktail.category }}</p>
+        <br />
+        <h2>Zubereitung</h2>
+        <!-- <p>{{ cocktail.category }}</p>
         <p v-if="alcoholic">alcoholic</p>
-        <p v-else>alcoholfree</p>
+        <p v-else>alcoholfree</p> -->
         <p>{{ cocktail.instructions }}</p>
       </div>
     </div>
     <div class="image">
       <img id="cocktailImg" :src="cocktail.srcImg" alt="Cocktail" />
+      <!-- <div class="container">
+        <p>Northern Lights</p>
+      </div> -->
     </div>
   </body>
 </template>
@@ -104,51 +112,63 @@ export default {
 <style scoped>
 .main {
   padding: 50px;
-  border-radius: 20px;
   background-color: #fff1d6d7;
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  width: 1600px;
-  margin: auto;
 }
 
 h1 {
   font-size: 36px;
   background-color: rgba(0, 238, 255, 0.8);
   border-radius: 10px;
-  color: black;
   padding: 20px 40px 20px 40px;
-  max-width: 200px;
-  margin: 20px auto auto 20px;
+  max-width: 500px;
+  width: fit-content;
+  margin: 0;
 }
 
-/* h2{
-  margin-left: 20px;
-} */
+h2 {
+  font-size: 28px;
+}
 
-ul{
+h3 {
+  font-size: 24px;
+}
+
+ul {
   list-style-type: square;
   line-height: 1.5;
 }
 
 #cocktailImg {
-  float:left;
-  width:40%;
-  padding:100px;
+  float: left;
+  width: 40%;
+  padding: 100px;
 }
 
 .info {
   color: black;
   padding: 0px 40px 0px 40px;
   margin: 0 auto;
-  float:left;
-  width:40%;
+  float: left;
+  width: 40%;
 }
 
-/* .ingredient-count {
-} */
+.ingredient-count {
+  padding: 20px;
+}
 
-.ingredient{
+.ingredient {
+  font-size: 20px;
   margin-left: 20px;
   text-align: left;
+}
+
+#count {
+  float: left;
+  width: 40%;
+}
+
+.ingediant-cion {
+  width: 10%;
+  float: left;
 }
 </style>
