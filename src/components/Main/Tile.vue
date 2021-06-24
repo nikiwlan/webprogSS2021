@@ -126,14 +126,15 @@ export default {
 }
 
 .cocktail-name {
+  font-size: 18px;
   background-color: rgba(0, 238, 255, 0.8);
-  border-radius: 20px;
+  border-radius: 10px;
   color: black;
-  width: 170px;
-  padding: 0px 20px 0px 20px;
-  margin-top: 220px;
+  padding: 0px 5px 0px 5px;
+  margin-top: 205px;
   position: absolute;
-  margin-left: 20px;
+  max-width: 200px;
+  margin: 200px auto auto 20px;
 }
 
 .tile-image {
