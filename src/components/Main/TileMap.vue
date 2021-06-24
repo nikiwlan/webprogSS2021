@@ -49,20 +49,46 @@ export default {
     },
 
     filterCocktails() {
+      this.filteredCocktails = this.allCocktails;
+      this.filterCategory();
+      this.filterAlcohol();
+    },
+
+    filterCategory() {
       let tempList = [];
       let index = 0;
       if (this.categories != 0) {
-        for (let i = 0; i < this.allCocktails.length; i++) {
+        for (let i = 0; i < this.filteredCocktails.length; i++) {
           for (let j = 0; j < this.categories.length; j++) {
-            if (this.allCocktails[i].category === this.categories[j]) {
-              tempList[index] = this.allCocktails[i];
+            if (this.filteredCocktails[i].category === this.categories[j]) {
+              tempList[index] = this.filteredCocktails[i];
               index++;
             }
           }
         }
         this.filteredCocktails = tempList;
-      } else {
-        this.filteredCocktails = this.allCocktails;
+      }
+    },
+
+    filterAlcohol() {
+      let tempList = [];
+      let index = 0;
+      if (this.alcoholic && !this.alcoholFree) {
+        for (let i = 0; i < this.filteredCocktails.length; i++) {
+          if (this.filteredCocktails[i].alc == true) {
+            tempList[index] = this.filteredCocktails[i];
+            index++;
+          }
+        }
+        this.filteredCocktails = tempList;
+      } else if (!this.alcoholic && this.alcoholFree) {
+        for (let i = 0; i < this.filteredCocktails.length; i++) {
+          if (this.filteredCocktails[i].alc == false) {
+            tempList[index] = this.filteredCocktails[i];
+            index++;
+          }
+        }
+        this.filteredCocktails = tempList;
       }
     },
   },
