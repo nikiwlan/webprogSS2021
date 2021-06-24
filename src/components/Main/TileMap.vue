@@ -36,6 +36,7 @@ export default {
     },
 
     filterCocktails() {
+      console.log("filterCocktails");
       this.filteredCocktails = this.allCocktails;
       // Applying Filters
       // this.filterByAlc();
@@ -49,7 +50,7 @@ export default {
       let index = 0;
       if (this.alcoholic && !this.alcoholFree) {
         for (let i = 0; i < this.allCocktails.length; i++) {
-          if (this.allCocktails[i].alc == "Alcoholic") {
+          if (this.allCocktails[i].alc == true) {
             tempList[index] = this.allCocktails[i];
             index++;
           }
@@ -57,7 +58,7 @@ export default {
         this.allCocktails = tempList;
       } else if (!this.alcoholic && this.alcoholFree) {
         for (let i = 0; i < this.allCocktails.length; i++) {
-          if (this.allCocktails[i].alc == "Non_Alcoholic") {
+          if (this.allCocktails[i].alc == false) {
             tempList[index] = this.allCocktails[i];
             index++;
           }
@@ -89,31 +90,49 @@ export default {
 
   beforeCreate: function () {
     // Fetching All Cocktails
+    console.log("beforeCreate");
     this.axios
       .get("https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Alcoholic")
       .then((response) => {
         for (let i = 0; i < response.data.drinks.length; i++) {
-          this.allCocktails[this.allCocktails.length] = {
-            id: response.data.drinks[i].idDrink,
-            name: response.data.drinks[i].strDrink,
-            alc: response.data.drinks[i].strAlcoholic,
-            category: response.data.drinks[i].strCategory,
-          };
+          this.axios
+            .get(
+              "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=" +
+                response.data.drinks[i].idDrink
+            )
+            .then((respCategory) => {
+              this.allCocktails[this.allCocktails.length] = {
+                id: respCategory.data.drinks[0].idDrink,
+                name: respCategory.data.drinks[0].strDrink,
+                alc: true,
+                category: respCategory.data.drinks[0].strCategory,
+              };
+            });
         }
-
+        console.log(this.allCocktails);
+      })
+      .then(() => {
         this.axios
           .get(
             "https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic"
           )
           .then((response2) => {
-            for (let j = 0; j < response2.data.drinks.length; j++) {
-              this.allCocktails[this.allCocktails.length] = {
-                id: response2.data.drinks[j].idDrink,
-                name: response2.data.drinks[j].strDrink,
-                alc: response2.data.drinks[j].strAlcoholic,
-                category: response2.data.drinks[j].strCategory,
-              };
+            for (let i = 0; i < response2.data.drinks.length; i++) {
+              this.axios
+                .get(
+                  "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=" +
+                    response2.data.drinks[i].idDrink
+                )
+                .then((respCategory) => {
+                  this.allCocktails[this.allCocktails.length] = {
+                    id: respCategory.data.drinks[0].idDrink,
+                    name: respCategory.data.drinks[0].strDrink,
+                    alc: false,
+                    category: respCategory.data.drinks[0].strCategory,
+                  };
+                });
             }
+            console.log(this.allCocktails);
           });
       });
   },
