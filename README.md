@@ -30,6 +30,9 @@ App running at:
 - Local: http://localhost:8080/
 - Network: http://192.168.178.21:8080/
 
+URl zur Andwedung in der Cloud:
+-""
+
 ----------------------------------------------------------------------------------------------------
 
 **Material**
