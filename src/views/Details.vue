@@ -14,7 +14,6 @@ import CocktailDetails from "../components/Main/CocktailDetails.vue";
 
 export default {
   name: "Details",
-  // props: ['selectedID'],
   data() {
     return {
       selectedID: this.$route.params.id,
@@ -25,6 +24,7 @@ export default {
     CocktailDetails,
   },
   methods: {
+    // Triggered when User clicks on Heading
     goBack() {
       this.$router.push({ name: "Home" });
     },
@@ -35,14 +35,12 @@ export default {
 <style scoped>
 .main {
   margin: auto;
-  width: fit-content;
   font-family: Avenir, Helvetica, Arial, sans-serif;
   display: table;
   border-radius: 20px;
 }
 
 .header {
-  float: center;
   width: fit-content;
   padding: 20px 50px 20px 50px;
   margin: 50px auto 50px auto;

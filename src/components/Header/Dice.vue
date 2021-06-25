@@ -38,8 +38,12 @@ export default {
 
 
 <style scoped>
+.dice{
+  padding: 0 20px 10px 20px;
+}
 .diceButton {
   background-color: #9dfcec5d;
+  width: 300px;
 }
 #diceImg {
   width: 30%;

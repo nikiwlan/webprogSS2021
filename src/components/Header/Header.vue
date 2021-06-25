@@ -1,9 +1,9 @@
 <template>
-  <div class="padding">
-    <body class = "header">
-      <h1>Cocktails4You</h1>
-      <SearchField @searchFieldMessage="updateSearch" />
-      <Dice @selectedCocktailID="selectCocktail" />
+  <div class="outer-padding">
+    <body class="header">
+        <h1 id="heading">Cocktails4You</h1>
+        <SearchField @searchFieldMessage="updateSearch" />
+        <Dice @selectedCocktailID="selectCocktail" />
     </body>
   </div>
 </template>
@@ -41,9 +41,16 @@ export default {
   margin: auto auto 50px auto;
   border-radius: 20px;
   background-color: #fff1d6d7;
-  font-style:italic;
+  font-style: italic;
 }
-.padding{
+
+.outer-padding {
   padding: 50px;
 }
+
+#heading{
+  text-align: center;
+}
+
+
 </style>

@@ -2,7 +2,9 @@
   <body class="view">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Charm" />
     <div class="heading">
-      <h2>Get inspired</h2>
+      <h2 v-if="filteredCocktails.length === 158" > Get Inspired</h2>
+      <h2 v-else-if="filteredCocktails.length < 158 & filteredCocktails.length > 0"> {{filteredCocktails.length}} Cocktails found  </h2>
+      <h3 v-else> Your search request doesn't match with any Cocktail / Ingredient in our data base</h3>
     </div>
     <div class="tile-map">
       <div v-for="cocktail in filteredCocktails" :key="cocktail">
@@ -112,6 +114,7 @@ export default {
     },
   },
 
+  // Load the data of all Cocktails
   async created() {
     let Cocktails = await this.getAlcFree(this.axios);
     for (let i = 0; i < Cocktails.data.drinks.length; i++) {

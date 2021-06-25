@@ -1,6 +1,6 @@
 <template>
   <div class="search-field">
-    <input v-model="message" placeholder="Search Cocktail By Name" />
+    <input v-model="message" placeholder="Search for Cocktail / Ingredient by Name" />
   </div>
 </template>
 
@@ -16,8 +16,9 @@ export default {
   },
 
   methods: {
+
+    // Triggered when User enters search terms
     searchFieldUpdate() {
-      // Triggered when User enters search terms
       this.$emit("searchFieldMessage", this.message);
     },
   },
@@ -29,8 +30,12 @@ export default {
 
 
 <style scoped>
+
 input {
-  width: 100%;
+  padding-left: 10px;
+  font-size: 16px;
+  height: 40px;
+  width: 95%;
   margin-bottom: 25px;
 }
 </style>

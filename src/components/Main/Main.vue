@@ -38,8 +38,9 @@ export default {
     FilterField,
   },
   methods: {
+
+    // Get Categories, that are selected on the Filter
     getCategorie(cat) {
-      // Get Categories, that are selected on the Filter
       this.categories = [0];
       let index = 0;
       for (let i = 0; i < 11; i++) {
@@ -50,18 +51,18 @@ export default {
       }
     },
 
+    // give Parent (Home.vue) the ID of the selected Cocktail
     selectCocktail(id) {
-      // give Parent (Home.vue) the ID of the selected Cocktail
       this.$emit("selectedCocktailID", id);
     },
 
+    // Triggered when User clicks on "alkoholfrei"
     getAlcoholFree(alcFree) {
-      // Triggered when User clicks on "alkoholfrei"
       this.alcoholFree = alcFree;
     },
 
+    // Triggered when User clicks on "alkoholisch"
     getAlcoholic(alc) {
-      // Triggered when User clicks on "alkoholisch"
       this.alcoholic = alc;
     },
   },
@@ -71,16 +72,11 @@ export default {
 
 <style scoped>
 .browseCocktail {
-  /* margin: auto;
-  justify-content: center;
-  width: auto; */
-  /* border: 15px black;
-  margin: 20px;
-  border-radius: 5px; */
   margin-left: 100px;
   margin-right: 100px;
   display: flex;
   flex-flow: row;
+  /* justify-content: center;  */
 }
 
 </style>

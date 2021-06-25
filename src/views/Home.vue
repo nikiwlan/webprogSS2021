@@ -29,12 +29,12 @@ export default {
     Footer,
   },
   methods: {
+    // Triggered when Search Terms are changed
     updateSearch(message) {
-      // Triggered when Search Terms are changed
       this.searchField = message;
     },
+    // Triggered when User clicks on Tile or Dice Button
     selected(id) {
-      // Triggered when User clicks on Tile or Dice Button
       this.$router.push({ name: "Details", params: { id: id } });
     },
   },
@@ -44,17 +44,5 @@ export default {
 <style scoped>
 .main {
   font-family: Avenir, Helvetica, Arial, sans-serif;
-  /* position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  width: 100%; 
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  display: table;
-  flex-flow: column;*/
 }
 </style>
