@@ -1,5 +1,6 @@
 # webprogss2021
 **created by**
+
 Niklas Langes (32029) & Erik Cichy (32883)
 
 ## Project setup
@@ -47,6 +48,7 @@ API:
 
 - https://www.youtube.com/watch?v=qZXt1Aom3Cs&list=PL4iZ5TIExu5siXdSNsyLIIJh0W6pAbAbj&index=2
 
+----------------------------------------------------------------------------------------------------
 
 App running at:
 
@@ -54,7 +56,11 @@ App running at:
 - Network: http://192.168.178.21:8080/
 
 -----------------------------------------------------------------------------------------------------
-free functions:
+API:
+
+- https://www.youtube.com/watch?v=qZXt1Aom3Cs&list=PL4iZ5TIExu5siXdSNsyLIIJh0W6pAbAbj&index=2
+
+Free API Functions:
 - Search cocktail by name
 - Search ingredient by name
 - List all cocktails by first letter
@@ -67,7 +73,8 @@ free functions:
 - Filter by Glass
 - List the categories, glasses, ingredients or alcoholic filters
 
-**Geplant:**
+-----------------------------------------------------------------------------------------------------
+**Geplante Applikation:**
 
 Features:
 - all cocktails / get inspired
@@ -89,7 +96,8 @@ Components:
 Architecture:
 - siehe StructureTree
 
-**End-Application:**
+-----------------------------------------------------------------------------------------------------
+**End-Applikation:**
 
 Architecture:
 
