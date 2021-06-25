@@ -63,14 +63,16 @@ free functions:
 - Filter by Glass
 - List the categories, glasses, ingredients or alcoholic filters
 
-features:
-- empfelungen
-- all cocktails
-- Suche mit name
-- ingredients angeben und dann werden alle machbaren cokctails ausgegeben (Filer Funktionen)
-- random cokctail => roll the dice
+**Geplant:**
 
-components: 
+Features:
+- all cocktails / get inspired
+- Suche nach Cocktail name / Ingredient name
+- Filter nach Categories / Alc
+- Random Cocktail => roll the dice
+- Anzeige Einzelner Cocktail mit Details
+
+Components: 
 - Kachel Cocktail
 - Kacheln Feld 
 - Suche/Titel
@@ -79,4 +81,20 @@ components:
 - (Startbild)
 - Cocktail Rezept mit Bild
 - Router
+
+Architecture:
+- siehe StructureTree
+
+**End-Application:**
+
+Architecture:
+
+Ordnerstrukur:
+- **App** -> Aufruf der verschiednen Router
+- **main.js** -> Eingang der Applikation
+- **Views** -> beid Router "Details" und "Home"
+- **Router** -> Definiton der Router
+- **Main** -> Body der Hauptseite 
+- **Header** -> Header Bereich der Applikation
+- **Footer** -> Footer der Applikation (Wird in beiden Routern verwendet)
 
