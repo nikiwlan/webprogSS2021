@@ -129,7 +129,7 @@ h4 {
 }
 
 ul {
-  list-style-type: square;
+  list-style-type: none;
   line-height: 1.5;
 }
 
@@ -147,7 +147,7 @@ ul {
 }
 
 .ingredient {
-  font-size: 24px;
+  font-size: 22px;
   margin-left: 20px;
   text-align: left;
 }
@@ -181,7 +181,7 @@ a{
 }
 
 span{
-  margin-left: 200px;
+  margin-left: 230px;
 }
 
 </style>
