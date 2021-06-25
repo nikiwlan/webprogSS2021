@@ -119,6 +119,7 @@ export default {
         ingredientName: temp.data.drinks[i].strIngredient1,
       };
     }
+    this.ingredients.sort((a, b) => a.ingredientName.localeCompare(b.ingredientName));
     temp = await this.getCategories(this.axios);
     for (let i = 0; i < temp.data.drinks.length; i++) {
       this.categories[i] = {
