@@ -30,7 +30,7 @@
       </div>
     </div>
     <div v-else>
-      <h2> Loading ---</h2>
+      <h2>Loading ---</h2>
     </div>
   </body>
 </template>
@@ -48,11 +48,16 @@ export default {
     return {
       allCocktails: [],
       filteredCocktails: [],
-      tempID: 0,
       arrayInitialzed: false,
     };
   },
-  props: ["categories", "searchField", "alcoholFree", "alcoholic"],
+  props: [
+    "categories",
+    "searchField",
+    "alcoholFree",
+    "alcoholic",
+    "ingredients",
+  ],
   methods: {
     getAlcFree: async (axios) => {
       return await axios.get(
@@ -75,6 +80,7 @@ export default {
       this.filterCategory();
       this.filterAlcohol();
       this.filterSearch();
+      this.filterIngredients();
     },
 
     filterCategory() {
@@ -131,6 +137,57 @@ export default {
         this.filteredCocktails = tempList;
       }
     },
+
+    filterIngredients() {
+      let tempList = [];
+      let index = 0;
+      if (this.ingredients != 0) {
+        for (let i = 0; i < this.filteredCocktails.length; i++) {
+          for (let j = 0; j < this.ingredients.length; j++) {
+            for (
+              let k = 0;
+              k < this.filteredCocktails[i].ingredients.length;
+              k++
+            ) {
+              if (
+                this.filteredCocktails[i].ingredients[k] === this.ingredients[j]
+              ) {
+                tempList[index] = this.filteredCocktails[i];
+                index++;
+              }
+            }
+          }
+        }
+        this.filteredCocktails = tempList;
+      }
+    },
+    initIngredients(obj) {
+      let temp = [];
+      temp = this.setIngredient(obj.data.drinks[0].strIngredient1, temp);
+      temp = this.setIngredient(obj.data.drinks[0].strIngredient2, temp);
+      temp = this.setIngredient(obj.data.drinks[0].strIngredient3, temp);
+      temp = this.setIngredient(obj.data.drinks[0].strIngredient4, temp);
+      temp = this.setIngredient(obj.data.drinks[0].strIngredient5, temp);
+      temp = this.setIngredient(obj.data.drinks[0].strIngredient6, temp);
+      temp = this.setIngredient(obj.data.drinks[0].strIngredient7, temp);
+      temp = this.setIngredient(obj.data.drinks[0].strIngredient8, temp);
+      temp = this.setIngredient(obj.data.drinks[0].strIngredient9, temp);
+      temp = this.setIngredient(obj.data.drinks[0].strIngredient10, temp);
+      temp = this.setIngredient(obj.data.drinks[0].strIngredient11, temp);
+      temp = this.setIngredient(obj.data.drinks[0].strIngredient12, temp);
+      temp = this.setIngredient(obj.data.drinks[0].strIngredient13, temp);
+      temp = this.setIngredient(obj.data.drinks[0].strIngredient14, temp);
+      temp = this.setIngredient(obj.data.drinks[0].strIngredient15, temp);
+      return temp;
+    },
+
+    // Helper function to keep the code smaller
+    setIngredient(Ing, temp) {
+      if (Ing != null) {
+        temp[temp.length] = Ing;
+      }
+      return temp;
+    },
   },
 
   // Load the data of all Cocktails
@@ -141,11 +198,13 @@ export default {
         "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=" +
           Cocktails.data.drinks[i].idDrink
       );
+      let ing = this.initIngredients(x);
       this.allCocktails.push({
         name: x.data.drinks[0].strDrink,
         id: x.data.drinks[0].idDrink,
         alc: false,
         category: x.data.drinks[0].strCategory,
+        ingredients: ing,
       });
     }
     Cocktails = await this.getAlc(this.axios);
@@ -154,11 +213,13 @@ export default {
         "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=" +
           Cocktails.data.drinks[i].idDrink
       );
+      let ing = this.initIngredients(x);
       this.allCocktails.push({
         name: x.data.drinks[0].strDrink,
         id: x.data.drinks[0].idDrink,
         alc: true,
         category: x.data.drinks[0].strCategory,
+        ingredients: ing,
       });
     }
     this.arrayInitialzed = true;
@@ -168,6 +229,9 @@ export default {
       this.filterCocktails();
     },
     searchField: function () {
+      this.filterCocktails();
+    },
+    ingredients: function () {
       this.filterCocktails();
     },
   },

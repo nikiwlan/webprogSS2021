@@ -3,10 +3,12 @@
     <div class="browseCocktail">
       <FilterField
         @categoriesSelected="getCategorie"
+        @ingredientsSelected="getIngredients"
         @alcoholFreeSelected="getAlcoholFree"
         @alcoholicSelected="getAlcoholic"
       />
       <TileMap
+        :ingredients="ingredients"
         :categories="categories"
         :searchField="searchField"
         :alcoholFree="alcoholFree"
@@ -28,6 +30,7 @@ export default {
   data: () => {
     return {
       categories: [],
+      ingredients: [],
       alcoholFree: "",
       alcoholic: "",
     };
@@ -38,14 +41,24 @@ export default {
     FilterField,
   },
   methods: {
-
     // Get Categories, that are selected on the Filter
     getCategorie(cat) {
       this.categories = [0];
       let index = 0;
-      for (let i = 0; i < 11; i++) {
+      for (let i = 0; i < cat.length; i++) {
         if (cat[i].categorieValue == true) {
           this.categories[index] = cat[i].categorieName;
+          index++;
+        }
+      }
+    },
+
+    getIngredients(ing) {
+      this.ingredients = [0];
+      let index = 0;
+      for (let i = 0; i < ing.length; i++) {
+        if (ing[i].ingredientValue == true) {
+          this.ingredients[index] = ing[i].ingredientName;
           index++;
         }
       }
@@ -78,5 +91,4 @@ export default {
   flex-flow: row;
   /* justify-content: center;  */
 }
-
 </style>
