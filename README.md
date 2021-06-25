@@ -53,8 +53,8 @@ App running at:
 - Network: http://192.168.178.21:8080/
 
 -----------------------------------------------------------------------------------------------------
-API:
 
+API:
 - https://www.youtube.com/watch?v=qZXt1Aom3Cs&list=PL4iZ5TIExu5siXdSNsyLIIJh0W6pAbAbj&index=2
 
 Free API Functions:
@@ -99,8 +99,8 @@ Architecture:
 Architecture:
 
 Ordnerstrukur:
-- **App** -> Aufruf der verschiednen Router
 - **main.js** -> Eingang der Applikation
+- **App** -> Aufruf der verschiednen Router
 - **Views** -> beid Router "Details" und "Home"
 - **Router** -> Definiton der Router
 - **Main** -> Body der Hauptseite 
@@ -116,6 +116,6 @@ Features:
 
 -----------------------------------------------------------------------------------------------------
 
-**created by**
 
+**created by**
 Niklas Langes (32029) & Erik Cichy (32883)
