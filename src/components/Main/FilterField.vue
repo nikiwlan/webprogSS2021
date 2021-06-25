@@ -4,11 +4,11 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Charm"
     />
-    <div class="heading">
+    <div id="heading" class ="filter-blocks">
       <h1>Filter by:</h1>
     </div>
     <hr />
-    <div class="alcohol">
+    <div id="alcohol" class ="filter-blocks">
       <h2 class="heading2">Alcohol</h2>
       <div class="attributes">
         <input
@@ -30,7 +30,7 @@
       </div>
     </div>
     <hr />
-    <div class="categories">
+    <div id="categories" class ="filter-blocks">
       <h2 class="heading2">Category</h2>
       <div v-for="category in categories" :key="category">
         <input
@@ -44,7 +44,7 @@
     </div>
 
     <hr />
-    <div class="ingredients">
+    <div id="ingredients" class ="filter-blocks">
       <h2 class="heading2">Ingredients</h2>
       <div class="attributes">
         <div v-for="ingredient in ingredients" :key="ingredient">
@@ -148,7 +148,7 @@ export default {
   width: 440px;
 }
 
-.heading {
+#heading {
   font-size: 14px;
   font-family: "Charm", sans-serif;
   letter-spacing: 2px;
@@ -159,11 +159,7 @@ export default {
   letter-spacing: 2px;
 }
 
-div {
-  padding: 0px 50px 0px 50px;
-  margin-top: 20px;
-  margin-bottom: 30px;
-}
+
 
 .attributes {
   text-align: left;
@@ -176,4 +172,9 @@ div {
   height: 18px;
   margin-right: 10px;
 }
+
+.filter-blocks{
+  padding: 0 0 0 50px;
+}
+
 </style>
