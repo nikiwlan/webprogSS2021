@@ -1,18 +1,36 @@
 <template>
   <body class="view">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Charm" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Charm"
+    />
     <div class="heading">
-      <h2 v-if="filteredCocktails.length === 158" > Get Inspired</h2>
-      <h2 v-else-if="filteredCocktails.length < 158 & filteredCocktails.length > 0"> {{filteredCocktails.length}} Cocktails found  </h2>
-      <h3 v-else> Your search request doesn't match with any Cocktail / Ingredient in our data base</h3>
+      <h2 v-if="filteredCocktails.length === 158">Get Inspired</h2>
+      <h2
+        v-else-if="
+          filteredCocktails.length < 158 &&
+          filteredCocktails.length > 0 &&
+          arrayInitialzed === true
+        "
+      >
+        {{ filteredCocktails.length }} Cocktails found
+      </h2>
+      <h3 v-else-if="arrayInitialzed === true">
+        Your search request doesn't match with any Cocktail / Ingredient in our
+        data base
+      </h3>
+      <h3 v-else>Cocktails are being loaded.</h3>
     </div>
-    <div class="tile-map">
+    <div class="tile-map" v-if="arrayInitialzed === true">
       <div v-for="cocktail in filteredCocktails" :key="cocktail">
         <Tile
           :cocktailID="cocktail.id"
           @selectedCocktailID="selectCocktail"
         ></Tile>
       </div>
+    </div>
+    <div v-else>
+      <h2> Loading ---</h2>
     </div>
   </body>
 </template>
@@ -31,6 +49,7 @@ export default {
       allCocktails: [],
       filteredCocktails: [],
       tempID: 0,
+      arrayInitialzed: false,
     };
   },
   props: ["categories", "searchField", "alcoholFree", "alcoholic"],
@@ -142,6 +161,7 @@ export default {
         category: x.data.drinks[0].strCategory,
       });
     }
+    this.arrayInitialzed = true;
   },
   watch: {
     categories: function () {

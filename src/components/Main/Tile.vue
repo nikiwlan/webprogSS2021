@@ -46,13 +46,14 @@ export default {
     };
   },
   methods: {
+
+    // triggered when User clicks on this Tile
     loadCocktail() {
-      // triggered when User clicks on this Tile
       this.$emit("selectedCocktailID", this.cocktailID);
     },
 
+    // the Ingridients are loaded into the Array
     initIngredients() {
-      // the Ingridients are loaded into the Array
       this.setIngredient(this.tempCocktail.drinks[0].strIngredient1);
       this.setIngredient(this.tempCocktail.drinks[0].strIngredient2);
       this.setIngredient(this.tempCocktail.drinks[0].strIngredient3);
@@ -70,14 +71,15 @@ export default {
       this.setIngredient(this.tempCocktail.drinks[0].strIngredient15);
     },
 
+    // Helper function to keep the code smaller
     setIngredient(Ing) {
-      // Helper function to keep the code smaller
       if (Ing != null) {
         this.cocktail.ingredients[this.cocktail.ingredientsCount] = Ing;
         this.cocktail.ingredientsCount++;
       }
     },
   },
+  
   beforeCreate: function () {
     let api =
       "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=" +

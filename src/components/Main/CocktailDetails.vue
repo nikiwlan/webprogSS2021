@@ -55,6 +55,7 @@ export default {
   },
   props: ["selectedID"],
   methods: {
+    
     // the Ingridients are loaded into the Array
     initIngredients() {
       this.setIngredient(this.tempCocktail.drinks[0].strIngredient1);

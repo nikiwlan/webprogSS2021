@@ -20,12 +20,14 @@ export default {
     Dice,
   },
   methods: {
+
+    // Triggered when Search Field is changed
     updateSearch(message) {
-      // Triggered when Search Field is changed
       this.$emit("searchFieldMessage", message);
     },
+
+    // Triggered when Dice Button is clicked
     selectCocktail(id) {
-      // Triggered when Dice Button is clicked
       this.$emit("selectedCocktailID", id);
     },
   },

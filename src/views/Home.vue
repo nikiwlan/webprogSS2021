@@ -28,11 +28,13 @@ export default {
     Main,
     Footer,
   },
+
   methods: {
     // Triggered when Search Terms are changed
     updateSearch(message) {
       this.searchField = message;
     },
+    
     // Triggered when User clicks on Tile or Dice Button
     selected(id) {
       this.$router.push({ name: "Details", params: { id: id } });

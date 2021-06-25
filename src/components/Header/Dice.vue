@@ -24,8 +24,9 @@ export default {
     };
   },
   methods: {
+    
+    // Triggered when Button is clicked --> gets random Cocktail
     rollTheDice() {
-      // Triggered when Button is clicked --> gets random Cocktail
       let api = "https://www.thecocktaildb.com/api/json/v1/1/random.php";
       this.axios.get(api).then((response) => {
         console.log(response.data);

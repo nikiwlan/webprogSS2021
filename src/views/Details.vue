@@ -24,6 +24,7 @@ export default {
     CocktailDetails,
   },
   methods: {
+    
     // Triggered when User clicks on Heading
     goBack() {
       this.$router.push({ name: "Home" });
