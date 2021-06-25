@@ -14,7 +14,7 @@
         <h2>Ingredients</h2>
         <ul id="ingredientList">
           <li v-for="(ing, index) in cocktail.ingredients" :key="ing">
-            {{ ing }}  <a v-if="cocktail.ingredientMeasure[index] != null">({{cocktail.ingredientMeasure[index]}})</a>
+            <a v-if="cocktail.ingredientMeasure[index] != null">{{cocktail.ingredientMeasure[index]}}</a> <span> <b> {{ ing }} </b> </span>
           </li>
         </ul>
         <br />
@@ -111,7 +111,7 @@ export default {
 .main {
   padding: 50px;
   background-color: #fff1d6d7;
-  max-width: 75%;
+  max-width: 80%;
   min-width: 1200px;
 }
 
@@ -135,10 +135,10 @@ ul {
 
 .info {
   color: black;
-  padding: 0px 40px 0px 40px;
+  padding: 0px 0px 0px 20px;
   margin: 0 auto;
   float: left;
-  max-width: 40%;
+  max-width: 45%;
   min-width: 350px;
 }
 
@@ -163,8 +163,7 @@ ul {
   float: left;
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-radius: 20px;
-  margin: 50px;
-  margin-left: 100px;
+  margin: 80px 0px 0px 100px;
   max-width: 32%;
 }
 
@@ -176,4 +175,13 @@ ul {
 #cocktailImg {
   max-width: 100%;
 }
+
+a{
+  position: absolute;
+}
+
+span{
+  margin-left: 200px;
+}
+
 </style>

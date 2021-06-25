@@ -164,7 +164,7 @@ export default {
 
 .attributes {
   text-align: left;
-  padding: 0px 50px 0px 0px;
+  padding: 0 50px 15px 0;
   font-size: 20px;
 }
 
