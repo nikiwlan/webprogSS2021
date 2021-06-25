@@ -25,9 +25,20 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 
 -----------------------------------------------------------------------------------------------------
+App running at:
+
+- Local: http://localhost:8080/
+- Network: http://192.168.178.21:8080/
+
+URl zur Andwedung in der Cloud:
+-""
+
+----------------------------------------------------------------------------------------------------
+
 **Material**
 
 - Volesungsinhalte Webprogrammierung (Marius Hofmeister)
+- Stack overflow
 
 links:
 
@@ -38,19 +49,15 @@ links:
 - https://www.youtube.com/watch?v=4crYg6Wr0_k
 - https://www.youtube.com/watch?v=8rn3SK4N8Go&t=6s
 - https://www.youtube.com/watch?v=juocv4AtrHo&t=571s
-
-API:
-
-- https://www.youtube.com/watch?v=qZXt1Aom3Cs&list=PL4iZ5TIExu5siXdSNsyLIIJh0W6pAbAbj&index=2
-
-
-App running at:
-
-- Local: http://localhost:8080/
-- Network: http://192.168.178.21:8080/
+- https://www.freecodecamp.org/news/how-to-deal-with-nested-callbacks-and-avoid-callback-hell-1bc8dc4a2012/
+https://dev.to/nickparsons/javascript-promises-and-why-asyncawait-wins-the-battle-1g8a
 
 -----------------------------------------------------------------------------------------------------
-free functions:
+
+API:
+- https://www.youtube.com/watch?v=qZXt1Aom3Cs&list=PL4iZ5TIExu5siXdSNsyLIIJh0W6pAbAbj&index=2
+
+Free API Functions:
 - Search cocktail by name
 - Search ingredient by name
 - List all cocktails by first letter
@@ -63,7 +70,8 @@ free functions:
 - Filter by Glass
 - List the categories, glasses, ingredients or alcoholic filters
 
-**Geplant:**
+-----------------------------------------------------------------------------------------------------
+**Geplante Applikation:**
 
 Features:
 - all cocktails / get inspired
@@ -80,21 +88,33 @@ Components:
 - Footer
 - (Startbild)
 - Cocktail Rezept mit Bild
-- Router
+- (Router)
 
 Architecture:
 - siehe StructureTree
 
-**End-Application:**
-
-Architecture:
+-----------------------------------------------------------------------------------------------------
+**End-Applikation:**
 
 Ordnerstrukur:
-- **App** -> Aufruf der verschiednen Router
 - **main.js** -> Eingang der Applikation
+- **App** -> Aufruf der verschiednen Router
 - **Views** -> beid Router "Details" und "Home"
 - **Router** -> Definiton der Router
 - **Main** -> Body der Hauptseite 
 - **Header** -> Header Bereich der Applikation
 - **Footer** -> Footer der Applikation (Wird in beiden Routern verwendet)
 
+Architecture geplant vs. umgesetzt:
+- Wie geplant aufgeteilt
+- Router im nachhinein hinzugefügt
+
+Features: 
+- alle geplanten features wurden umgesetzt
+
+-----------------------------------------------------------------------------------------------------
+
+
+**created by:**
+
+Niklas Langes (32029) & Erik Cichy (32883)
