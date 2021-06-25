@@ -25,6 +25,13 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 
 -----------------------------------------------------------------------------------------------------
+App running at:
+
+- Local: http://localhost:8080/
+- Network: http://192.168.178.21:8080/
+
+----------------------------------------------------------------------------------------------------
+
 **Material**
 
 - Volesungsinhalte Webprogrammierung (Marius Hofmeister)
@@ -40,17 +47,6 @@ links:
 - https://www.youtube.com/watch?v=juocv4AtrHo&t=571s
 - https://www.freecodecamp.org/news/how-to-deal-with-nested-callbacks-and-avoid-callback-hell-1bc8dc4a2012/
 https://dev.to/nickparsons/javascript-promises-and-why-asyncawait-wins-the-battle-1g8a
-
-API:
-
-- https://www.youtube.com/watch?v=qZXt1Aom3Cs&list=PL4iZ5TIExu5siXdSNsyLIIJh0W6pAbAbj&index=2
-
-----------------------------------------------------------------------------------------------------
-
-App running at:
-
-- Local: http://localhost:8080/
-- Network: http://192.168.178.21:8080/
 
 -----------------------------------------------------------------------------------------------------
 
@@ -96,8 +92,6 @@ Architecture:
 -----------------------------------------------------------------------------------------------------
 **End-Applikation:**
 
-Architecture:
-
 Ordnerstrukur:
 - **main.js** -> Eingang der Applikation
 - **App** -> Aufruf der verschiednen Router
@@ -118,4 +112,5 @@ Features:
 
 
 **created by**
+
 Niklas Langes (32029) & Erik Cichy (32883)
