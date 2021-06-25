@@ -79,7 +79,7 @@ export default {
       }
     },
   },
-  
+
   beforeCreate: function () {
     let api =
       "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=" +
@@ -102,13 +102,14 @@ export default {
 <style scoped>
 .tile {
   float: left;
-  width: 250px;
-  height: 350px;
+  width: 280px;
+  height: 380px;
   margin: 40px;
   border-radius: 10px;
   box-shadow: 5px 5px darkgray;
   text-align: left;
-  background-color: #fcdb9d;
+  background-color: #9dfcecd0;
+  /* #fcdb9d */
 }
 
 .tile:hover {
@@ -141,7 +142,7 @@ export default {
 
 .tile-image {
   display: grid;
-  width: 250px;
+  width: 280px;
   height: 280px;
   position: absolute;
   overflow: hidden;
@@ -153,11 +154,12 @@ export default {
 }
 
 .cocktail-info {
+  text-align: center;
   float: left;
   width: 40%;
   height: 100px;
-  margin-top: 300px;
-  padding-left: 15px;
+  margin-top: 320px;
+  padding-left: 25px;
 }
 
 #alc-free {

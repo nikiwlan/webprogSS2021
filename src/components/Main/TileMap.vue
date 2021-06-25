@@ -13,7 +13,7 @@
           arrayInitialzed === true
         "
       >
-        {{ filteredCocktails.length }} Cocktails found
+        {{ filteredCocktails.length }} Drinks found
       </h2>
       <h3 v-else-if="arrayInitialzed === true">
         Your search request doesn't match with any Cocktail / Ingredient in our
