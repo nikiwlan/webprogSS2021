@@ -4,11 +4,11 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Charm"
     />
-    <div id="heading" class ="filter-blocks">
+    <div id="heading" class="filter-blocks">
       <h1>Filter by:</h1>
     </div>
     <hr />
-    <div id="alcohol" class ="filter-blocks">
+    <div id="alcohol" class="filter-blocks">
       <h2 class="heading2">Alcohol</h2>
       <div class="attributes">
         <input
@@ -30,7 +30,7 @@
       </div>
     </div>
     <hr />
-    <div id="categories" class ="filter-blocks">
+    <div id="categories" class="filter-blocks">
       <h2 class="heading2">Category</h2>
       <div v-for="category in categories" :key="category">
         <input
@@ -44,7 +44,7 @@
     </div>
 
     <hr />
-    <div id="ingredients" class ="filter-blocks">
+    <div id="ingredients" class="filter-blocks">
       <h2 class="heading2">Ingredients</h2>
       <div class="attributes">
         <div v-for="ingredient in ingredients" :key="ingredient">
@@ -119,7 +119,9 @@ export default {
         ingredientName: temp.data.drinks[i].strIngredient1,
       };
     }
-    this.ingredients.sort((a, b) => a.ingredientName.localeCompare(b.ingredientName));
+    this.ingredients.sort((a, b) =>
+      a.ingredientName.localeCompare(b.ingredientName)
+    );
     temp = await this.getCategories(this.axios);
     for (let i = 0; i < temp.data.drinks.length; i++) {
       this.categories[i] = {
@@ -160,8 +162,6 @@ export default {
   letter-spacing: 2px;
 }
 
-
-
 .attributes {
   text-align: left;
   padding: 0px 50px 0px 0px;
@@ -174,8 +174,7 @@ export default {
   margin-right: 10px;
 }
 
-.filter-blocks{
+.filter-blocks {
   padding: 0 0 0 50px;
 }
-
 </style>
