@@ -129,6 +129,9 @@ export default {
         categorieName: temp.data.drinks[i].strCategory,
       };
     }
+    this.categories.sort((a, b) =>
+      a.categorieName.localeCompare(b.categorieName)
+    );
   },
   updated: async function () {
     if (this.categories[0] != undefined && this.ingredients[0] != undefined) {
@@ -165,7 +168,6 @@ export default {
 .attributes {
   text-align: left;
   padding: 0 50px 15px 0;
-  font-size: 20px;
 }
 
 .checkboxes {
@@ -176,5 +178,6 @@ export default {
 
 .filter-blocks {
   padding: 0 0 0 50px;
+  font-size: 20px;
 }
 </style>
