@@ -1,4 +1,6 @@
 # webprogss2021
+**created by**
+Niklas Langes (32029) & Erik Cichy (32883)
 
 ## Project setup
 ```
@@ -38,6 +40,8 @@ links:
 - https://www.youtube.com/watch?v=4crYg6Wr0_k
 - https://www.youtube.com/watch?v=8rn3SK4N8Go&t=6s
 - https://www.youtube.com/watch?v=juocv4AtrHo&t=571s
+- https://www.freecodecamp.org/news/how-to-deal-with-nested-callbacks-and-avoid-callback-hell-1bc8dc4a2012/
+https://dev.to/nickparsons/javascript-promises-and-why-asyncawait-wins-the-battle-1g8a
 
 API:
 
@@ -80,7 +84,7 @@ Components:
 - Footer
 - (Startbild)
 - Cocktail Rezept mit Bild
-- Router
+- (Router)
 
 Architecture:
 - siehe StructureTree
@@ -98,3 +102,9 @@ Ordnerstrukur:
 - **Header** -> Header Bereich der Applikation
 - **Footer** -> Footer der Applikation (Wird in beiden Routern verwendet)
 
+Architecture geplant vs. umgesetzt:
+- Wie geplant aufgeteilt
+- Router im nachhinein hinzugefügt
+
+Features: 
+- alle geplanten features wurden umgesetzt
