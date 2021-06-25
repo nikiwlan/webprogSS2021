@@ -1,6 +1,6 @@
 <template>
   <div class="search-field">
-    <input v-model="message" placeholder="Search for Cocktail / Ingredient by Name" />
+    <input v-model="message" placeholder="Search for Cocktail" />
   </div>
 </template>
 

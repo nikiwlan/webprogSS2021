@@ -13,8 +13,8 @@
       <div class="ingredient">
         <h2>Ingredients</h2>
         <ul id="ingredientList">
-          <li v-for="ing in cocktail.ingredients" :key="ing">
-            {{ ing }}
+          <li v-for="(ing, index) in cocktail.ingredients" :key="ing">
+            {{ ing }}  <a v-if="cocktail.ingredientMeasure[index] != null">({{cocktail.ingredientMeasure[index]}})</a>
           </li>
         </ul>
         <br />
@@ -27,7 +27,7 @@
     </div>
     <div class="image">
       <img id="cocktailImg" :src="cocktail.srcImg" alt="Cocktail" />
-      <div class = "cocktail-name">
+      <div class="cocktail-name">
         <h4>{{ cocktail.name }}</h4>
       </div>
     </div>
@@ -44,6 +44,7 @@ export default {
         name: "",
         category: "",
         ingredients: [],
+        ingredientMeasure: [],
         ingredientsCount: 0,
         alcoholic: true,
         srcImg: "",
@@ -55,30 +56,30 @@ export default {
   },
   props: ["selectedID"],
   methods: {
-    
     // the Ingridients are loaded into the Array
     initIngredients() {
-      this.setIngredient(this.tempCocktail.drinks[0].strIngredient1);
-      this.setIngredient(this.tempCocktail.drinks[0].strIngredient2);
-      this.setIngredient(this.tempCocktail.drinks[0].strIngredient3);
-      this.setIngredient(this.tempCocktail.drinks[0].strIngredient4);
-      this.setIngredient(this.tempCocktail.drinks[0].strIngredient5);
-      this.setIngredient(this.tempCocktail.drinks[0].strIngredient6);
-      this.setIngredient(this.tempCocktail.drinks[0].strIngredient7);
-      this.setIngredient(this.tempCocktail.drinks[0].strIngredient8);
-      this.setIngredient(this.tempCocktail.drinks[0].strIngredient9);
-      this.setIngredient(this.tempCocktail.drinks[0].strIngredient10);
-      this.setIngredient(this.tempCocktail.drinks[0].strIngredient11);
-      this.setIngredient(this.tempCocktail.drinks[0].strIngredient12);
-      this.setIngredient(this.tempCocktail.drinks[0].strIngredient13);
-      this.setIngredient(this.tempCocktail.drinks[0].strIngredient14);
-      this.setIngredient(this.tempCocktail.drinks[0].strIngredient15);
+      this.setIngredient(this.tempCocktail.drinks[0].strIngredient1, this.tempCocktail.drinks[0].strMeasure1);
+      this.setIngredient(this.tempCocktail.drinks[0].strIngredient2, this.tempCocktail.drinks[0].strMeasure2);
+      this.setIngredient(this.tempCocktail.drinks[0].strIngredient3, this.tempCocktail.drinks[0].strMeasure3);
+      this.setIngredient(this.tempCocktail.drinks[0].strIngredient4, this.tempCocktail.drinks[0].strMeasure4);
+      this.setIngredient(this.tempCocktail.drinks[0].strIngredient5, this.tempCocktail.drinks[0].strMeasure5);
+      this.setIngredient(this.tempCocktail.drinks[0].strIngredient6, this.tempCocktail.drinks[0].strMeasure6);
+      this.setIngredient(this.tempCocktail.drinks[0].strIngredient7, this.tempCocktail.drinks[0].strMeasure7);
+      this.setIngredient(this.tempCocktail.drinks[0].strIngredient8, this.tempCocktail.drinks[0].strMeasure8);
+      this.setIngredient(this.tempCocktail.drinks[0].strIngredient9, this.tempCocktail.drinks[0].strMeasure9);
+      this.setIngredient(this.tempCocktail.drinks[0].strIngredient10, this.tempCocktail.drinks[0].strMeasure10);
+      this.setIngredient(this.tempCocktail.drinks[0].strIngredient11, this.tempCocktail.drinks[0].strMeasure11);
+      this.setIngredient(this.tempCocktail.drinks[0].strIngredient12, this.tempCocktail.drinks[0].strMeasure12);
+      this.setIngredient(this.tempCocktail.drinks[0].strIngredient13, this.tempCocktail.drinks[0].strMeasure13);
+      this.setIngredient(this.tempCocktail.drinks[0].strIngredient14, this.tempCocktail.drinks[0].strMeasure14);
+      this.setIngredient(this.tempCocktail.drinks[0].strIngredient15, this.tempCocktail.drinks[0].strMeasure15);
     },
 
     // Helper function to keep the code smaller
-    setIngredient(Ing) {
+    setIngredient(Ing, Measure) {
       if (Ing != null) {
         this.cocktail.ingredients[this.cocktail.ingredientsCount] = Ing;
+        this.cocktail.ingredientMeasure[this.cocktail.ingredientsCount] = Measure;
         this.cocktail.ingredientsCount++;
       }
     },
@@ -167,13 +168,12 @@ ul {
   max-width: 32%;
 }
 
-.cocktail-name{
+.cocktail-name {
   text-align: center;
   padding: 10px 20px;
 }
 
-#cocktailImg{
+#cocktailImg {
   max-width: 100%;
 }
-
 </style>
