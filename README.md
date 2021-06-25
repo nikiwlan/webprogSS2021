@@ -1,7 +1,4 @@
 # webprogss2021
-**created by**
-
-Niklas Langes (32029) & Erik Cichy (32883)
 
 ## Project setup
 ```
@@ -116,3 +113,9 @@ Architecture geplant vs. umgesetzt:
 
 Features: 
 - alle geplanten features wurden umgesetzt
+
+-----------------------------------------------------------------------------------------------------
+
+**created by**
+
+Niklas Langes (32029) & Erik Cichy (32883)
