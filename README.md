@@ -31,7 +31,7 @@ App running at:
 - Network: http://192.168.178.21:8080/
 
 URl zur Andwedung in der Cloud:
--""
+https://sharp-volhard-eda050.netlify.app
 
 ----------------------------------------------------------------------------------------------------
 
