@@ -97,7 +97,7 @@ Architecture:
 -----------------------------------------------------------------------------------------------------
 **End-Applikation:**
 
-Ordnerstrukur:
+Struktur:
 - **main.js** -> Eingang der Applikation
 - **App** -> Aufruf der verschiednen Router
 - **Views** -> beid Router "Details" und "Home"
@@ -106,10 +106,12 @@ Ordnerstrukur:
 - **Header** -> Header Bereich der Applikation
 - **Footer** -> Footer der Applikation (Wird in beiden Routern verwendet)
 
-Architecture geplant vs. umgesetzt:
+End-Architecture:
 - Wie geplant strukturiert
 - In kleine logische Components unterteilt (z.B. Home in Main, Header und Footer -> Main weiter unterteilt)
-- Router im nachhinein hinzugefügt
+- Router im nachhinein hinzugefügt (App.vue routet zu Home.vue & Details.vue)
+- Liste aller Cocktails wird einmal initial geladen (im Web-Cache für spätere Verwendung local gespeichert)
+- Diese Liste wird für die Suchfunktion wie auch für alle Filter verwendet
 
 Features: 
 - alle geplanten features wurden umgesetzt
