@@ -60,15 +60,9 @@ export default {
     "ingredients",
   ],
   methods: {
-    getAlcFree: async (axios) => {
+    getAll: async (axios, str) => {
       return await axios.get(
-        "https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic"
-      );
-    },
-
-    getAlc: async (axios) => {
-      return await axios.get(
-        "https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Alcoholic"
+        "https://www.thecocktaildb.com/api/json/v1/1/search.php?f=" + str
       );
     },
 
@@ -105,7 +99,7 @@ export default {
       let index = 0;
       if (this.alcoholic && !this.alcoholFree) {
         for (let i = 0; i < this.filteredCocktails.length; i++) {
-          if (this.filteredCocktails[i].alc == true) {
+          if (this.filteredCocktails[i].alc === "Alcoholic") {
             tempList[index] = this.filteredCocktails[i];
             index++;
           }
@@ -113,7 +107,7 @@ export default {
         this.filteredCocktails = tempList;
       } else if (!this.alcoholic && this.alcoholFree) {
         for (let i = 0; i < this.filteredCocktails.length; i++) {
-          if (this.filteredCocktails[i].alc == false) {
+          if (this.filteredCocktails[i].alc === "Non_Alcoholic") {
             tempList[index] = this.filteredCocktails[i];
             index++;
           }
@@ -189,6 +183,27 @@ export default {
       }
       return temp;
     },
+
+    async updateArray(axios, str) {
+      let Cocktails = await this.getAll(axios, str);
+      if (Cocktails.data.drinks === null) {
+        return;
+      }
+      for (let i = 0; i < Cocktails.data.drinks.length; i++) {
+        let x = await axios.get(
+          "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=" +
+            Cocktails.data.drinks[i].idDrink
+        );
+        let ing = this.initIngredients(x);
+        this.allCocktails.push({
+          name: x.data.drinks[0].strDrink,
+          id: x.data.drinks[0].idDrink,
+          alc: x.data.drinks[0].strAlcoholic,
+          category: x.data.drinks[0].strCategory,
+          ingredients: ing,
+        });
+      }
+    },
   },
 
   // Load the data of all Cocktails
@@ -199,36 +214,12 @@ export default {
       return;
     }
 
-    let Cocktails = await this.getAlcFree(this.axios);
-    for (let i = 0; i < Cocktails.data.drinks.length; i++) {
-      let x = await this.axios.get(
-        "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=" +
-          Cocktails.data.drinks[i].idDrink
-      );
-      let ing = this.initIngredients(x);
-      this.allCocktails.push({
-        name: x.data.drinks[0].strDrink,
-        id: x.data.drinks[0].idDrink,
-        alc: false,
-        category: x.data.drinks[0].strCategory,
-        ingredients: ing,
-      });
+    this.allCocktails = [];
+    let alphabet = "1234567890qwertzuioplkjhgfdsayxcvbnm".split("");
+    for (let i = 0; i < alphabet.length; i++) {
+      await this.updateArray(this.axios, alphabet[i]);
     }
-    Cocktails = await this.getAlc(this.axios);
-    for (let i = 0; i < Cocktails.data.drinks.length; i++) {
-      let x = await this.axios.get(
-        "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=" +
-          Cocktails.data.drinks[i].idDrink
-      );
-      let ing = this.initIngredients(x);
-      this.allCocktails.push({
-        name: x.data.drinks[0].strDrink,
-        id: x.data.drinks[0].idDrink,
-        alc: true,
-        category: x.data.drinks[0].strCategory,
-        ingredients: ing,
-      });
-    }
+
     window.localStorage.setItem(
       "allCocktails",
       JSON.stringify(this.allCocktails)
