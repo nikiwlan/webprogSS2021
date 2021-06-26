@@ -113,6 +113,8 @@ End-Architecture:
 - Router im nachhinein hinzugefügt (routet zu Home.vue & Details.vue)
 - Liste aller Cocktails wird einmal initial geladen (im Web-Cache für spätere Verwendung im localStorage gespeichert)
 - Diese Liste wird für die Suchfunktion wie auch für alle Filter verwendet
+- für konkreten Aufbau siehe "Structure Tree - Final.pdf"
+![konkreter Aufbau](StructureTree - Final.pdf)
 
 Features: 
 - alle geplanten features wurden umgesetzt
