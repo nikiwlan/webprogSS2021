@@ -107,7 +107,8 @@ Ordnerstrukur:
 - **Footer** -> Footer der Applikation (Wird in beiden Routern verwendet)
 
 Architecture geplant vs. umgesetzt:
-- Wie geplant aufgeteilt
+- Wie geplant strukturiert
+- In kleine logische Components unterteilt (z.B. Home in Main, Header und Footer -> Main weiter unterteilt)
 - Router im nachhinein hinzugefügt
 
 Features: 
