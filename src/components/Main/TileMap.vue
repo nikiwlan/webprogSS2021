@@ -5,10 +5,10 @@
       href="https://fonts.googleapis.com/css?family=Charm"
     />
     <div class="heading">
-      <h2 v-if="filteredCocktails.length === 158">Get Inspired</h2>
+      <h2 v-if="filteredCocktails.length === 433">Get Inspired</h2>
       <h2
         v-else-if="
-          filteredCocktails.length < 158 &&
+          filteredCocktails.length < 433 &&
           filteredCocktails.length > 0 &&
           arrayInitialzed === true
         "
