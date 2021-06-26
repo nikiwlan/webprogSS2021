@@ -19,7 +19,9 @@
         <h3>{{ cocktail.name }}</h3>
       </div>
       <div class="cocktail-bottom">
-        <p class="cocktail-info">{{ cocktail.ingredients.length }} Ingredients</p>
+        <p class="cocktail-info">
+          {{ cocktail.ingredients.length }} Ingredients
+        </p>
         <p class="cocktail-info">{{ cocktail.category }}</p>
       </div>
     </div>
@@ -37,7 +39,6 @@ export default {
     };
   },
   methods: {
-
     // triggered when User clicks on this Tile
     loadCocktail() {
       this.$emit("selectedCocktailID", this.cocktail.id);
@@ -50,8 +51,8 @@ export default {
 <style scoped>
 .tile {
   float: left;
-  width: 280px;
-  height: 380px;
+  width: 330px;
+  height: 430px;
   margin: 40px;
   border-radius: 10px;
   box-shadow: 5px 5px darkgray;
@@ -85,13 +86,13 @@ export default {
   margin-top: 205px;
   position: absolute;
   max-width: 200px;
-  margin: 200px auto auto 20px;
+  margin: 230px auto auto 20px;
 }
 
 .tile-image {
   display: grid;
-  width: 280px;
-  height: 280px;
+  width: 330px;
+  height: 330px;
   position: absolute;
   overflow: hidden;
   border-radius: 10px 10px 0px 0px;
@@ -103,11 +104,17 @@ export default {
 
 .cocktail-info {
   text-align: center;
+  font-weight: bold;
+  font-size: 18px;
   float: left;
-  width: 40%;
+  width: 25%;
   height: 100px;
-  margin-top: 320px;
-  padding-left: 25px;
+  margin-top: 360px;
+  padding-left: 30px;
+}
+
+.cocktail-bottom{
+width: 200%;
 }
 
 #alc-free {
@@ -122,7 +129,7 @@ export default {
 #cocktailImg {
   grid-column: 1;
   grid-row: 1;
-  height: 280px;
+  height: 330px;
   transition: transform 0.5s ease;
 }
 
