@@ -30,7 +30,7 @@
       </div>
     </div>
     <div class="heading" v-else>
-      <h2>Loading ---  </h2>
+      <h2>Loading ---</h2>
       <div class="loader"></div>
     </div>
   </body>
@@ -193,6 +193,12 @@ export default {
 
   // Load the data of all Cocktails
   async created() {
+    if (window.localStorage.getItem("allCocktails") != null) {
+      this.allCocktails = JSON.parse(localStorage.getItem("allCocktails"));
+      this.arrayInitialzed = true;
+      return;
+    }
+
     let Cocktails = await this.getAlcFree(this.axios);
     for (let i = 0; i < Cocktails.data.drinks.length; i++) {
       let x = await this.axios.get(
@@ -223,6 +229,10 @@ export default {
         ingredients: ing,
       });
     }
+    window.localStorage.setItem(
+      "allCocktails",
+      JSON.stringify(this.allCocktails)
+    );
     this.arrayInitialzed = true;
   },
   watch: {
