@@ -100,18 +100,18 @@ Architecture:
 Struktur:
 - **main.js** -> Eingang der Applikation
 - **App** -> Aufruf der verschiednen Router
-- **Views** -> beid Router "Details" und "Home"
+- **Views** -> beide Router "Details" und "Home"
 - **Router** -> Definiton der Router
 - **Main** -> Body der Hauptseite 
 - **Header** -> Header Bereich der Applikation
 - **Footer** -> Footer der Applikation (Wird in beiden Routern verwendet)
-- **Content** -> Statischer Content
+- **Content** -> Statischer Content (Bilder)
 
 End-Architecture:
 - Wie geplant strukturiert
-- In kleine logische Components unterteilt (z.B. Home in Main, Header und Footer -> Main weiter unterteilt)
-- Router im nachhinein hinzugefügt (App.vue routet zu Home.vue & Details.vue)
-- Liste aller Cocktails wird einmal initial geladen (im Web-Cache für spätere Verwendung local gespeichert)
+- In kleine logische Components unterteilt (z.B. Home in Main, Header und Footer -> Main weiter unterteilt in FilterField und TileMap)
+- Router im nachhinein hinzugefügt (routet zu Home.vue & Details.vue)
+- Liste aller Cocktails wird einmal initial geladen (im Web-Cache für spätere Verwendung im localStorage gespeichert)
 - Diese Liste wird für die Suchfunktion wie auch für alle Filter verwendet
 
 Features: 
