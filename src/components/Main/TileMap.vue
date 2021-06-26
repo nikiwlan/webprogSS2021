@@ -5,33 +5,28 @@
       href="https://fonts.googleapis.com/css?family=Charm"
     />
     <div class="heading">
-      <h2 v-if="filteredCocktails.length === 158">Get Inspired</h2>
+      <h2 v-if="filteredCocktails.length === allCocktails.length">
+        Get Inspired
+      </h2>
       <h2
         v-else-if="
-          filteredCocktails.length < 158 &&
-          filteredCocktails.length > 0 &&
-          arrayInitialzed === true
+          filteredCocktails.length < allCocktails.length &&
+          filteredCocktails.length > 0
         "
       >
         {{ filteredCocktails.length }} Drinks found
       </h2>
-      <h3 v-else-if="arrayInitialzed === true">
-        Your search request doesn't match with any Cocktail / Ingredient in our
-        data base
+      <h3 v-else>
+        Your search request doesn't match with any Cocktail in our data base
       </h3>
-      <h3 v-else>Cocktails are being loaded.</h3>
     </div>
-    <div class="tile-map" v-if="arrayInitialzed === true">
+    <div class="tile-map">
       <div v-for="cocktail in filteredCocktails" :key="cocktail">
         <Tile
           :cocktailID="cocktail.id"
           @selectedCocktailID="selectCocktail"
         ></Tile>
       </div>
-    </div>
-    <div class="heading" v-else>
-      <h2>Loading ---</h2>
-      <div class="loader"></div>
     </div>
   </body>
 </template>
@@ -49,7 +44,6 @@ export default {
     return {
       allCocktails: [],
       filteredCocktails: [],
-      arrayInitialzed: false,
     };
   },
   props: [
@@ -208,6 +202,7 @@ export default {
 
   // Load the data of all Cocktails
   async created() {
+    // window.localStorage.clear();
     if (window.localStorage.getItem("allCocktails") != null) {
       this.allCocktails = JSON.parse(localStorage.getItem("allCocktails"));
       this.arrayInitialzed = true;
@@ -224,8 +219,8 @@ export default {
       "allCocktails",
       JSON.stringify(this.allCocktails)
     );
-    this.arrayInitialzed = true;
   },
+
   watch: {
     categories: function () {
       this.filterCocktails();

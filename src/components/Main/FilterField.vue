@@ -138,8 +138,6 @@ export default {
       this.updateCategories();
       this.updateAlcohol();
       this.updateIngredients();
-    } else {
-      console.log("Waiting ...");
     }
   },
 };
