@@ -56,7 +56,7 @@ https://dev.to/nickparsons/javascript-promises-and-why-asyncawait-wins-the-battl
 -----------------------------------------------------------------------------------------------------
 
 API:
-- https://www.youtube.com/watch?v=qZXt1Aom3Cs&list=PL4iZ5TIExu5siXdSNsyLIIJh0W6pAbAbj&index=2
+- https://www.thecocktaildb.com/api.php
 
 Free API Functions:
 - Search cocktail by name
