@@ -1,7 +1,8 @@
 <template>
-  <body class = "footer">
+  <body class="footer">
     <p>Copyright &copy; 2021</p>
     <p>Niklas Langes & Erik Cichy</p>
+    <p><a href="https://www.thecocktaildb.com/api.php">Cocktail API</a></p>
   </body>
 </template>
 
@@ -16,7 +17,7 @@ export default {
 <style scoped>
 .footer {
   float: center;
-  width:fit-content;
+  width: fit-content;
   padding: 20px 50px 20px 50px;
   margin: 40px auto auto auto;
   border: 2px solid black;
