@@ -107,7 +107,7 @@ export default {
         this.filteredCocktails = tempList;
       } else if (!this.alcoholic && this.alcoholFree) {
         for (let i = 0; i < this.filteredCocktails.length; i++) {
-          if (this.filteredCocktails[i].alc === "Non_Alcoholic") {
+          if (this.filteredCocktails[i].alc === "Non alcoholic") {
             tempList[index] = this.filteredCocktails[i];
             index++;
           }
