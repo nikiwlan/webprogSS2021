@@ -16,14 +16,22 @@
       >
         {{ filteredCocktails.length }} Drinks found
       </h2>
-      <h3 v-else-if="searchField != '' || categories != '' || ingredients != '' || alcoholFree || alcoholic">
+      <h3
+        v-else-if="
+          searchField != '' ||
+          categories != '' ||
+          ingredients != '' ||
+          alcoholFree ||
+          alcoholic
+        "
+      >
         Your search request doesn't match with any Cocktail in our data base
       </h3>
     </div>
     <div class="tile-map">
       <div v-for="cocktail in filteredCocktails" :key="cocktail">
         <Tile
-          :cocktailID="cocktail.id"
+          :cocktail="cocktail"
           @selectedCocktailID="selectCocktail"
         ></Tile>
       </div>
@@ -54,16 +62,19 @@ export default {
     "ingredients",
   ],
   methods: {
+    // get all Cocktails with First Letter str
     getAll: async (axios, str) => {
       return await axios.get(
         "https://www.thecocktaildb.com/api/json/v1/1/search.php?f=" + str
       );
     },
 
+    // give Parent the Cocktail of the clicked upon Tile
     selectCocktail(id) {
       this.$emit("selectedCocktailID", id);
     },
 
+    // Apply all filters
     filterCocktails() {
       this.filteredCocktails = this.allCocktails;
       this.filterCategory();
@@ -72,6 +83,7 @@ export default {
       this.filterIngredients();
     },
 
+    // filter by Category
     filterCategory() {
       let tempList = [];
       let index = 0;
@@ -88,6 +100,7 @@ export default {
       }
     },
 
+    // filter by Alcoholic
     filterAlcohol() {
       let tempList = [];
       let index = 0;
@@ -110,6 +123,7 @@ export default {
       }
     },
 
+    // filter by Search Term
     filterSearch() {
       let searchTemp = this.searchField.toLowerCase();
       let tempList = [];
@@ -127,6 +141,7 @@ export default {
       }
     },
 
+    // filter by Ingredients
     filterIngredients() {
       let tempList = [];
       let index = 0;
@@ -150,6 +165,8 @@ export default {
         this.filteredCocktails = tempList;
       }
     },
+
+    // the Ingredients are loaded into the Array
     initIngredients(obj) {
       let temp = [];
       temp = this.setIngredient(obj.data.drinks[0].strIngredient1, temp);
@@ -170,7 +187,7 @@ export default {
       return temp;
     },
 
-    // Helper function to keep the code smaller
+    // Helper function for initIngredients() (to keep the code smaller)
     setIngredient(Ing, temp) {
       if (Ing != null) {
         temp[temp.length] = Ing;
@@ -178,6 +195,7 @@ export default {
       return temp;
     },
 
+    // get all Cocktails with First Letter str and push them into allCocktails
     async updateArray(axios, str) {
       let Cocktails = await this.getAll(axios, str);
       if (Cocktails.data.drinks === null) {
@@ -195,6 +213,7 @@ export default {
           alc: x.data.drinks[0].strAlcoholic,
           category: x.data.drinks[0].strCategory,
           ingredients: ing,
+          srcImg: x.data.drinks[0].strDrinkThumb,
         });
       }
     },

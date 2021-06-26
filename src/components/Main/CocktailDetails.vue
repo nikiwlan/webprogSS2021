@@ -56,7 +56,7 @@ export default {
   },
   props: ["selectedID"],
   methods: {
-    // the Ingridients are loaded into the Array
+    // the Ingredients are loaded into the Array
     initIngredients() {
       this.setIngredient(this.tempCocktail.drinks[0].strIngredient1, this.tempCocktail.drinks[0].strMeasure1);
       this.setIngredient(this.tempCocktail.drinks[0].strIngredient2, this.tempCocktail.drinks[0].strMeasure2);
@@ -75,7 +75,7 @@ export default {
       this.setIngredient(this.tempCocktail.drinks[0].strIngredient15, this.tempCocktail.drinks[0].strMeasure15);
     },
 
-    // Helper function to keep the code smaller
+    // Helper function for initIngredients() (to keep the code smaller)
     setIngredient(Ing, Measure) {
       if (Ing != null) {
         this.cocktail.ingredients[this.cocktail.ingredientsCount] = Ing;

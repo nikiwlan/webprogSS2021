@@ -17,7 +17,7 @@ export default {
 
   methods: {
 
-    // Triggered when User enters search terms
+    // Triggered when User fills / changes search field
     searchFieldUpdate() {
       this.$emit("searchFieldMessage", this.message);
     },

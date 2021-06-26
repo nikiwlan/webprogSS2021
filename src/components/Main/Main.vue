@@ -53,6 +53,7 @@ export default {
       }
     },
 
+    // Get Ingredients, that are selected on the Filter
     getIngredients(ing) {
       this.ingredients = [0];
       let index = 0;

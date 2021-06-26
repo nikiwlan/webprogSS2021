@@ -8,7 +8,7 @@
     <div class="tile-image">
       <img id="cocktailImg" :src="cocktail.srcImg" alt="Cocktail" />
       <img
-        v-if="!cocktail.alcoholic"
+        v-if="cocktail.alc != 'Alcoholic'"
         id="alc-free"
         src="../../../content/AlcFree.png"
         alt="AlcFreeBanner"
@@ -19,7 +19,7 @@
         <h3>{{ cocktail.name }}</h3>
       </div>
       <div class="cocktail-bottom">
-        <p class="cocktail-info">{{ cocktail.ingredientsCount }} Ingredients</p>
+        <p class="cocktail-info">{{ cocktail.ingredients.length }} Ingredients</p>
         <p class="cocktail-info">{{ cocktail.category }}</p>
       </div>
     </div>
@@ -30,70 +30,18 @@
 <script>
 export default {
   name: "Tile",
-  props: ["cocktailID"],
+  props: ["cocktail"],
   data() {
     return {
       hover: false,
-      cocktail: {
-        name: "",
-        category: "",
-        ingredients: [],
-        ingredientsCount: 0,
-        alcoholic: true,
-        srcImg: "",
-      },
-      tempCocktail: [],
     };
   },
   methods: {
 
     // triggered when User clicks on this Tile
     loadCocktail() {
-      this.$emit("selectedCocktailID", this.cocktailID);
+      this.$emit("selectedCocktailID", this.cocktail.id);
     },
-
-    // the Ingridients are loaded into the Array
-    initIngredients() {
-      this.setIngredient(this.tempCocktail.drinks[0].strIngredient1);
-      this.setIngredient(this.tempCocktail.drinks[0].strIngredient2);
-      this.setIngredient(this.tempCocktail.drinks[0].strIngredient3);
-      this.setIngredient(this.tempCocktail.drinks[0].strIngredient4);
-      this.setIngredient(this.tempCocktail.drinks[0].strIngredient5);
-      this.setIngredient(this.tempCocktail.drinks[0].strIngredient6);
-      this.setIngredient(this.tempCocktail.drinks[0].strIngredient7);
-      this.setIngredient(this.tempCocktail.drinks[0].strIngredient8);
-      this.setIngredient(this.tempCocktail.drinks[0].strIngredient9);
-      this.setIngredient(this.tempCocktail.drinks[0].strIngredient10);
-      this.setIngredient(this.tempCocktail.drinks[0].strIngredient11);
-      this.setIngredient(this.tempCocktail.drinks[0].strIngredient12);
-      this.setIngredient(this.tempCocktail.drinks[0].strIngredient13);
-      this.setIngredient(this.tempCocktail.drinks[0].strIngredient14);
-      this.setIngredient(this.tempCocktail.drinks[0].strIngredient15);
-    },
-
-    // Helper function to keep the code smaller
-    setIngredient(Ing) {
-      if (Ing != null) {
-        this.cocktail.ingredients[this.cocktail.ingredientsCount] = Ing;
-        this.cocktail.ingredientsCount++;
-      }
-    },
-  },
-
-  beforeCreate: function () {
-    let api =
-      "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=" +
-      this.cocktailID;
-    this.axios.get(api).then((response) => {
-      this.tempCocktail = response.data;
-      this.cocktail.name = this.tempCocktail.drinks[0].strDrink;
-      this.cocktail.category = this.tempCocktail.drinks[0].strCategory;
-      if (this.tempCocktail.drinks[0].strAlcoholic != "Alcoholic") {
-        this.cocktail.alcoholic = false;
-      }
-      this.cocktail.srcImg = this.tempCocktail.drinks[0].strDrinkThumb;
-      this.initIngredients();
-    });
   },
 };
 </script>

@@ -23,5 +23,6 @@ export default {
   border: 2px solid black;
   border-radius: 10px;
   background-color: #fff1d6d7;
+  text-align: center;
 }
 </style>
