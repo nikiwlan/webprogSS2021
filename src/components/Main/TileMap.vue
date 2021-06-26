@@ -16,7 +16,7 @@
       >
         {{ filteredCocktails.length }} Drinks found
       </h2>
-      <h3 v-else>
+      <h3 v-else-if="searchField != '' || categories != '' || ingredients != '' || alcoholFree || alcoholic">
         Your search request doesn't match with any Cocktail in our data base
       </h3>
     </div>
