@@ -105,6 +105,7 @@ Struktur:
 - **Main** -> Body der Hauptseite 
 - **Header** -> Header Bereich der Applikation
 - **Footer** -> Footer der Applikation (Wird in beiden Routern verwendet)
+- **Content** -> Statischer Content
 
 End-Architecture:
 - Wie geplant strukturiert
